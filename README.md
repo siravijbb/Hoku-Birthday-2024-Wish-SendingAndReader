@@ -1,18 +1,24 @@
-# create-svelte
+# Hoku-Birthday-2024
+Currently on Idea: Hoku Birth Day dashboard for wish for hoku birthday on 2024.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+# Struture
+FrontEnd:Sveltekit + Flowbite + Tailwind For Frontend
+<br>Middleware: Sveltekit Connected with on-refresh mongoDB
 
-## Creating a project
+## How to get started
+Clone this rep 
 
-If you're seeing this, you've probably already done this step. Congrats!
+``` git clone https://github.com/Polygang-Polygon-Fan-Club/Hoku-Birthday-2024 ```
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+then 
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+``` cd Hoku-Birthday-2024 ```
+
+then create .env file and put this 
+<br>``` MONGO_URL=mongodb://localhost:27017/YOURMONGODB ```
+NOTE: no need for "" on both sides.
+
+
 
 ## Developing
 

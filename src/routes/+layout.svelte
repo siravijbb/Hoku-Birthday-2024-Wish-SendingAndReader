@@ -1,0 +1,35 @@
+<script>
+	import '../app.postcss';
+	import './styles.css';
+</script>
+
+<div class="app">
+	<body>
+		<main>
+			<slot />
+		</main>
+
+		<footer>
+			<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
+		</footer>
+	</body>
+</div>
+
+<style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped&family=IBM+Plex+Sans+Thai:wght@500&display=swap');
+	body {
+		font-family: 'IBM Plex Sans Thai', 'IBM Plex Sans Thai Looped', sans-serif;
+	}
+	:root {
+		--accent: 124, 58, 237;
+		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background-color: #f6f6f6;
+	}
+	code {
+		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+			Bitstream Vera Sans Mono, Courier New, monospace;
+	}
+</style>

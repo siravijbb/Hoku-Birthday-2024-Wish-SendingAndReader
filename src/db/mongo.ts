@@ -9,3 +9,7 @@ export function start_mongo() {
 }
 
 export default cilent.db();
+
+export function close_mongo() {
+	return cilent.close();
+}

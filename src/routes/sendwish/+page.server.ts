@@ -3,7 +3,7 @@
 import type { Actions, RequestEvent, ActionFailure, Redirect } from '@sveltejs/kit';
 import { bwish } from '$db/tutorials'; // Import your data module
 import type { wishSender } from '../../types/form'; // Import your data module
-import { start_mongo } from '$db/mongo';
+import { start_mongo, close_mongo } from '$db/mongo';
 import { fail, redirect } from '@sveltejs/kit';
 
 export const actions: Actions = {
@@ -15,7 +15,7 @@ export const actions: Actions = {
 			console.log('Mongo started');
 		});
 
-		bwish.insertOne({
+		await bwish.insertOne({
 			data: {
 				name: name,
 				comment: wish,
@@ -31,6 +31,9 @@ export const actions: Actions = {
 				borderColor: null,
 				order: null
 			}
+		});
+		close_mongo().then(() => {
+			console.log('Mongo Closed');
 		});
 		throw redirect(301, `/sendwish/completed`);
 	}

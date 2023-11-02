@@ -19,7 +19,7 @@ export const actions: Actions = {
 	console.log(picture);
     
     // Format date and time in ISO 8601 format
-    const currentTime = new Date().toISOString();
+    const currentTime = new Date().toLocaleString();
 
 
 	if (picture === "1") {

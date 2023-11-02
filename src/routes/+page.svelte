@@ -13,16 +13,13 @@
 
 <div class="grid grid-cols-3 space-y-5">
 	{#each tutorials as bwish}
-
-            <article class="p-4 mx-auto my-auto my-fit shadow-xl bg-amber-500 ">
+		<article class="p-4 mx-auto my-auto my-fit shadow-xl bg-amber-500">
 			<h2>{bwish.name}</h2>
 			<p>{bwish.comment}</p>
 			<p>{bwish.createdAt}</p>
 		</article>
 	{/each}
-
-
-      </div>
+</div>
 
 <style>
 	section {

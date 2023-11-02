@@ -2,9 +2,8 @@ import { bwish } from '$db/tutorials';
 import type { PageServerLoad } from './$types';
 import { start_mongo, close_mongo } from '$db/mongo';
 
-
 export const load: PageServerLoad = async function () {
-	start_mongo().then(() => {
+	await start_mongo().then(() => {
 		console.log('Mongo started');
 	});
 
@@ -25,10 +24,10 @@ export const load: PageServerLoad = async function () {
 		.toArray();
 
 	console.log(data);
-    close_mongo().then(() => {
-        console.log('Mongo Closed');
-      });
-  
+	close_mongo().then(() => {
+		console.log('Mongo Closed');
+	});
+
 	return {
 		tutorials: data
 	};

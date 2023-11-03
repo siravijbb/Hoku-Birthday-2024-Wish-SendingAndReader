@@ -18,7 +18,7 @@ export const actions: Actions = {
 		let picturename = '';
 		console.log(picture);
 		const date = new Date();
-		
+
 		const day = String(date.getUTCDate()).padStart(2, '0');
 		const month = new Intl.DateTimeFormat('en', { month: 'short' }).format(date);
 		const year = date.getUTCFullYear();
@@ -28,9 +28,6 @@ export const actions: Actions = {
 		const seconds = String(date.getUTCSeconds()).padStart(2, '0');
 		const UTCDMY = `${day} ${month} ${year}`;
 		const THTIME = `${hours}:${minutes} GMT+7`;
-		
-
-		
 
 		if (picture === '1') {
 			picturename = 'hamham';

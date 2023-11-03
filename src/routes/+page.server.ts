@@ -11,7 +11,6 @@ export const load: PageServerLoad = async function () {
 		.find(
 			{},
 			{
-				limit: 50,
 				projection: {
 					_id: 0,
 					name: 1,

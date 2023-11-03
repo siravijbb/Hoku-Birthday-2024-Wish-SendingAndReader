@@ -15,7 +15,7 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<div class="grid grid-cols-3 gap-5 my-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto">
 	{#each tutorials as bwish, index}
 		<div
 			class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50"
@@ -43,7 +43,7 @@
 			<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0">
 				<div class="flex">
 					<img src={bwish.gift.imgURL} class="h-[80px] object-contain" /><b
-						class="text-[#4E4670] min-[425px]:text-[20px] text-[14px] break-words overflow-hidden pt-4 min-[425px]:pr-20 min-[375px]:pr-16 pr-14"
+						class="text-[#4E4670] min-[425px]:text-[20px] text-[14px] overflow-hidden pt-4 min-[425px]:pr-20 min-[375px]:pr-16 pr-14"
 						>{bwish.name}</b
 					>
 				</div>

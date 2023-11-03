@@ -17,9 +17,20 @@ export const actions: Actions = {
 		let borderColor = '';
 		let picturename = '';
 		console.log(picture);
+		const date = new Date();
+		
+		const day = String(date.getUTCDate()).padStart(2, '0');
+		const month = new Intl.DateTimeFormat('en', { month: 'short' }).format(date);
+		const year = date.getUTCFullYear();
+		date.setUTCHours(date.getUTCHours() + 7);
+		const hours = String(date.getUTCHours()).padStart(2, '0');
+		const minutes = String(date.getUTCMinutes()).padStart(2, '0');
+		const seconds = String(date.getUTCSeconds()).padStart(2, '0');
+		const UTCDMY = `${day} ${month} ${year}`;
+		const THTIME = `${hours}:${minutes} GMT+7`;
+		
 
-		// Format date and time in ISO 8601 format
-		const currentTime = new Date().toLocaleString();
+		
 
 		if (picture === '1') {
 			picturename = 'hamham';
@@ -55,8 +66,8 @@ export const actions: Actions = {
 			name: name,
 			comment: wish, // Use the 'name' value as the 'comment'
 			giftId: null,
-			createdAt: currentTime, // Set createdAt to the current time in ISO 8601 format
-			updatedAt: currentTime, // Set updatedAt to the current time in ISO 8601 format
+			DMY: UTCDMY,
+			time: THTIME,
 			gift: {
 				id: null,
 				name: 'tapir',

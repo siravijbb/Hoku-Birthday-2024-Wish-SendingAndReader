@@ -8,18 +8,29 @@
 	};
 
 	let thisForm: HTMLFormElement;
+	let loading = false;
+	function handleSubmit() {
+		loading = true;
+	}
 </script>
 
 <h2>Hoku Birthday Wish 2024</h2>
 
-<form bind:this={thisForm} use:enhance method="post" action="?/sendwish">
+<form
+	bind:this={thisForm}
+	on:submit={handleSubmit}
+	use:enhance
+	method="post"
+	action="?/sendwish"
+	class=" bg-slate-400 p-4"
+>
 	<div class="form-item">
 		<label for="name">Name<sup><small>*</small></sup></label>
 		<input value={form.Name ?? ''} type="text" name="name" id="name" required />
 	</div>
 	<div class="form-item">
 		<label for="wish">Wish<sup><small>*</small></sup></label>
-		<input value={form.Wish ?? ''} type="text" name="wish" id="wish" required />
+		<textarea value={form.Wish ?? ''} type="text" name="wish" id="wish" required />
 	</div>
 	<ul class="grid w-full gap-6 md:grid-cols-2">
 		<li>
@@ -140,6 +151,6 @@
 	</ul>
 
 	<div class="form-item">
-		<button type="submit">Submit</button>
+		<button type="submit" disabled={loading}>Submit</button>
 	</div>
 </form>

@@ -16,8 +16,17 @@ export const load: PageServerLoad = async function () {
 					_id: 0,
 					name: 1,
 					comment: 1,
-					createdAt: 1,
-					updatedAt: 1
+					DMY: 1,
+					time: 1,
+					gift: {
+						id: null,
+						name: 1,
+						desc: 1,
+						imgURL: 1,
+						bgColorCode: 1,
+						borderColor: 1,
+						order: null
+					}
 				}
 			}
 		)

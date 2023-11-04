@@ -1,17 +1,21 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-
-	let form = {
-		Name: '', // Initialize with an empty string or a default value
-		Wish: '', // Initialize with an empty string or a default value
-		Picture: '' // Initialize with an empty string or a default value
-	};
-
+	import { Turnstile } from 'svelte-turnstile';
+	import type { ActionData,Actions } from './$types';
+	import { fail } from '@sveltejs/kit';
+	export let form: ActionData;
+	
 	let thisForm: HTMLFormElement;
 	let loading = false;
+
+	const siteKey = '3x00000000000000000000FF';
+	let secretKey ='1x0000000000000000000000000000000AA';
+	let forms: ActionData;
 	function handleSubmit() {
-		loading = true;
-	}
+  	loading = true;
+
+}
+
 </script>
 
 <h2>Hoku Birthday Wish 2024</h2>
@@ -21,16 +25,15 @@
 	on:submit={handleSubmit}
 	use:enhance
 	method="post"
-	action="?/sendwish"
 	class=" bg-slate-400 p-4"
 >
 	<div class="form-item">
 		<label for="name">Name<sup><small>*</small></sup></label>
-		<input value={form.Name ?? ''} type="text" name="name" id="name" required />
+		<input value={''} type="name" name="name" id="name" required />
 	</div>
 	<div class="form-item">
 		<label for="wish">Wish<sup><small>*</small></sup></label>
-		<textarea value={form.Wish ?? ''} type="text" name="wish" id="wish" required />
+		<textarea value={''} name="wish" id="wish" required />
 	</div>
 	<ul class="grid w-full gap-6 md:grid-cols-2">
 		<li>
@@ -151,6 +154,13 @@
 	</ul>
 
 	<div class="form-item">
-		<button type="submit" disabled={loading}>Submit</button>
+		<Turnstile {siteKey}  />
+		<input type="hidden" name="secret" bind:value={secretKey} />
+		{#if form?.message}<p class="error">The email field is required</p>{/if}
+		<button type="submit" disabled={forms?.message} >Submit</button>
 	</div>
 </form>
+<p style="margin-top: 8px;">
+	{#if form?.message}<p class="error">form not submited</p>
+	{/if}
+</p>

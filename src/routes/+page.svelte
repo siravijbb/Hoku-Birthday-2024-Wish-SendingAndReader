@@ -1,20 +1,26 @@
+<!-- Content.svelte -->
 <script lang="ts">
 	import type { PageData } from './$types';
-
+	import { onMount } from 'svelte';
+  
 	export let data: PageData;
+  
+	let tutorials = data.tutorials;
+	let isLoading = false;
+	let page = 1;
 
-	$: ({ tutorials } = data);
-
-	function getCount(index) {
-		return tutorials.length - index;
+  
+	function getCount(index: number): number{
+	  return tutorials.length - index;
 	}
-</script>
-
-<svelte:head>
+  </script>
+  
+  
+  <svelte:head>
 	<title>Home</title>
 	<meta name="description" content="Svelte demo app" />
-</svelte:head>
-
+  </svelte:head>
+  
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto">
 	{#each tutorials as bwish, index}
 		<div
@@ -54,7 +60,7 @@
 					>{bwish.comment}</span
 				>
 				<div class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm">
-					<span class="">{bwish.DMY}</span><span class="flex-1 text-right">{bwish.DMY}</span>
+					<span class="">{bwish.DMY}</span><span class="flex-1 text-right">{bwish.time}</span>
 				</div>
 			</div>
 			<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
@@ -75,7 +81,8 @@
 				</div>
 			</div>
 		</div>
-	{/each}
+		{/each}
+	
 </div>
 
 <style>

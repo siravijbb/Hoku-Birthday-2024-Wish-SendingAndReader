@@ -32,9 +32,6 @@ export const load: PageServerLoad = async function () {
 		.toArray();
 
 	console.log(data);
-	close_mongo().then(() => {
-		console.log('Mongo Closed');
-	});
 
 	return {
 		tutorials: data

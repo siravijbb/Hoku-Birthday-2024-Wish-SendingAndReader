@@ -21,10 +21,18 @@
 	<meta name="description" content="Svelte demo app" />
   </svelte:head>
   
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto">
+  <main
+  class="mx-auto my-[40px] -mb-0 mt-14 max-w-7xl rounded-xl "
+>
+  <div class="-mt-10">
+    <div class="mx-auto rounded-xl py-4 sm:px-6 lg:px-8">
+      <div
+        class="text-ellipsis rounded-lg "
+      >
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto">
 	{#each tutorials as bwish, index}
 		<div
-			class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50"
+			class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 bg-[{bwish.gift.borderColor}]"
 			style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 		>
 			<svg
@@ -46,7 +54,7 @@
 					d="m13 92.5v79.5h376v-159c-19.8 0-25.3 0.1-25 0.4 0.3 0.2 2.9 2 5.8 4 3.1 2.2 6.4 3.6 8.2 3.6 1.6 0 3.7 0.8 4.6 1.8 0.9 0.9 1.5 3 1.3 4.7-0.1 1.6 0.5 4.8 1.5 7l1.7 4c-6.7 6.9-10.8 11.2-13.6 14q-5 5.1-10 6.9c-2.7 0.9-9 2-13.8 2.4-5.2 0.4-9.4 1.2-10 2-0.7 0.7-2.6 1.3-4.2 1.2-2.4 0-4.5-1.6-10-7.3-5.2-5.2-7.5-8.6-8.8-12.2-0.9-2.8-1.8-7.5-2-10.5-0.2-3-1.1-6.7-2-8.3-1.4-2.3-1.5-3.1-0.4-5.4 0.8-1.9 2.4-3.1 5.2-3.8 2.2-0.6 5.1-1.9 6.5-2.8 2.3-1.6-7-1.7-154.3-1.7h-156.7z"
 				/></svg
 			>
-			<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0">
+			<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
 				<div class="flex">
 					<img src={bwish.gift.imgURL} class="h-[80px] object-contain" /><b
 						class="text-[#4E4670] min-[425px]:text-[20px] text-[14px] overflow-hidden pt-4 min-[425px]:pr-20 min-[375px]:pr-16 pr-14"
@@ -54,7 +62,7 @@
 					>
 				</div>
 			</div>
-			<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2">
+			<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
 				<span
 					class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
 					>{bwish.comment}</span
@@ -82,8 +90,10 @@
 			</div>
 		</div>
 		{/each}
-	
+	</div>
+</div>
 </div>
 
+</main>
 <style>
 </style>

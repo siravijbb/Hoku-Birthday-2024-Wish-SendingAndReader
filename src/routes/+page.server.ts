@@ -17,6 +17,7 @@ export const load: PageServerLoad = async function () {
 					comment: 1,
 					DMY: 1,
 					time: 1,
+					picture: 1,
 					gift: {
 						id: null,
 						name: 1,
@@ -28,7 +29,7 @@ export const load: PageServerLoad = async function () {
 					}
 				}
 			}
-		)
+		).sort({ _id: -1 })
 		.toArray();
 
 	console.log(data);

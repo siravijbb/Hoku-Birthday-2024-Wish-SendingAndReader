@@ -1,17 +1,15 @@
 export interface wishSender {
 	name: FormDataEntryValue;
 	wish: FormDataEntryValue;
-	message: string;	
+	message: string;
 	token: FormDataEntryValue;
- 	secret: FormDataEntryValue;
-	 error: string;
-	 valid: FormDataEntryValue;
-
+	secret: FormDataEntryValue;
+	error: string;
+	valid: FormDataEntryValue;
 }
 
 export interface Bakuwish {
 	data: {
-		
 		id: string;
 		name: string;
 		comment: string;

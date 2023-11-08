@@ -29,14 +29,14 @@ export const load: PageServerLoad = async function () {
 					}
 				}
 			}
-		).sort({ _id: -1 })
+		)
+		.sort({ _id: -1 })
 		.toArray();
 
 	console.log(data);
 	close_mongo().then(() => {
 		console.log('Mongo Closed');
 	});
-
 
 	return {
 		tutorials: data

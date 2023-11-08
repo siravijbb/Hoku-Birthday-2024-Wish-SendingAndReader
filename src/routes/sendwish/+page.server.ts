@@ -1,59 +1,52 @@
-import type { Actions, RequestEvent, Redirect,  } from '@sveltejs/kit';
+import type { Actions, RequestEvent, Redirect } from '@sveltejs/kit';
 import { bwish } from '$db/tutorials';
 import type { wishSender } from '../../types/form';
 import { start_mongo, close_mongo } from '$db/mongo';
 import { redirect } from '@sveltejs/kit';
 import { fail } from '@sveltejs/kit';
 
-
 export interface TokenValidateResponse {
-    'error-codes': string[];
-    success: boolean;
-    action: string;
-    cdata: string;
+	'error-codes': string[];
+	success: boolean;
+	action: string;
+	cdata: string;
 }
 
 async function validateToken(token: string, secret: string) {
-    const response = await fetch(
-        'https://challenges.cloudflare.com/turnstile/v0/siteverify',
-        {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify({
-                response: token,
-                secret: secret,
-            }),
-        },
-    );
-	
+	const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+		method: 'POST',
+		headers: {
+			'content-type': 'application/json'
+		},
+		body: JSON.stringify({
+			response: token,
+			secret: secret
+		})
+	});
 
-    const data: TokenValidateResponse = await response.json();
+	const data: TokenValidateResponse = await response.json();
 
-    return {
-        success: data.success,
-        errors: data['error-codes']?.length ? data['error-codes'][0] : null,
-    };
+	return {
+		success: data.success,
+		errors: data['error-codes']?.length ? data['error-codes'][0] : null
+	};
 }
 
-
 export const actions: Actions = {
-		default: async({ request }) => {
+	default: async ({ request }) => {
 		const signupFormData = await request.formData();
-		
-		
-        const token = signupFormData.get('cf-turnstile-response') as string;
-        const secret = signupFormData.get('secret') as string;
 
-        const { success, errors } = await validateToken(token, secret);
+		const token = signupFormData.get('cf-turnstile-response') as string;
+		const secret = signupFormData.get('secret') as string;
 
-        if (!success){
+		const { success, errors } = await validateToken(token, secret);
+
+		if (!success) {
 			return fail(400, {
 				errors: errors,
-				message: true,
+				message: true
 			});
-			}
+		}
 		console.log(signupFormData);
 
 		const name = signupFormData.get('name') ?? '';
@@ -128,6 +121,6 @@ export const actions: Actions = {
 			console.log('Mongo Closed');
 		});
 
-		return { success: true,message: false  };
+		return { success: true, message: false };
 	}
 };

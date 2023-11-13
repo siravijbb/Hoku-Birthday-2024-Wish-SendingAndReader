@@ -121,6 +121,6 @@ export const actions: Actions = {
 			console.log('Mongo Closed');
 		});
 
-		return { success: true, message: false };
+		throw redirect(301, `/sendwish/completed`);
 	}
 };

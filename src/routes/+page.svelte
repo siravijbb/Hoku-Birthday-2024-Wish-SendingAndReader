@@ -20,6 +20,27 @@
 </svelte:head>
 
 <main class="mx-auto my-[40px] -mb-0 mt-14 max-w-7xl rounded-xl">
+	<div class="mx-auto mt-20 max-w-xl rounded-xl bg-neutral-200 pb-4 shadow-xl">
+		<div class="-mt-20">
+			<div class="mx-auto rounded-xl py-4">
+				<div class="mx-auto max-w-4xl text-ellipsis rounded-lg bg-white py-4 shadow-xl lg:px-8">
+					<h1 class="pb-4 text-center text-2xl md:text-left">คำอวยพรให้นายHOKU</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<div class="-mt-10">
 		<div class="mx-auto rounded-xl py-4 sm:px-6 lg:px-8">
 			<div class="text-ellipsis rounded-lg">

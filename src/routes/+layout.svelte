@@ -1,10 +1,12 @@
 <script>
 	import '../app.postcss';
 	import './styles.css';
+	import Navbar from './component/Navbar.svelte';
 </script>
 
 <div class="app">
 	<body>
+		<Navbar />
 		<main>
 			<slot />
 		</main>

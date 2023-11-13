@@ -12,7 +12,7 @@
 	</div>
 	<NavUl class="order-1">
 	  <NavLi href="/" active={true}>อ่านคำอวยพร</NavLi>
-	  <NavLi href="#about">เกี่ยวกับPolygang (ยังไม่เสร็จ)</NavLi>
+	  <NavLi href="#">เกี่ยวกับPolygang (ยังไม่เสร็จ)</NavLi>
 	  <NavLi href="#">หน้าหลัก</NavLi>
 	  <NavLi href="https://twitter.com/SierraB_Siravij">Contact</NavLi>
 	</NavUl>

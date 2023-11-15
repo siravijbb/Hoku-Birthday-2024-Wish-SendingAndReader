@@ -52,6 +52,7 @@ export const actions: Actions = {
 		const name = signupFormData.get('name') ?? '';
 		const wish = signupFormData.get('wish') ?? '';
 		const picture = signupFormData.get('picture');
+		const agreed = signupFormData.get('agreed');
 		let desc = '';
 		let imgURL = '';
 		let bgColorCode = '';
@@ -106,6 +107,7 @@ export const actions: Actions = {
 			giftId: null,
 			DMY: UTCDMY,
 			time: THTIME,
+			agreed: agreed,
 			gift: {
 				id: null,
 				name: 'tapir',

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import '../app.postcss';
 	import './styles.css';
 	import Navbar from './component/Navbar.svelte';
@@ -6,14 +6,9 @@
 
 <div class="app">
 	<body>
-		<Navbar />
 		<main>
 			<slot />
 		</main>
-
-		<footer>
-			<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-		</footer>
 	</body>
 </div>
 

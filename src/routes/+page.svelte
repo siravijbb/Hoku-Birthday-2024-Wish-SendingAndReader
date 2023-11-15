@@ -1,8 +1,12 @@
 <!-- Content.svelte -->
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { onMount } from 'svelte';
+	import Navbar from './component/Navbar.svelte';
+	import Corousel from './component/Corousel/Corousel.svelte';
 
+	let title: string = 'Hoku Birth Day 2024';
+	let description: string = 'Hoku Birth Day 2024';
+	let image: string = 'Hoku Birth Day 2024';
 	export let data: PageData;
 
 	let tutorials = data.tutorials;
@@ -14,33 +18,46 @@
 	}
 </script>
 
-<svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
-</svelte:head>
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="view-transition" content="same-origin" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" />
 
+	<meta name="description" content="Astro description" />
+	<meta name="viewport" content="width=device-width" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.jpg" />
+	<title>{title}</title>
+
+	<meta name="title" content={title} />
+	<meta name="description" content={description} />
+
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:title" content={title} />
+	<meta property="twitter:description" content={description} />
+
+	<meta property="og:image" content={image} />
+	<meta property="twitter:image" content={image} />
+</head>
+<Navbar />
 <main class="mx-auto my-[40px] -mb-0 mt-14 max-w-7xl rounded-xl">
 	<div class="mx-auto mt-20 max-w-xl rounded-xl bg-neutral-200 pb-4 shadow-xl">
 		<div class="-mt-20">
 			<div class="mx-auto rounded-xl py-4">
 				<div class="mx-auto max-w-4xl text-ellipsis rounded-lg bg-white py-4 shadow-xl lg:px-8">
 					<h1 class="pb-4 text-center text-2xl md:text-left">คำอวยพรให้นายHOKU</h1>
-					</div>
+					<Corousel />
 				</div>
 			</div>
 		</div>
+	</div>
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	<div class="-mt-10">
 		<div class="mx-auto rounded-xl py-4 sm:px-6 lg:px-8">
 			<div class="text-ellipsis rounded-lg">

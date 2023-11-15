@@ -15,8 +15,7 @@
 	let description: string = 'Hoku Birth Day 2024';
 	let image: string = 'Hoku Birth Day 2024';
 
-	const siteKey = '3x00000000000000000000FF';
-	let secretKey = '1x0000000000000000000000000000000AA';
+	const siteKey = '0x4AAAAAAAMk_GZOoiKNR8pU';
 	let forms: ActionData;
 	function handleSubmit() {
 		loading = true;
@@ -175,8 +174,7 @@
 									</div>
 									<p class=" text-sm text-[#b90e0a] my-2 block" id="errorRead" />
 									<div class="">
-										<Turnstile {siteKey} />
-										<input type="hidden" name="secret" bind:value={secretKey} />
+										<Turnstile siteKey={siteKey} />
 									</div>
 
 									{#if form?.message}<p class="error">

@@ -51,7 +51,8 @@
 		<div class="-mt-20">
 			<div class="mx-auto rounded-xl py-4">
 				<div class="mx-auto max-w-4xl text-ellipsis rounded-lg bg-white py-4 shadow-xl lg:px-8">
-					<h1 class="pb-4 text-center text-2xl md:text-left">คำอวยพรให้นายHOKU</h1>
+					<h1 class="text-center text-2xl "><b>Happy Hoku's birthday</b></h1>
+					<h2 class="pb-4 text-center text-xl ">8 Jan 2024</h2>
 					<Corousel />
 				</div>
 			</div>

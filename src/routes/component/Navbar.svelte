@@ -4,7 +4,8 @@
 
 <Navbar>
 	<NavBrand href="/" data-sveltekit-preload-code>
-		<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Polygang Project</span
+		<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white"
+			>Polygang Project</span
 		>
 	</NavBrand>
 	<div class="flex md:order-2">

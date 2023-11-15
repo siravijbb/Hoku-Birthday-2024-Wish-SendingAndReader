@@ -123,7 +123,8 @@
 
 					<Button
 						on:click={() => (formModal = true)}
-						class="p-2 bg-slate-900 rounded-full my-2 mx-auto justify-center">ส่งคำอวยพร (Send the Wish)</Button
+						class="p-2 bg-slate-900 rounded-full my-2 mx-auto justify-center"
+						>ส่งคำอวยพร (Send the Wish)</Button
 					>
 					<Modal
 						bind:open={formModal}
@@ -132,7 +133,7 @@
 						class="w-full touch-auto h-1/2 max-h-[35rem] "
 						title="ข้อตกลงการประมวลผลข้อมูลส่วนบุคคล "
 					>
-					<TOS />
+						<TOS />
 						<svelte:fragment slot="footer">
 							<div class="grid grid-cols-1 gap-2">
 								<div class="mx-auto grid grid-cols-1">
@@ -149,25 +150,28 @@
 										</div>
 										<div class="block -mt-3">
 											<div>
-											<label
-											for="terms"
-											class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-											>ข้าพยอมรับ<a
-												href="#term"
-												class="text-blue-600 hover:underline dark:text-blue-500"
-												>ข้อตกลงเงื่อนไข </a
-											>
-										</label></div><div>
-										<label
-										for="terms"
-										class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-										>I agree with the<a
-											href="#term"
-											class="text-blue-600 hover:underline dark:text-blue-500"
-											>terms and conditions </a
-										>
-									</label></div>
-									</div>
+												<label
+													for="terms"
+													class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+													>ข้าพยอมรับ<a
+														href="#term"
+														class="text-blue-600 hover:underline dark:text-blue-500"
+														>ข้อตกลงเงื่อนไข
+													</a>
+												</label>
+											</div>
+											<div>
+												<label
+													for="terms"
+													class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+													>I agree with the<a
+														href="#term"
+														class="text-blue-600 hover:underline dark:text-blue-500"
+														>terms and conditions
+													</a>
+												</label>
+											</div>
+										</div>
 									</div>
 									<p class=" text-sm text-[#b90e0a] my-2 block" id="errorRead" />
 									<div class="">
@@ -182,17 +186,15 @@
 											คำอวยพรของท่านยังไม่ได้ส่ง / You wish you hadn't been sent
 										</p>{/if}
 									{#if loading}<p class="error">กำลังส่งคำอวยพร / Sending wish</p>{/if}
-																<div class="grid grid-cols-2 gap-2 my-2">
-									<button
-										class="p-2 bg-slate-50 rounded-full"
-										type="submit"
-										disabled={forms?.message || loading}
-										>ยอมรับข้อตกลงเงื่อนไข
-									</button>
+									<div class="grid grid-cols-2 gap-2 my-2">
+										<button
+											class="p-2 bg-slate-50 rounded-full"
+											type="submit"
+											disabled={forms?.message || loading}
+											>ยอมรับข้อตกลงเงื่อนไข
+										</button>
+									</div>
 								</div>
-								</div>
-
-
 							</div>
 						</svelte:fragment>
 					</Modal>

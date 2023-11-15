@@ -6,7 +6,6 @@ import { redirect } from '@sveltejs/kit';
 import { fail } from '@sveltejs/kit';
 import { SECRET_KEYS } from '$env/static/private';
 
-
 export interface TokenValidateResponse {
 	'error-codes': string[];
 	success: boolean;
@@ -124,6 +123,6 @@ export const actions: Actions = {
 			console.log('Mongo Closed');
 		});
 
-		throw redirect(301, `/sendwish/completed`);
+		throw redirect(301, `/`);
 	}
 };

@@ -139,8 +139,8 @@
 									<div class="flex items-start my-2">
 										<div class="flex items-center h-5">
 											<input
-												id="terms"
 												type="checkbox"
+												name="agreement"
 												value="agreed"
 												class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
 												required
@@ -150,7 +150,7 @@
 										<div class="block -mt-3">
 											<div>
 												<label
-													for="terms"
+													for="agreed"
 													class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
 													>ข้าพยอมรับ<a
 														href="#term"
@@ -161,7 +161,7 @@
 											</div>
 											<div>
 												<label
-													for="terms"
+													for="agreed"
 													class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
 													>I agree with the<a
 														href="#term"
@@ -174,7 +174,7 @@
 									</div>
 									<p class=" text-sm text-[#b90e0a] my-2 block" id="errorRead" />
 									<div class="">
-										<Turnstile siteKey={siteKey} />
+										<Turnstile {siteKey} />
 									</div>
 
 									{#if form?.message}<p class="error text-[#b90e0a]">
@@ -183,7 +183,9 @@
 									{#if form?.message}<p class="error text-[#b90e0a]">
 											คำอวยพรของท่านยังไม่ได้ส่ง / You wish you hadn't been sent
 										</p>{/if}
-									{#if loading}<p class="error text-cyan-500">กำลังส่งคำอวยพร / Sending wish</p>{/if}
+									{#if loading}<p class="error text-cyan-500">
+											กำลังส่งคำอวยพร / Sending wish
+										</p>{/if}
 									<div class="grid grid-cols-2 gap-2 my-2">
 										<button
 											class="p-2 bg-slate-50 rounded-full"

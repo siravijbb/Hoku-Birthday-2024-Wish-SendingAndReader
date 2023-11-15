@@ -4,6 +4,8 @@ import type { wishSender } from '../../types/form';
 import { start_mongo, close_mongo } from '$db/mongo';
 import { redirect } from '@sveltejs/kit';
 import { fail } from '@sveltejs/kit';
+import { SECRET_KEYS,SITE_KEY } from '$env/static/private';
+
 
 export interface TokenValidateResponse {
 	'error-codes': string[];
@@ -36,10 +38,7 @@ export const actions: Actions = {
 	default: async ({ request }) => {
 		const signupFormData = await request.formData();
 
-		const token = signupFormData.get('cf-turnstile-response') as string;
-		const secret = signupFormData.get('secret') as string;
-
-		const { success, errors } = await validateToken(token, secret);
+		const { success, errors } = await validateToken(SITE_KEY, SECRET_KEYS);
 
 		if (!success) {
 			return fail(400, {

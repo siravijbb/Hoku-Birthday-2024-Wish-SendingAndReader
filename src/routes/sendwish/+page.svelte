@@ -177,13 +177,13 @@
 										<Turnstile siteKey={siteKey} />
 									</div>
 
-									{#if form?.message}<p class="error">
+									{#if form?.message}<p class="error text-[#b90e0a]">
 											กรุณายืนยันreCaptcha / Please verify the reCaptcha.
 										</p>{/if}
-									{#if form?.message}<p class="error">
+									{#if form?.message}<p class="error text-[#b90e0a]">
 											คำอวยพรของท่านยังไม่ได้ส่ง / You wish you hadn't been sent
 										</p>{/if}
-									{#if loading}<p class="error">กำลังส่งคำอวยพร / Sending wish</p>{/if}
+									{#if loading}<p class="error text-cyan-500">กำลังส่งคำอวยพร / Sending wish</p>{/if}
 									<div class="grid grid-cols-2 gap-2 my-2">
 										<button
 											class="p-2 bg-slate-50 rounded-full"

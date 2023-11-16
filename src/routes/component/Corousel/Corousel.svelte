@@ -34,13 +34,24 @@
 				{index}
 			</Indicator>
 		</Indicators>
-		<Controls class="items-center text-red-400 dark:text-green-400 pt-4" />
+		<Controls
+			class="items-center text-red-400 dark:text-green-400 pt-4"
+			imgClass="object-contain h-8 w-auto rounded-sm"
+		/>
 	</Carousel>
-	<Thumbnails class="bg-transparent gap-3" let:Thumbnail let:image let:selected {images} bind:index>
+	<Thumbnails
+		class="bg-transparent gap-3"
+		let:Thumbnail
+		let:image
+		let:selected
+		{images}
+		bind:index
+		imgClass="object-contain h-8 w-auto rounded-sm"
+	>
 		<Thumbnail
 			{...image}
 			{selected}
-			class="rounded-md shadow-xl hover:outline hover:outline-primary-500"
+			class="rounded-md shadow-xl hover:outline hover:outline-primary-500 h-8 w-auto"
 			activeClass="outline outline-primary-400"
 		/>
 	</Thumbnails>

@@ -15,13 +15,13 @@
 	let description: string = 'Hoku Birth Day 2024';
 	let image: string = 'Hoku Birth Day 2024';
 
-	const siteKey = '0x4AAAAAAAMk_GZOoiKNR8pU';
+	const siteKey = '1x00000000000000000000AA';
 	let forms: ActionData;
 	function handleSubmit() {
 		loading = true;
 		setTimeout(() => {
 			loading = false;
-		}, 5000);
+		}, 10000);
 	}
 
 	function nameInvalid() {

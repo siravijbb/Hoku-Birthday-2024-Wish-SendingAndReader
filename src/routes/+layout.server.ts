@@ -21,7 +21,9 @@ export const load: PageServerLoad = async function () {
 
 	console.log(data);
 	const count = await bwish.countDocuments();
-
+    setTimeout(() => { 		close_mongo().then(() => {
+		console.log('Mongo Closed');
+	}); }, 5000);
 	return {
 		tutorials: { tutorials: data }, ///
 		count: count

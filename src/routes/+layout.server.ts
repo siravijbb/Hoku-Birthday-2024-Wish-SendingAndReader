@@ -20,8 +20,9 @@ export const load: PageServerLoad = async function () {
 		.toArray();
 
 	console.log(data);
-
+    setTimeout(() => { 		close_mongo().then(() => {
+		console.log('Mongo Closed');
+	}); }, 5000);
 	return {
-		tutorials: { tutorials: data }
-	};
+		tutorials: { tutorials: data },};
 };

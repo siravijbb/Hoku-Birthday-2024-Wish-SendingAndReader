@@ -15,7 +15,7 @@
 	let description: string = 'Hoku Birth Day 2024';
 	let image: string = 'Hoku Birth Day 2024';
 
-	const siteKey = '1x00000000000000000000AA';
+	const siteKey = '0x4AAAAAAAMk_GZOoiKNR8pU';
 	let forms: ActionData;
 	function handleSubmit() {
 		loading = true;

@@ -97,10 +97,6 @@ export const actions: Actions = {
 			borderColor = '#ffbaab';
 		}
 
-		
-		await start_mongo().then(() => {
-			console.log('Mongo started');
-		});
 		await bwish.insertOne({
 			name: name,
 			comment: wish, // Use the 'name' value as the 'comment'

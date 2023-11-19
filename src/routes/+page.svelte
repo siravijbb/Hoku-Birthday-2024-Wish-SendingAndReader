@@ -12,10 +12,48 @@
 	let tutorials = data.tutorials.tutorials;
 	let isLoading = false;
 	let page = 1;
+	
+	import { enhance } from '$app/forms';
+	import { Turnstile } from 'svelte-turnstile';
+	import type { ActionData, Actions } from './$types';
+	import { Button, Modal, Label, Input, Checkbox } from 'flowbite-svelte';
+	import TOS from './component/TOS.svelte';
+	import Gift from './component/sendGift.svelte';
+	export let form: ActionData;
 
-	function getCount(index: number): number {
-		return data.count - index;
+	let formModal = false;
+	let thisForm: HTMLFormElement;
+	let loading = false;
+
+
+	const siteKey = '0x4AAAAAAAMk_GZOoiKNR8pU';
+	let forms: ActionData;
+	function handleSubmit() {
+		loading = true;
+		setTimeout(() => {
+			loading = false;
+		}, 10000);
 	}
+
+	function nameInvalid() {
+		const resultElement = document.getElementById('errorName');
+		if (resultElement !== null) {
+			resultElement.innerHTML = '❗ ไอ่หนุ่ม! แกต้องบอกชื่อด้วย ไอ่หนุ่ม!';
+		}
+	}
+	function wishInvalid() {
+		const resultElement = document.getElementById('errorWish');
+		if (resultElement !== null) {
+			resultElement.innerHTML = '❗ ไอ่หนุ่ม! แกลืมคำอวยพรแก';
+		}
+	}
+	function agreeInvalid() {
+		const resultElement = document.getElementById('errorRead');
+		if (resultElement !== null) {
+			resultElement.innerHTML = '❗ ไอ่หนุ่ม! แกต้องอ่านให้หมดด้วย';
+		}
+	}
+
 </script>
 
 <head>
@@ -46,7 +84,7 @@
 	<meta property="twitter:image" content={image} />
 </head>
 <Navbar />
-<main class="mx-auto my-[40px] -mb-0 mt-14 max-w-7xl rounded-xl">
+<main class="mx-auto my-[40px] mb-0 mt-14 max-w-7xl rounded-xl">
 	<div class="mx-auto mt-20 max-w-xl rounded-xl bg-neutral-200 pb-4 shadow-xl">
 		<div class="-mt-20">
 			<div class="mx-auto rounded-xl py-4">
@@ -57,14 +95,148 @@
 				</div>
 			</div>
 		</div>
+		<div class="-mt-3 -pb-0">
+			<div class="mx-auto rounded-xl py-4">
+				<div class="mx-auto max-w-4xl text-ellipsis rounded-lg bg-white py-4 shadow-xl lg:px-8">
+					<h1 class="text-center text-2xl ">ส่งคำอวยพรให้นายHOKU</h1>
+					<h1 class="pb-4 text-center text-xl  -mt-2">Wish sending to HOKU</h1>
+					<form
+						bind:this={thisForm}
+						on:submit={handleSubmit}
+						use:enhance
+						method="post"
+						class=" bg-slate-400 px-9 lg:px-20 pb-4 mx-auto items-center self-center justify-center rounded-lg"
+					>
+						<div class="form-item mx-auto items-center self-center justify-center py-2">
+							<label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+								>ชื่อ (Name)<sup><small>*</small></sup></label
+							>
+							<input
+								
+								type="name"
+								name="name"
+								id="name"
+								class=" p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+								required
+								on:invalid={nameInvalid}
+							/>
+							<p class=" text-sm text-[#b90e0a] my-2" id="errorName" />
+						</div>
+						<div class="form-item mx-auto items-center self-center justify-center">
+							<label for="wish">คำอวยพร (Wish)<sup><small>*</small></sup></label>
+							<textarea
+								
+								name="wish"
+								id="wish"
+								rows="4"
+								class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+								placeholder="ไอ่หนุ่ม! คำอวยพร ความปรารถนา หรือ คำทักทาย ที่ท่านต้องการจะส่ง | Your wish, greeting, or message to HOKU"
+								required
+								on:invalid={wishInvalid}
+							/>
+							<p class=" text-sm text-[#b90e0a] my-2" id="errorWish" />
+						</div>
+						<label for="" class=""
+							>ของขวัญสำหรับนายHOKU<sup class="text-red-500"><small>*</small></sup></label
+						>
+						<Gift />
+						<p class=" text-sm text-[#b90e0a] my-2" id="errorGift" />
+	
+						<Button
+							on:click={() => (formModal = true)}
+							class="p-2 bg-slate-900 rounded-full my-2 mx-auto justify-center"
+							>ส่งคำอวยพร (Send the Wish)</Button
+						>
+						<Modal
+							bind:open={formModal}
+							size="xs"
+							autoclose={false}
+							class="w-full touch-auto h-1/2 max-h-[35rem] "
+							title="ข้อตกลงการประมวลผลข้อมูลส่วนบุคคล "
+							
+						>
+							<TOS />
+							<svelte:fragment slot="footer">
+								<div class="grid grid-cols-1 gap-2">
+									<div class="mx-auto grid grid-cols-1">
+										<div class="flex items-start my-2">
+											<div class="flex items-center h-5">
+												<input
+													type="checkbox"
+													name="agreement"
+													value="agreed"
+													class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+													required
+													on:invalid={agreeInvalid}
+												/>
+											</div>
+											<div class="block -mt-3">
+												<div>
+													<label
+														for="agreed"
+														class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+														>ข้าพยอมรับ<a
+															href="#term"
+															class="text-blue-600 hover:underline dark:text-blue-500"
+															>ข้อตกลงเงื่อนไข
+														</a>
+													</label>
+												</div>
+												<div>
+													<label
+														for="agreed"
+														class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+														>I agree with the<a
+															href="#term"
+															class="text-blue-600 hover:underline dark:text-blue-500"
+															>terms and conditions
+														</a>
+													</label>
+												</div>
+											</div>
+										</div>
+										<p class=" text-sm text-[#b90e0a] my-2 block" id="errorRead" />
+										<div class="">
+											<Turnstile {siteKey} />
+										</div>
+	
+										{#if form?.reCapchaFalse}<p class="error text-[#b90e0a]">
+												กรุณายืนยันreCaptcha / Please verify the reCaptcha.
+											</p>{/if}
+										{#if form?.message}<p class="error text-[#b90e0a]">
+												คำอวยพรของท่านยังไม่ได้ส่ง / You wish you hadn't been sent
+											</p>{/if}
+										{#if loading}<p class="error text-cyan-500">
+												กำลังส่งคำอวยพร / Sending wish
+											</p>{/if}
+										{#if form?.complete}<p class="error text-cyan-500">
+												<script> location.reload()</script>
+											</p>{/if}
+										<div class="grid grid-cols-2 gap-2 my-2">
+											<button
+												class="p-2 bg-slate-50 rounded-full"
+												type="submit"
+												disabled={forms?.message || loading}
+												>ยอมรับข้อตกลงเงื่อนไข
+											</button>
+										</div>
+									</div>
+								</div>
+							</svelte:fragment>
+						</Modal>
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
 
-	<div class="-mt-10">
+	<div class="-mt-7">
 		<div class="mx-auto rounded-xl py-4 sm:px-6 lg:px-8">
 			<div class="text-ellipsis rounded-lg">
+				<h1 class="text-center text-2xl mt-4"><b>All Hoku's birthday wishes</b></h1>
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto">
 					{#await tutorials}
-						loading...
+						<p class="mx-auto">loading...</p>
 					{:then tutorials}
 						{#each tutorials as bwish, index}
 							<div
@@ -126,9 +298,9 @@
 								<div
 									class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
 								>
-									<img class="w-24" src="favicon.png" />
+									<img class="w-24"  />
 									<div class="text-[#524973] absolute left-[36px] top-12 text-xl font-bold">
-										{getCount(index)}
+										
 									</div>
 								</div>
 							</div>

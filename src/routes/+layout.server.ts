@@ -24,5 +24,6 @@ export const load: PageServerLoad = async function () {
 		console.log('Mongo Closed');
 	}); }, 5000);
 	return {
-		tutorials: { tutorials: data },};
+		tutorials: { tutorials: data }, ///
+	};
 };

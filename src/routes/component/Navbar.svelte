@@ -9,7 +9,7 @@
 		>
 	</NavBrand>
 	<div class="flex md:order-2">
-		<Button size="sm" class="text-gray-800 dark:text-slate-100" href="/sendwish"
+		<Button size="sm" class="text-gray-800 dark:text-slate-100" href="#sendwish"
 			>ส่งคำอวยพรให้นายHOKU</Button
 		>
 		<NavHamburger />

@@ -97,7 +97,7 @@
 		</div>
 		<div class="-mt-3 -pb-0">
 			<div class="mx-auto rounded-xl py-4">
-				<div class="mx-auto max-w-4xl text-ellipsis rounded-lg bg-white py-4 shadow-xl lg:px-8">
+				<div class="mx-auto max-w-4xl text-ellipsis rounded-lg bg-white py-4 shadow-xl lg:px-8" id="sendwish">
 					<h1 class="text-center text-2xl ">ส่งคำอวยพรให้นายHOKU</h1>
 					<h1 class="pb-4 text-center text-xl  -mt-2">Wish sending to HOKU</h1>
 					<form

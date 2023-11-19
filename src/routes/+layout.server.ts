@@ -1,0 +1,29 @@
+import { bwish } from '$db/tutorials';
+import type { PageServerLoad } from './$types';
+import { start_mongo, close_mongo } from '$db/mongo';
+
+export const load: PageServerLoad = async function () {
+	await start_mongo().then(() => {
+		console.log('Mongo started');
+	});
+
+	const data = bwish
+		.find(
+			{},
+			{
+				projection: {
+					_id: 0
+				}
+			}
+		)
+		.sort({ _id: -1 })
+		.toArray();
+
+	console.log(data);
+	const count = await bwish.countDocuments();
+
+	return {
+		tutorials: { tutorials: data }, ///
+		count: count
+	};
+};

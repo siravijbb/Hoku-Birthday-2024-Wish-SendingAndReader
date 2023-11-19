@@ -130,15 +130,16 @@
 				><span class="text-xl">คนนอนดึก</span></a
 			>
 		</div>
-		<div class="video-container absolute blur-sm brightness-[25%] w-full h-full pointer-events-none">
+		<div
+			class="video-container absolute blur-sm brightness-[25%] w-full h-full pointer-events-none"
+		>
 			<iframe
 				class="ifreamYoutube"
 				frameborder="0"
-				
 				allow="accelerometer autoplay clipboard-write encrypted-media gyroscope picture-in-picture web-share fullscreen"
-                
 				title="🎆ในความฝัน และความทรงจำหน้าร้อน"
-                width="100%" height="100%"
+				width="100%"
+				height="100%"
 				src="https://www.youtube.com/embed/F18KYIt60Pw?autoplay=1&amp;mute=1&amp;autoplay=1&disablekb=1&loop=1&modestbranding=1&playsinline=1"
 				id="widget2"
 			/>

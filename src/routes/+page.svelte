@@ -9,7 +9,8 @@
 	let image: string = 'Hoku Birth Day 2024';
 	export let data: PageData;
 
-	let tutorials = data.tutorials.tutorials;
+	let tutorials = data.tutorials?.tutorials ?? [];
+	let dataFailed = data.dataFailed;
 	let isLoading = false;
 	let page = 1;
 	
@@ -210,6 +211,7 @@
 												กำลังส่งคำอวยพร / Sending wish
 											</p>{/if}
 										{#if form?.complete}<p class="error text-cyan-500">
+												ส่งคำอวยพรเรียบร้อยแล้ว หากไม่มีอะไรเกิดขึ้น กรุณาrefresh page / Wish sended, If there is nothing happened please refresh the page
 												<script> location.reload()</script>
 											</p>{/if}
 										<div class="grid grid-cols-2 gap-2 my-2">
@@ -305,7 +307,9 @@
 								</div>
 							</div>
 						{/each}{/await}
-				</div>
+				</div>		
+						{#if data?.dataFailed} <h2 class="mx-auto text-lg text-red-600 text-center">Data Fetching failled, Try again later But Wish sending might working</h2>{/if}
+				
 			</div>
 		</div>
 	</div>

@@ -71,8 +71,24 @@ export const actions: Actions = {
 		const seconds = String(date.getUTCSeconds()).padStart(2, '0');
 		const UTCDMY = `${day} ${month} ${year}`;
 		const THTIME = `${hours}:${minutes} GMT+7`;
+        try {
+            await start_mongo().then(() => {
+                console.log('Mongo started');
+            });
+          } catch (error) {
+            console.error(error);
+            return {
+				errors: errors,
+				message: true,
+                reCapchaFalse: false,
+                complete: false
+            }
+          }
 
-		if (picture === '1') {
+		
+        
+        
+        if (picture === '1') {
 			picturename = 'hamham';
 			desc = 'ผู้ฝันใฝ่ธรรมดา ที่รัก และคิดถึงคุณบากุมาก ๆ';
 			imgURL = '/img/icon/20230727153257-10f56244-bd4b-47d2-90db-b5ee7c2cc743.png';
@@ -98,21 +114,8 @@ export const actions: Actions = {
 			borderColor = '#ffbaab';
 		}
 
-        try {
-            await start_mongo().then(() => {
-                console.log('Mongo started');
-            });
-          } catch (error) {
-            console.error(error);
-            return {
-				errors: errors,
-				message: true,
-                reCapchaFalse: false,
-                complete: false
-            }
-          }
 
-		await bwish.insertOne({
+		 bwish.insertOne({
 			name: name,
 			comment: wish, // Use the 'name' value as the 'comment'
 			giftId: null,
@@ -129,9 +132,10 @@ export const actions: Actions = {
 				order: null
 			}
 		});
-		await close_mongo().then(() => {
-			console.log('Mongo Closed');
-		});
+        setTimeout(() => { 		close_mongo().then(() => {
+            console.log('Mongo Closed');
+        }); }, 5000);
+        console.log('Code Closed');
 		return{ complete: true} 
 	}
 };

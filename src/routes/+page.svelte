@@ -212,7 +212,7 @@
 											</p>{/if}
 										{#if form?.complete}<p class="error text-cyan-500">
 												ส่งคำอวยพรเรียบร้อยแล้ว หากไม่มีอะไรเกิดขึ้น กรุณาrefresh page / Wish sended, If there is nothing happened please refresh the page
-												<script> location.reload()</script>
+												<script> setTimeout(function(){location.reload(true);},100)</script>
 											</p>{/if}
 										<div class="grid grid-cols-2 gap-2 my-2">
 											<button

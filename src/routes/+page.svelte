@@ -13,7 +13,7 @@
 	let dataFailed = data.dataFailed;
 	let isLoading = false;
 	let page = 1;
-	
+
 	import { enhance } from '$app/forms';
 	import { Turnstile } from 'svelte-turnstile';
 	import type { ActionData, Actions } from './$types';
@@ -25,7 +25,6 @@
 	let formModal = false;
 	let thisForm: HTMLFormElement;
 	let loading = false;
-
 
 	const siteKey = '0x4AAAAAAAMk_GZOoiKNR8pU';
 	let forms: ActionData;
@@ -54,7 +53,6 @@
 			resultElement.innerHTML = '❗ ไอ่หนุ่ม! แกต้องอ่านให้หมดด้วย';
 		}
 	}
-
 </script>
 
 <head>
@@ -98,9 +96,12 @@
 		</div>
 		<div class="-mt-3 -pb-0">
 			<div class="mx-auto rounded-xl py-4">
-				<div class="mx-auto max-w-4xl text-ellipsis rounded-lg bg-white py-4 shadow-xl lg:px-8" id="sendwish">
-					<h1 class="text-center text-2xl ">ส่งคำอวยพรให้นายHOKU</h1>
-					<h1 class="pb-4 text-center text-xl  -mt-2">Wish sending to HOKU</h1>
+				<div
+					class="mx-auto max-w-4xl text-ellipsis rounded-lg bg-white py-4 shadow-xl lg:px-8"
+					id="sendwish"
+				>
+					<h1 class="text-center text-2xl">ส่งคำอวยพรให้นายHOKU</h1>
+					<h1 class="pb-4 text-center text-xl -mt-2">Wish sending to HOKU</h1>
 					<form
 						bind:this={thisForm}
 						on:submit={handleSubmit}
@@ -109,11 +110,11 @@
 						class=" bg-slate-400 px-9 lg:px-20 pb-4 mx-auto items-center self-center justify-center rounded-lg"
 					>
 						<div class="form-item mx-auto items-center self-center justify-center py-2">
-							<label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-								>ชื่อ (Name)<sup><small>*</small></sup></label
+							<label for="name" class="block mb-2 text-sm font-medium text-gray-900"
+								>ชื่อ<sup><small>*</small></sup></label
 							>
 							<input
-								
+								placeholder="ชื่อนายอะ ไอ่หนุ่ม!"
 								type="name"
 								name="name"
 								id="name"
@@ -124,29 +125,28 @@
 							<p class=" text-sm text-[#b90e0a] my-2" id="errorName" />
 						</div>
 						<div class="form-item mx-auto items-center self-center justify-center">
-							<label for="wish">คำอวยพร (Wish)<sup><small>*</small></sup></label>
+							<label for="wish">คำอวยพร<sup><small>*</small></sup></label>
 							<textarea
-								
 								name="wish"
 								id="wish"
 								rows="4"
 								class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-								placeholder="ไอ่หนุ่ม! คำอวยพร ความปรารถนา หรือ คำทักทาย ที่ท่านต้องการจะส่ง | Your wish, greeting, or message to HOKU"
+								placeholder="นายอยากใส่คำอวยพร ความปรารถนา หรือ คำทักทาย ใส่เลย!"
 								required
 								on:invalid={wishInvalid}
 							/>
 							<p class=" text-sm text-[#b90e0a] my-2" id="errorWish" />
 						</div>
 						<label for="" class=""
-							>ของขวัญสำหรับนายHOKU<sup class="text-red-500"><small>*</small></sup></label
+							>นายอยากใส่กรอบรูปแบบไหน เลือกเลย!<sup class="text-red-500"><small>*</small></sup
+							></label
 						>
 						<Gift />
 						<p class=" text-sm text-[#b90e0a] my-2" id="errorGift" />
-	
+
 						<Button
 							on:click={() => (formModal = true)}
-							class="p-2 bg-slate-900 rounded-full my-2 mx-auto justify-center"
-							>ส่งคำอวยพร (Send the Wish)</Button
+							class="p-2 bg-slate-900 rounded-full my-2 mx-auto justify-center">ส่งคำอวยพร</Button
 						>
 						<Modal
 							bind:open={formModal}
@@ -154,7 +154,6 @@
 							autoclose={false}
 							class="w-full touch-auto h-1/2 max-h-[35rem] "
 							title="ข้อตกลงการประมวลผลข้อมูลส่วนบุคคล "
-							
 						>
 							<TOS />
 							<svelte:fragment slot="footer">
@@ -190,7 +189,8 @@
 														>I agree with the<a
 															href="#term"
 															class="text-blue-600 hover:underline dark:text-blue-500"
-															>terms and conditions
+														>
+															terms and conditions
 														</a>
 													</label>
 												</div>
@@ -200,19 +200,21 @@
 										<div class="">
 											<Turnstile {siteKey} />
 										</div>
-	
+
 										{#if form?.reCapchaFalse}<p class="error text-[#b90e0a]">
-												กรุณายืนยันreCaptcha / Please verify the reCaptcha.
+												นายกดยืนยันreCaptchaด้วย
 											</p>{/if}
 										{#if form?.message}<p class="error text-[#b90e0a]">
-												คำอวยพรของท่านยังไม่ได้ส่ง / You wish you hadn't been sent
+												คำอวยพรของนายยังไม่ได้ส่ง
 											</p>{/if}
-										{#if loading}<p class="error text-cyan-500">
-												กำลังส่งคำอวยพร / Sending wish
-											</p>{/if}
+										{#if loading}<p class="error text-cyan-500">กำลังส่งคำอวยพร</p>{/if}
 										{#if form?.complete}<p class="error text-cyan-500">
-												ส่งคำอวยพรเรียบร้อยแล้ว หากไม่มีอะไรเกิดขึ้น กรุณาrefresh page / Wish sended, If there is nothing happened please refresh the page
-												<script> setTimeout(function(){location.reload(true);},100)</script>
+												ส่งคำอวยพรเรียบร้อยแล้ว หากไม่มีอะไรเกิดขึ้น กรุณาrefresh page
+												<script>
+													setTimeout(function () {
+														location.reload(true);
+													}, 100);
+												</script>
 											</p>{/if}
 										<div class="grid grid-cols-2 gap-2 my-2">
 											<button
@@ -236,10 +238,11 @@
 		<div class="mx-auto rounded-xl py-4 sm:px-6 lg:px-8">
 			<div class="text-ellipsis rounded-lg">
 				<h1 class="text-center text-2xl mt-4"><b>All Hoku's birthday wishes</b></h1>
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto">
-					{#await tutorials}
-						<p class="mx-auto">loading...</p>
-					{:then tutorials}
+
+				{#await tutorials}
+					<p class="mx-auto">loading...</p>
+				{:then tutorials}
+					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto">
 						{#each tutorials as bwish, index}
 							<div
 								class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 bg-[{bwish
@@ -300,16 +303,19 @@
 								<div
 									class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
 								>
-									<img class="w-24"  />
-									<div class="text-[#524973] absolute left-[36px] top-12 text-xl font-bold">
-										
-									</div>
+									<img class="w-24" />
+									<div class="text-[#524973] absolute left-[36px] top-12 text-xl font-bold" />
 								</div>
 							</div>
-						{/each}{/await}
-				</div>		
-						{#if data?.dataFailed} <h2 class="mx-auto text-lg text-red-600 text-center">Data Fetching failled, Try again later But Wish sending might working</h2>{/if}
-				
+						{/each}
+					</div>
+					<h2 class="mx-auto text-lg text-yellow-700 text-center">หมดแล้ว! ไอ่หนุ่ม!</h2>
+				{/await}
+
+				{#if data?.dataFailed}
+					<h2 class="mx-auto text-lg text-red-600 text-center">
+						Data Fetching failled, Try again later But Wish sending might working
+					</h2>{/if}
 			</div>
 		</div>
 	</div>

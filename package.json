@@ -38,6 +38,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"aos": "^2.3.4",
 		"bson": "^6.2.0",
 		"flowbite-svelte-icons": "^0.4.4",
 		"mongodb": "^6.2.0",

@@ -83,6 +83,7 @@
 
 	<meta property="og:image" content={image} />
 	<meta property="twitter:image" content={image} />
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <Navbar />
 
@@ -238,7 +239,7 @@
 				{#await tutorials}
 					<p class="mx-auto">loading...</p>
 				{:then tutorials}
-					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto">
+					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto" data-aos="fade-up">
 						{#each tutorials as bwish, index}
 							<div
 								class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 bg-[{bwish
@@ -315,6 +316,10 @@
 			</div>
 		</div>
 	</div>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script>
+	  AOS.init();
+	</script>
 </main>
 <Footer />
 <style>

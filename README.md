@@ -4,6 +4,7 @@ Currently on Idea: Hoku Birth Day dashboard for wish for hoku birthday on 2024.
 
 # Struture
 
+Data structure provided: by [baku-bd-static-2023 by RikiNozomu](https://github.com/RikiNozomu/baku-bd-static-2023)
 FrontEnd:Sveltekit + Flowbite + Tailwind For Frontend
 <br>Middleware: Sveltekit Connected with on-refresh mongoDB
 

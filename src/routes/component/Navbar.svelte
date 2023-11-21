@@ -18,7 +18,7 @@
 <Navbar class="bg-gradient-to-b from-[#c7722e] to-[#f4a443]">
 	<NavBrand href="/" data-sveltekit-preload-code>
 		<span class="self-center  text-xl font-semibold dark:text-white flex"
-			>Hoku Birthday 2024 <div class="invisible md:visible flex dark:text-white ml-1">Project</div></span
+			>Hoku Birthday 2024</span
 		>
 	</NavBrand>
 	<div class="flex md:order-2">

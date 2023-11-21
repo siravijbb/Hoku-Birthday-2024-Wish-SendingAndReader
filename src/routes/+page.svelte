@@ -149,13 +149,13 @@
 						bind:open={formModal}
 						size="xs"
 						autoclose={false}
-						class="w-full touch-auto h-1/2 max-h-[35rem] "
+						class=" touch-auto max-h-screen"
 						title="ข้อตกลงการประมวลผลข้อมูลส่วนบุคคล "
 					>
 						<TOS />
 						<svelte:fragment slot="footer">
 							<div class="grid grid-cols-1 gap-2">
-								<div class="mx-auto grid grid-cols-1">
+								<div class="mx-auto grid grid-cols-1 ">
 									<div class="flex items-start my-2">
 										<div class="flex items-center h-5">
 											<input
@@ -185,7 +185,7 @@
 													class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
 													>I agree with the<a
 														href="#term"
-														class="text-blue-600 hover:underline dark:text-blue-500"
+														class="text-blue-600 hover:underline dark:text-blue-500 ml-1"
 													>
 														terms and conditions
 													</a>
@@ -305,7 +305,7 @@
 							</div>
 						{/each}
 					</div>
-					<h2 class="mx-auto text-lg text-yellow-700 text-center pb-9">หมดแล้ว! ไอ่หนุ่ม!</h2>
+					<h2 class="mx-auto text-lg text-yellow-700 text-center pb-16">หมดแล้ว! ไอ่หนุ่ม!</h2>
 				{/await}
 
 				{#if data?.dataFailed}

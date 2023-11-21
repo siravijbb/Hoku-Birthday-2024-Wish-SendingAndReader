@@ -1,6 +1,4 @@
-<article
-	class=" max-w-full shadow-inner bg-primary/10 rounded-xl space-y-1 md:space-y-4 text-xs md:text-md touch-auto"
->
+
 	<p id="term">
 		หากท่านได้กดยอมรับปุ่ม "ยอมรับ" หรือ "Accept" ที่ปุ่มด้านล่าง หมายความว่า ท่านได้ยอมรับ <b
 			class="text-red-500"
@@ -80,4 +78,4 @@
 		</li>
 	</ul>
 	<b>จัดทำนโยบายโดยชาว Polygang</b>
-</article>
+

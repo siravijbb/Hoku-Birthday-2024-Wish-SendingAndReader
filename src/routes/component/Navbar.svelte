@@ -14,23 +14,23 @@
 	let aboutModal = false;
 </script>
 
-<Navbar>
+<Navbar class="bg-gradient-to-b from-[#c7722e] to-[#f4a443]">
 	<NavBrand href="/" data-sveltekit-preload-code>
-		<span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white"
-			>Hoku Birthday 2024 Project</span
+		<span class="self-center  text-xl font-semibold dark:text-white flex"
+			>Hoku Birthday 2024 <div class="invisible md:visible flex dark:text-white ml-1">Project</div></span
 		>
 	</NavBrand>
 	<div class="flex md:order-2">
-		<Button size="sm" class="text-gray-800 dark:text-slate-100" href="#sendwish">ส่งคำอวยพร</Button>
+		<Button size="sm" class="text-gray-800 dark:text-slate-100 invisible md:visible" href="#sendwish">ส่งคำอวยพร</Button>
 		<NavHamburger />
 	</div>
 	<NavUl class="order-1">
-		<NavLi href="#wish" active={true}>อ่านคำอวยพร</NavLi>
-		<NavLi on:click={() => (homeModal = true)} class="cursor-pointer">หน้าหลัก Polygang</NavLi>
+		<NavLi href="#wish" active={true}><p class="text-white">อ่านคำอวยพร</p></NavLi>
+		<NavLi on:click={() => (homeModal = true)} class="cursor-pointer"><p class="text-white">หน้าหลัก Polygang</p></NavLi>
 		<NavLi on:click={() => (aboutModal = true)} class="cursor-pointer"
-			>เกี่ยวกับPolygang (ยังไม่เสร็จ)</NavLi
+			><p class="text-white">เกี่ยวกับPolygang (ยังไม่เสร็จ)</p></NavLi
 		>
-		<NavLi href="https://twitter.com/SierraB_Siravij">Contact</NavLi>
+		<NavLi href="https://twitter.com/SierraB_Siravij"><p class="text-white">Contact</p></NavLi>
 	</NavUl>
 </Navbar>
 

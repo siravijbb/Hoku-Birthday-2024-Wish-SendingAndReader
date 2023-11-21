@@ -2,7 +2,9 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import Navbar from './component/Navbar.svelte';
+	import Footer from './component/Footer.svelte'
 	import Corousel from './component/Corousel/Corousel.svelte';
+
 
 	let title: string = 'Hoku Birth Day 2024';
 	let description: string = 'Hoku Birth Day 2024';
@@ -83,7 +85,8 @@
 	<meta property="twitter:image" content={image} />
 </head>
 <Navbar />
-<main class="mx-auto my-[40px] mb-0 mt-7 max-w-7xl rounded-xl">
+
+<main class="mx-auto my-[40px] mb-0 mt-7 max-w-7xl rounded-xl ">
 	<div
 		class="-mt-3 -pb-0 bg-gradient-to-b from-[#c7722e] to-[#f4a443] mx-auto max-w-xl shadow-xl rounded-lg"
 	>
@@ -302,7 +305,7 @@
 							</div>
 						{/each}
 					</div>
-					<h2 class="mx-auto text-lg text-yellow-700 text-center">หมดแล้ว! ไอ่หนุ่ม!</h2>
+					<h2 class="mx-auto text-lg text-yellow-700 text-center pb-9">หมดแล้ว! ไอ่หนุ่ม!</h2>
 				{/await}
 
 				{#if data?.dataFailed}
@@ -313,6 +316,6 @@
 		</div>
 	</div>
 </main>
-
+<Footer />
 <style>
 </style>

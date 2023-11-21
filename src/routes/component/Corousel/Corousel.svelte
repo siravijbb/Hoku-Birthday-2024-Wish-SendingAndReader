@@ -8,7 +8,7 @@
 			alt: 'เพลงใหม่กำลังมาาาาา รอตามกันได้เลยยย',
 			src: '/Corousel/newOriginalSongComing.jpg',
 			imgClass: 'object-contain h-full w-fit rounded-sm',
-			link: 'https://polygang.fan'
+			link: 'https://twitter.com/HokuPLG/status/1726903282738532677'
 		},
 
 		{
@@ -17,7 +17,7 @@
 			src: '/Corousel/PLG3ANNIHoku.jpg',
 
 			imgClass: 'object-contain h-full w-fit rounded-sm',
-			link: 'https://polygang.fan'
+			link: 'https://twitter.com/HokuPLG/status/1709504045843730454'
 		}
 	];
 	/**

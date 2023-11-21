@@ -4,55 +4,48 @@
 	let index = 0;
 	const images = [
 		{
-			alt: 'Cosmic timetraveler',
-			src: '/img/icon/20230727153257-10f56244-bd4b-47d2-90db-b5ee7c2cc743.png',
-			title: 'cosmic-timetraveler-pYyOZ8q7AII-unsplash.com',
-			class: 'w-10 h-10'
+			title: 'New Original Song is Coming!',
+			alt: 'เพลงใหม่กำลังมาาาาา รอตามกันได้เลยยย',
+			src: '/Corousel/newOriginalSongComing.jpg',
+			imgClass: 'object-contain h-full w-fit rounded-sm',
+			link: 'https://polygang.fan'
 		},
+
 		{
-			alt: 'Cristina Gottardi',
-			src: '/img/icon/20230727153257-10f56244-bd4b-47d2-90db-b5ee7c2cc743.png',
 			title: 'cristina-gottardi-CSpjU6hYo_0-unsplash.com',
-			class: 'w-10 h-10'
+			alt: 'Happy Polygon 3 Year Anni!',
+			src: '/Corousel/PLG3ANNIHoku.jpg',
+
+			imgClass: 'object-contain h-full w-fit rounded-sm',
+			link: 'https://polygang.fan'
 		}
 	];
+	/**
+	 * @type {{ alt: any; }}
+	 */
+	let image;
 </script>
 
 <div class="max-w-4xl space-y-4">
-	<Carousel
-		imgClass="object-contain h-8 w-auto rounded-sm"
-		{images}
-		let:Indicators
-		let:Controls
-		bind:index
+	<div class="max-w-4xl space-y-4">
+		<Carousel
+			{images}
+			imgClass="object-contain h-full w-fit rounded-sm"
+			duration={3900}
+			let:Indicators
+			let:Controls
+			on:change={({ detail }) => (image = detail)}
+		>
+			<a slot="slide" href={images[index]?.link} target="_blank" let:Slide let:index>
+				<Slide image={images[index]} class="object-contain h-full w-fit rounded-sm" />
+			</a>
+			<Controls />
+			<Indicators />
+		</Carousel>
+	</div>
+	<div
+		class="rounded h-10 bg-gradient-to-b from-[#c7722e] to-[#f4a443] dark:text-white p-2 my-2 text-center"
 	>
-		<Indicators let:selected let:index>
-			<Indicator
-				color={selected ? 'red' : 'green'}
-				class="w-5 h-5 text-white border border-white {selected ? 'opacity-100' : 'opacity-80'}"
-			>
-				{index}
-			</Indicator>
-		</Indicators>
-		<Controls
-			class="items-center text-red-400 dark:text-green-400 pt-4"
-			imgClass="object-contain h-8 w-auto rounded-sm"
-		/>
-	</Carousel>
-	<Thumbnails
-		class="bg-transparent gap-3"
-		let:Thumbnail
-		let:image
-		let:selected
-		{images}
-		bind:index
-		imgClass="object-contain h-8 w-auto rounded-sm"
-	>
-		<Thumbnail
-			{...image}
-			{selected}
-			class="rounded-md shadow-xl hover:outline hover:outline-primary-500 h-8 w-auto"
-			activeClass="outline outline-primary-400"
-		/>
-	</Thumbnails>
+		{image?.alt}
+	</div>
 </div>

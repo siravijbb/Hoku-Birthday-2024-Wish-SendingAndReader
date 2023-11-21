@@ -83,153 +83,146 @@
 	<meta property="twitter:image" content={image} />
 </head>
 <Navbar />
-<main class="mx-auto my-[40px] mb-0 mt-14 max-w-7xl rounded-xl">
-	<div class="mx-auto mt-20 max-w-xl rounded-xl bg-neutral-200 pb-4 shadow-xl">
-		<div class="-mt-20">
-			<div class="mx-auto rounded-xl py-4">
-				<div class="mx-auto max-w-4xl text-ellipsis rounded-lg bg-white py-4 shadow-xl lg:px-8">
-					<h1 class="text-center text-2xl"><b>Happy Hoku's birthday</b></h1>
-					<h2 class="pb-4 text-center text-xl">8 Jan 2024</h2>
-					<Corousel />
-				</div>
+<main class="mx-auto my-[40px] mb-0 mt-7 max-w-7xl rounded-xl">
+	<div
+		class="-mt-3 -pb-0 bg-gradient-to-b from-[#c7722e] to-[#f4a443] mx-auto max-w-xl shadow-xl rounded-lg"
+	>
+		<div class="mx-auto rounded-xl py-4">
+			<div class="mx-auto max-w-4xl text-ellipsis rounded-lg py-4 lg:px-8">
+				<h1 class="text-center text-2xl"><b>Happy Hoku's birthday</b></h1>
+				<h2 class="pb-4 text-center text-xl">8 Jan 2024</h2>
+				<Corousel />
 			</div>
-		</div>
-		<div class="-mt-3 -pb-0">
-			<div class="mx-auto rounded-xl py-4">
-				<div
-					class="mx-auto max-w-4xl text-ellipsis rounded-lg bg-white py-4 shadow-xl lg:px-8"
-					id="sendwish"
+			<div class="mx-auto max-w-4xl text-ellipsis rounded-lg py-4 shadow-xl lg:px-8" id="sendwish">
+				<h1 class="text-center text-2xl">ส่งคำอวยพรให้นายHOKU</h1>
+				<h1 class="pb-4 text-center text-xl -mt-2">Wish sending to HOKU</h1>
+				<form
+					bind:this={thisForm}
+					on:submit={handleSubmit}
+					use:enhance
+					method="post"
+					class=" bg-[#f4b38d] px-9 lg:px-20 pb-4 mx-auto items-center self-center justify-center rounded-lg"
 				>
-					<h1 class="text-center text-2xl">ส่งคำอวยพรให้นายHOKU</h1>
-					<h1 class="pb-4 text-center text-xl -mt-2">Wish sending to HOKU</h1>
-					<form
-						bind:this={thisForm}
-						on:submit={handleSubmit}
-						use:enhance
-						method="post"
-						class=" bg-slate-400 px-9 lg:px-20 pb-4 mx-auto items-center self-center justify-center rounded-lg"
+					<div class="form-item mx-auto items-center self-center justify-center py-2">
+						<label for="name" class="block mb-2 text-sm font-medium text-gray-900"
+							>ชื่อ<sup><small>*</small></sup></label
+						>
+						<input
+							placeholder="ชื่อนายอะ ไอ่หนุ่ม!"
+							type="name"
+							name="name"
+							id="name"
+							class=" p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+							required
+							on:invalid={nameInvalid}
+						/>
+						<p class=" text-sm text-[#b90e0a] my-2" id="errorName" />
+					</div>
+					<div class="form-item mx-auto items-center self-center justify-center">
+						<label for="wish">คำอวยพร<sup><small>*</small></sup></label>
+						<textarea
+							name="wish"
+							id="wish"
+							rows="4"
+							class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+							placeholder="นายอยากใส่คำอวยพร ความปรารถนา หรือ คำทักทาย ใส่เลย!"
+							required
+							on:invalid={wishInvalid}
+						/>
+						<p class=" text-sm text-[#b90e0a] my-2" id="errorWish" />
+					</div>
+					<label for="" class=""
+						>นายอยากใส่กรอบรูปแบบไหน เลือกเลย!<sup class="text-red-500"><small>*</small></sup
+						></label
 					>
-						<div class="form-item mx-auto items-center self-center justify-center py-2">
-							<label for="name" class="block mb-2 text-sm font-medium text-gray-900"
-								>ชื่อ<sup><small>*</small></sup></label
-							>
-							<input
-								placeholder="ชื่อนายอะ ไอ่หนุ่ม!"
-								type="name"
-								name="name"
-								id="name"
-								class=" p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-								required
-								on:invalid={nameInvalid}
-							/>
-							<p class=" text-sm text-[#b90e0a] my-2" id="errorName" />
-						</div>
-						<div class="form-item mx-auto items-center self-center justify-center">
-							<label for="wish">คำอวยพร<sup><small>*</small></sup></label>
-							<textarea
-								name="wish"
-								id="wish"
-								rows="4"
-								class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-								placeholder="นายอยากใส่คำอวยพร ความปรารถนา หรือ คำทักทาย ใส่เลย!"
-								required
-								on:invalid={wishInvalid}
-							/>
-							<p class=" text-sm text-[#b90e0a] my-2" id="errorWish" />
-						</div>
-						<label for="" class=""
-							>นายอยากใส่กรอบรูปแบบไหน เลือกเลย!<sup class="text-red-500"><small>*</small></sup
-							></label
-						>
-						<Gift />
-						<p class=" text-sm text-[#b90e0a] my-2" id="errorGift" />
+					<Gift />
+					<p class=" text-sm text-[#b90e0a] my-2" id="errorGift" />
 
-						<Button
-							on:click={() => (formModal = true)}
-							class="p-2 bg-slate-900 rounded-full my-2 mx-auto justify-center">ส่งคำอวยพร</Button
-						>
-						<Modal
-							bind:open={formModal}
-							size="xs"
-							autoclose={false}
-							class="w-full touch-auto h-1/2 max-h-[35rem] "
-							title="ข้อตกลงการประมวลผลข้อมูลส่วนบุคคล "
-						>
-							<TOS />
-							<svelte:fragment slot="footer">
-								<div class="grid grid-cols-1 gap-2">
-									<div class="mx-auto grid grid-cols-1">
-										<div class="flex items-start my-2">
-											<div class="flex items-center h-5">
-												<input
-													type="checkbox"
-													name="agreement"
-													value="agreed"
-													class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-													required
-													on:invalid={agreeInvalid}
-												/>
-											</div>
-											<div class="block -mt-3">
-												<div>
-													<label
-														for="agreed"
-														class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-														>ข้าพยอมรับ<a
-															href="#term"
-															class="text-blue-600 hover:underline dark:text-blue-500"
-															>ข้อตกลงเงื่อนไข
-														</a>
-													</label>
-												</div>
-												<div>
-													<label
-														for="agreed"
-														class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-														>I agree with the<a
-															href="#term"
-															class="text-blue-600 hover:underline dark:text-blue-500"
-														>
-															terms and conditions
-														</a>
-													</label>
-												</div>
-											</div>
+					<Button
+						on:click={() => (formModal = true)}
+						class="p-2 bg-slate-900 rounded-full my-2 mx-auto justify-center">ส่งคำอวยพร</Button
+					>
+					<Modal
+						bind:open={formModal}
+						size="xs"
+						autoclose={false}
+						class="w-full touch-auto h-1/2 max-h-[35rem] "
+						title="ข้อตกลงการประมวลผลข้อมูลส่วนบุคคล "
+					>
+						<TOS />
+						<svelte:fragment slot="footer">
+							<div class="grid grid-cols-1 gap-2">
+								<div class="mx-auto grid grid-cols-1">
+									<div class="flex items-start my-2">
+										<div class="flex items-center h-5">
+											<input
+												type="checkbox"
+												name="agreement"
+												value="agreed"
+												class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+												required
+												on:invalid={agreeInvalid}
+											/>
 										</div>
-										<p class=" text-sm text-[#b90e0a] my-2 block" id="errorRead" />
-										<div class="">
-											<Turnstile {siteKey} />
-										</div>
-
-										{#if form?.reCapchaFalse}<p class="error text-[#b90e0a]">
-												นายกดยืนยันreCaptchaด้วย
-											</p>{/if}
-										{#if form?.message}<p class="error text-[#b90e0a]">
-												คำอวยพรของนายยังไม่ได้ส่ง
-											</p>{/if}
-										{#if loading}<p class="error text-cyan-500">กำลังส่งคำอวยพร</p>{/if}
-										{#if form?.complete}<p class="error text-cyan-500">
-												ส่งคำอวยพรเรียบร้อยแล้ว หากไม่มีอะไรเกิดขึ้น กรุณาrefresh page
-												<script>
-													setTimeout(function () {
-														location.reload(true);
-													}, 100);
-												</script>
-											</p>{/if}
-										<div class="grid grid-cols-2 gap-2 my-2">
-											<button
-												class="p-2 bg-slate-50 rounded-full"
-												type="submit"
-												disabled={forms?.message || loading}
-												>ยอมรับข้อตกลงเงื่อนไข
-											</button>
+										<div class="block -mt-3">
+											<div>
+												<label
+													for="agreed"
+													class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+													>ข้าพยอมรับ<a
+														href="#term"
+														class="text-blue-600 hover:underline dark:text-blue-500"
+														>ข้อตกลงเงื่อนไข
+													</a>
+												</label>
+											</div>
+											<div>
+												<label
+													for="agreed"
+													class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+													>I agree with the<a
+														href="#term"
+														class="text-blue-600 hover:underline dark:text-blue-500"
+													>
+														terms and conditions
+													</a>
+												</label>
+											</div>
 										</div>
 									</div>
+									<p class=" text-sm text-[#b90e0a] my-2 block" id="errorRead" />
+									<div class="">
+										<Turnstile {siteKey} />
+									</div>
+
+									{#if form?.reCapchaFalse}<p class="error text-[#b90e0a]">
+											นายกดยืนยันreCaptchaด้วย
+										</p>{/if}
+									{#if form?.message}<p class="error text-[#b90e0a]">
+											คำอวยพรของนายยังไม่ได้ส่ง
+										</p>{/if}
+									{#if loading}<p class="error text-cyan-500">กำลังส่งคำอวยพร</p>{/if}
+									{#if form?.complete}<p class="error text-cyan-500">
+											ส่งคำอวยพรเรียบร้อยแล้ว หากไม่มีอะไรเกิดขึ้น กรุณาrefresh page
+											<script>
+												setTimeout(function () {
+													location.reload(true);
+												}, 100);
+											</script>
+										</p>{/if}
+									<div class="grid grid-cols-2 gap-2 my-2">
+										<button
+											class="p-2 bg-slate-50 rounded-full"
+											type="submit"
+											disabled={forms?.message || loading}
+											>ยอมรับข้อตกลงเงื่อนไข
+										</button>
+									</div>
 								</div>
-							</svelte:fragment>
-						</Modal>
-					</form>
-				</div>
+							</div>
+						</svelte:fragment>
+					</Modal>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -237,7 +230,7 @@
 	<div class="-mt-7">
 		<div class="mx-auto rounded-xl py-4 sm:px-6 lg:px-8">
 			<div class="text-ellipsis rounded-lg">
-				<h1 class="text-center text-2xl mt-4"><b>All Hoku's birthday wishes</b></h1>
+				<h1 class="text-center text-2xl mt-4" id="wish"><b>All Hoku's birthday wishes</b></h1>
 
 				{#await tutorials}
 					<p class="mx-auto">loading...</p>

@@ -16,6 +16,7 @@
 	@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,700;1,600&family=IBM+Plex+Sans+Thai+Looped:wght@400;600;700&family=IBM+Plex+Sans+Thai:wght@500;600;700&family=IBM+Plex+Sans:wght@400;600;700&display=swap');
 	body {
 		font-family: 'IBM Plex Sans Thai', 'IBM Plex Sans Thai Looped', sans-serif;
+		background-color: #fceccb;
 	}
 	:root {
 		--accent: 124, 58, 237;
@@ -23,7 +24,7 @@
 	}
 	html {
 		font-family: system-ui, sans-serif;
-		background-color: #f6f6f6;
+		background-color: #fceccb;
 	}
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,

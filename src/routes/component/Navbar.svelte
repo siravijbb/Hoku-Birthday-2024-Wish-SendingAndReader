@@ -57,7 +57,7 @@
 		<h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
 			คุณกำลังเปลี่ยนหน้าไปยังข้อมูลpolygang (https://polygang.fan/about)
 		</h3>
-		<Button color="red" class="mr-2">ออกจากหน้านี้</Button>
+		<Button color="red" class="mr-2" href="https://polygang.fan/about">ออกจากหน้านี้</Button>
 		<Button color="alternative">ยังคงอยู่หน้านี้</Button>
 	</div>
 </Modal>
@@ -67,7 +67,7 @@
 		<h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
 			คุณกำลังเปลี่ยนหน้าไปยังtwitter.com (https://twitter.com/SierraB_Siravij)
 		</h3>
-		<Button color="red" class="mr-2">ออกจากหน้านี้</Button>
+		<Button color="red" class="mr-2" href="https://twitter.com/SierraB_Siravij">ออกจากหน้านี้</Button>
 		<Button color="alternative">ยังคงอยู่หน้านี้</Button>
 	</div>
 </Modal>

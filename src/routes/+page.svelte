@@ -145,7 +145,6 @@
 						<label for="wish">คำอวยพร<sup><small>*</small></sup></label>
 						<textarea
 							name="wish"
-							id="wish"
 							rows="4"
 							class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
 							placeholder="นายอยากใส่คำอวยพร ความปรารถนา หรือ คำทักทาย ใส่เลย!"
@@ -549,7 +548,7 @@
 	</div>
 	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 	<script>
-		AOS.init();
+		AOS.init({once: true,});
 	</script>
 </main>
 <Footer />

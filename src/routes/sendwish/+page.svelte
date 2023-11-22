@@ -1,3 +1,12 @@
+<meta http-equiv="refresh" content="1; URL=/" />
+
+
+
+
+
+
+
+<!--
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import { Turnstile } from 'svelte-turnstile';
@@ -203,3 +212,4 @@
 		</div>
 	</div>
 </main>
+-->

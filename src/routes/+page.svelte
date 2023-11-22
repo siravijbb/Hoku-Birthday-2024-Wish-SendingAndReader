@@ -229,7 +229,7 @@
 											ส่งคำอวยพรเรียบร้อยแล้ว หากไม่มีอะไรเกิดขึ้น กรุณาrefresh page
 											<script>
 												setTimeout(function () {
-													location.reload(true);
+													throw redirect(301, `/sendwish/completed`);
 												}, 100);
 											</script>
 										</p>{/if}

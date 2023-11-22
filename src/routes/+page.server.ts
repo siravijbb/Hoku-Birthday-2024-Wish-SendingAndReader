@@ -85,9 +85,8 @@ export const actions: Actions = {
 			};
 		}
 
-
-		let count = await bwish.countDocuments()
-		console.log(count)
+		let count = await bwish.countDocuments();
+		console.log(count);
 		bwish.insertOne({
 			name: name,
 			comment: wish, // Use the 'name' value as the 'comment'
@@ -96,14 +95,14 @@ export const actions: Actions = {
 			time: THTIME,
 			agreed: agreed,
 			count: count + 1,
-			picture: picture,
-			}
-		);
-	}};
- return {
-			errors: errors,
-			message: false,
-			reCapchaFalse: false,
-			complete: true
-		};
-
+			picture: picture
+		});
+		setTimeout(() => {
+			close_mongo().then(() => {
+				console.log('Mongo Closed');
+			});
+		}, 5000);
+		console.log('Code Closed');
+		return { complete: true };
+	}
+};

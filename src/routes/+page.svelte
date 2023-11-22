@@ -15,7 +15,7 @@
 
 	let title: string = 'Hoku Birth Day 2024';
 	let description: string = 'Hoku Birth Day 2024';
-	let image: string = 'Hoku Birth Day 2024';
+	let image: string = '/Corousel/PLG3ANNIHoku.jpg';
 
 	let birthdayWishes = data.birthdayWishes?.birthdayWishes ?? [];
 
@@ -229,7 +229,7 @@
 											ส่งคำอวยพรเรียบร้อยแล้ว หากไม่มีอะไรเกิดขึ้น กรุณาrefresh page
 											<script>
 												setTimeout(function () {
-													throw redirect(301, `/sendwish/completed`);
+													window.location.replace('/sendwish/completed');
 												}, 100);
 											</script>
 										</p>{/if}

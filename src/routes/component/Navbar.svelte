@@ -17,26 +17,26 @@
 
 <Navbar class="bg-gradient-to-b from-[#c7722e] to-[#f4a443]">
 	<NavBrand href="/" data-sveltekit-preload-code>
-		<span class="self-center text-xl font-semibold dark:text-white flex">Hoku Birthday 2024</span>
+		<span class="self-center text-xl font-semibold text-white flex">Hoku Birthday 2024</span>
 	</NavBrand>
-	<div class="flex md:order-2">
+	<div class="flex md:order-2 ">
 		<Button size="sm" class="text-slate-100 invisible md:visible" href="#sendwish"
 			>ส่งคำอวยพร</Button
 		>
 		<NavHamburger />
 	</div>
-	<NavUl class="order-1">
-		<NavLi href="#wish" active={true}><p class="text-white">อ่านคำอวยพร</p></NavLi>
+	<NavUl class="order-1 ">
+		<NavLi href="#wish" active={true}><p class="dark:text-white">อ่านคำอวยพร</p></NavLi>
 		<NavLi active={true} on:click={() => (homeModal = true)} class="cursor-pointer hover:underline"
-			><p class="text-white">หน้าหลัก Polygang</p></NavLi
+			><p class="dark:text-white">หน้าหลัก Polygang</p></NavLi
 		>
 		<NavLi active={true} on:click={() => (aboutModal = true)} class="cursor-pointer hover:underline"
-			><p class="text-white">เกี่ยวกับPolygang (ยังไม่เสร็จ)</p></NavLi
+			><p class="dark:text-white">เกี่ยวกับPolygang (ยังไม่เสร็จ)</p></NavLi
 		>
 		<NavLi
 			active={true}
 			on:click={() => (contactModal = true)}
-			class="cursor-pointer hover:underline"><p class="text-white">Contact</p></NavLi
+			class="cursor-pointer hover:underline"><p class="dark:text-white">Contact</p></NavLi
 		>
 	</NavUl>
 </Navbar>

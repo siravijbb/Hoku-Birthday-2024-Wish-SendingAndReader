@@ -110,7 +110,8 @@ export const actions: Actions = {
 			bgColorCode = '#ffbaab';
 			borderColor = '#ffbaab';
 		}
-
+		let count = await bwish.countDocuments()
+		console.log(count)
 		bwish.insertOne({
 			name: name,
 			comment: wish, // Use the 'name' value as the 'comment'
@@ -118,22 +119,9 @@ export const actions: Actions = {
 			DMY: UTCDMY,
 			time: THTIME,
 			agreed: agreed,
-			gift: {
-				id: null,
-				name: 'tapir',
-				desc: desc,
-				imgURL: imgURL,
-				bgColorCode: bgColorCode,
-				borderColor: borderColor,
-				order: null
+			count: count + 1,
+			picture: picture,
 			}
-		});
-		setTimeout(() => {
-			close_mongo().then(() => {
-				console.log('Mongo Closed');
-			});
-		}, 5000);
-		console.log('Code Closed');
-		return { complete: true };
+		);
 	}
 };

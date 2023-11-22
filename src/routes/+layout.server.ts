@@ -35,6 +35,6 @@ export const load: PageServerLoad = async function () {
 	}, 5000);
 	console.log('Code Closed');
 	return {
-		tutorials: { tutorials: data } ///
+		birthdayWishes: { birthdayWishes: data } ///
 	};
 };

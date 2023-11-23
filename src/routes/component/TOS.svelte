@@ -29,8 +29,9 @@
 	สำหรับเพิ่มประสิทธิภาพการทำงานของเว็บไซต์ โดยบริการที่เว็บไซต์ใช้มีดังนี้
 </p>
 <ul>
-	<li>CloudFlare Analytics</li>
-	<li>CloudFlare Manager</li>
+	<li>CloudFlare Analytics</li>>
+	<li>Google Analytics</li>
+	<li>Google Manager</li>
 </ul>
 <p>
 	กรณีที่มีการเชื่อมโยงกับแพลตฟอร์มของบุคคลที่สาม เช่น เครือข่ายการโฆษณา สื่อสังคมออนไลน์

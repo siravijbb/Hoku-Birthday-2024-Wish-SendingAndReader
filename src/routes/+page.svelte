@@ -168,7 +168,7 @@
 						bind:open={formModal}
 						size="xs"
 						autoclose={false}
-						class=" touch-auto max-h-screen"
+						class=" touch-auto  max-h-[80vh] md:max-h-screen"
 						title="ข้อตกลงการประมวลผลข้อมูลส่วนบุคคล "
 					>
 						<TOS />

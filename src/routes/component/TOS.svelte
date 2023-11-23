@@ -29,7 +29,7 @@
 	สำหรับเพิ่มประสิทธิภาพการทำงานของเว็บไซต์ โดยบริการที่เว็บไซต์ใช้มีดังนี้
 </p>
 <ul>
-	<li>CloudFlare Analytics</li>>
+	<li>CloudFlare Analytics</li>
 	<li>Google Analytics</li>
 	<li>Google Manager</li>
 </ul>
@@ -77,4 +77,4 @@
 		>
 	</li>
 </ul>
-<b>จัดทำนโยบายโดยชาว Polygang</b>
+<b>จัดทำโดยชาว Polygang</b>

@@ -4,21 +4,29 @@
 	let index = 0;
 	const images = [
 		{
+			title: 'Original Song Teaser | Hoku 🦉',
+			alt: 'Original Song Teaser is here!',
+			src: '/Corousel/30novComing.png',
+
+			imgClass: 'object-contain h-full w-fit rounded-sm',
+			link: 'https://twitter.com/HokuPLG/status/1709504045843730454'
+		},		
+		{
 			title: 'New Original Song is Coming!',
 			alt: 'เพลงใหม่กำลังมาาาาา รอตามกันได้เลยยย',
 			src: '/Corousel/newOriginalSongComing.jpg',
 			imgClass: 'object-contain h-full w-fit rounded-sm',
 			link: 'https://twitter.com/HokuPLG/status/1726903282738532677'
 		},
-
 		{
-			title: 'cristina-gottardi-CSpjU6hYo_0-unsplash.com',
+			title: 'Happy Polygon 3 Year Anni!',
 			alt: 'Happy Polygon 3 Year Anni!',
 			src: '/Corousel/PLG3ANNIHoku.jpg',
 
 			imgClass: 'object-contain h-full w-fit rounded-sm',
 			link: 'https://twitter.com/HokuPLG/status/1709504045843730454'
-		}
+		},
+
 	];
 	/**
 	 * @type {{ alt: any; }}

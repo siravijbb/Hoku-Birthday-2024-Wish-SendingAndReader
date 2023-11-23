@@ -15,7 +15,7 @@
 
 	let title: string = 'Hoku Birth Day 2024';
 	let description: string = 'Hoku Birth Day 2024';
-	let image: string = '/Corousel/PLG3ANNIHoku.jpg';
+	let image: string = '/30novComing.png';
 
 	let birthdayWishes = data.birthdayWishes?.birthdayWishes ?? [];
 

@@ -9,8 +9,8 @@
 			src: '/Corousel/30novComing.png',
 
 			imgClass: 'object-contain h-full w-fit rounded-sm',
-			link: 'https://twitter.com/HokuPLG/status/1709504045843730454'
-		},		
+			link: 'https://x.com/HokuPLG/status/1727673361105306095'
+		},
 		{
 			title: 'New Original Song is Coming!',
 			alt: 'เพลงใหม่กำลังมาาาาา รอตามกันได้เลยยย',
@@ -25,8 +25,7 @@
 
 			imgClass: 'object-contain h-full w-fit rounded-sm',
 			link: 'https://twitter.com/HokuPLG/status/1709504045843730454'
-		},
-
+		}
 	];
 	/**
 	 * @type {{ alt: any; }}
@@ -52,7 +51,7 @@
 		</Carousel>
 	</div>
 	<div
-		class="rounded h-10 mx-3 bg-gradient-to-b from-[#c7722e] to-[#f4a443] dark:text-white p-2 my-2 text-center rounded-lg"
+		class=" h-10 mx-3 bg-gradient-to-b from-[#c7722e] to-[#f4a443] dark:text-white p-2 my-2 text-center rounded-lg"
 	>
 		{image?.alt}
 	</div>

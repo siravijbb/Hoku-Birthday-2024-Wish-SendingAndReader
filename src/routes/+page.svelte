@@ -59,13 +59,13 @@
 	function nameInvalid() {
 		const resultElement = document.getElementById('errorName');
 		if (resultElement !== null) {
-			resultElement.innerHTML = '❗ ไอ่หนุ่ม! แกต้องบอกชื่อด้วย ไอ่หนุ่ม!';
+			resultElement.innerHTML = '❗ ไอ่หนุ่ม! แกต้องบอกชื่อด้วย';
 		}
 	}
 	function wishInvalid() {
 		const resultElement = document.getElementById('errorWish');
 		if (resultElement !== null) {
-			resultElement.innerHTML = '❗ ไอ่หนุ่ม! แกลืมคำอวยพรแก';
+			resultElement.innerHTML = '❗ ไอ่หนุ่ม! แกลืมคำอวยพรนะ';
 		}
 	}
 	function agreeInvalid() {
@@ -548,7 +548,7 @@
 	</div>
 	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 	<script>
-		AOS.init({once: true,});
+		AOS.init({ once: true });
 	</script>
 </main>
 <Footer />

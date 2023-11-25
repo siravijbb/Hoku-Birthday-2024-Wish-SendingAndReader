@@ -3,7 +3,6 @@
 Currently on BETA Test: Hoku Birth Day dashboard for wish for hoku birthday on 2024.
 Data stucture on mongodb will be: [This server side code:Line 92](https://github.com/siravijbb/Hoku-Birthday-2024-Wish-SendingAndReader/blob/main/src/routes/%2Bpage.server.ts#L92)
 
-
 # Struture
 
 Data structure provided: by [baku-bd-static-2023 by RikiNozomu](https://github.com/RikiNozomu/baku-bd-static-2023)

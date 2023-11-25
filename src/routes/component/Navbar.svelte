@@ -16,10 +16,13 @@
 </script>
 
 <Navbar class="bg-gradient-to-b from-[#c7722e] to-[#f4a443]">
-	<NavBrand href="/" data-sveltekit-preload-code>
-		<span class="self-center text-xl font-semibold text-white flex">Hoku Birthday 2024</span>
+	<NavBrand href="/" data-sveltekit-preload-code class="block">
+		<span class="self-center text-xl font-semibold text-white block">Hoku Birthday 2024</span>
+		<span class="block self-center text-xl font-semibold text-white text-center"
+			>Fanclub Project</span
+		>
 	</NavBrand>
-	<div class="flex md:order-2 ">
+	<div class="flex md:order-2">
 		<Button size="sm" class="text-slate-100 invisible md:visible" href="#sendwish"
 			>ส่งคำอวยพร</Button
 		>
@@ -67,7 +70,9 @@
 		<h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
 			คุณกำลังเปลี่ยนหน้าไปยังtwitter.com (https://twitter.com/SierraB_Siravij)
 		</h3>
-		<Button color="red" class="mr-2" href="https://twitter.com/SierraB_Siravij">ออกจากหน้านี้</Button>
+		<Button color="red" class="mr-2" href="https://twitter.com/SierraB_Siravij"
+			>ออกจากหน้านี้</Button
+		>
 		<Button color="alternative">ยังคงอยู่หน้านี้</Button>
 	</div>
 </Modal>

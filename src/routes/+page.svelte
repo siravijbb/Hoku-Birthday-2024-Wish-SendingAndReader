@@ -21,13 +21,13 @@
 
 	const picturename1 = 'hamham';
 	const desc1 = 'ผู้ฝันใฝ่ธรรมดา ที่รัก และคิดถึงคุณบากุมาก ๆ';
-	const imgURL1 = '/img/icon/20230727153257-10f56244-bd4b-47d2-90db-b5ee7c2cc743.png';
+	const imgURL1 = '/imgHoku/1.png';
 	const bgColorCode1 = '#e1d7ed';
 	const borderColor1 = '#524973';
 
 	const picturename2 = 'hamham';
 	const desc2 = '#หนูบากุน่ารักที่สุดในโลก';
-	const imgURL2 = '/img/icon/20230727153227-31419e74-c30d-4662-ba3b-7fc77ab28968.png';
+	const imgURL2 = '/imgHoku/2.png';
 	const bgColorCode2 = '#FFFFFF';
 	const borderColor2 = '#eabdb4';
 
@@ -292,7 +292,7 @@
 									>
 									<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
 										<div class="flex">
-											<img src={imgURL1} class="h-[80px] object-contain" alt="gift" /><b
+											<img src={imgURL1} class="h-40 object-contain -mt-9 -ml-14" alt="gift" /><b
 												class="text-[#4E4670] min-[425px]:text-[20px] text-[14px] overflow-hidden pt-4 min-[425px]:pr-20 min-[375px]:pr-16 pr-14"
 												>{bwish.name}</b
 											>
@@ -323,8 +323,8 @@
 									<div
 										class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
 									>
-										<img class="w-24" src="favicon.png" alt="count" />
-										<div class="text-[#524973] absolute left-[36px] top-12 text-xl font-bold">
+										<img class="w-40 -mb-9 -rotate-45" src="/imgHoku/1.1.png" alt="count" />
+										<div class="text-[#672e38] absolute left-[80px] top-[76px] text-xl font-bold">
 											{bwish.count}
 										</div>
 									</div>
@@ -332,7 +332,7 @@
 							{/if}
 							{#if bwish.picture == 2}
 								<div
-									class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 bg-[{borderColor2}]"
+									class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 bg-[{borderColor1}]"
 									style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 								>
 									<svg
@@ -360,7 +360,7 @@
 									>
 									<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
 										<div class="flex">
-											<img src={imgURL2} class="h-[80px] object-contain" alt="gift" /><b
+											<img src={imgURL2} class="h-40 object-contain -mt-9 -ml-14" alt="gift" /><b
 												class="text-[#4E4670] min-[425px]:text-[20px] text-[14px] overflow-hidden pt-4 min-[425px]:pr-20 min-[375px]:pr-16 pr-14"
 												>{bwish.name}</b
 											>
@@ -391,8 +391,8 @@
 									<div
 										class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
 									>
-										<img class="w-24" src="favicon.png" alt="count" />
-										<div class="text-[#524973] absolute left-[36px] top-12 text-xl font-bold">
+										<img class="w-40 -mb-9 -rotate-45" src="/imgHoku/1.1.png" alt="count" />
+										<div class="text-[#672e38] absolute left-[80px] top-[76px] text-xl font-bold">
 											{bwish.count}
 										</div>
 									</div>
@@ -459,8 +459,8 @@
 									<div
 										class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
 									>
-										<img class="w-24" src="favicon.png" alt="count" />
-										<div class="text-[#524973] absolute left-[36px] top-12 text-xl font-bold">
+										<img class="w-40 -mb-9 -rotate-45" src="/imgHoku/1.1.png" alt="count" />
+										<div class="text-[#672e38] absolute left-[80px] top-[76px] text-xl font-bold">
 											{bwish.count}
 										</div>
 									</div>
@@ -527,8 +527,8 @@
 									<div
 										class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
 									>
-										<img class="w-24" src="favicon.png" alt="count" />
-										<div class="text-[#524973] absolute left-[36px] top-12 text-xl font-bold">
+										<img class="w-40 -mb-9 -rotate-45" src="/imgHoku/1.1.png" alt="count" />
+										<div class="text-[#672e38] absolute left-[80px] top-[76px] text-xl font-bold">
 											{bwish.count}
 										</div>
 									</div>

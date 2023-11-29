@@ -20,14 +20,10 @@
 		/>
 		<label
 			for="hosting-small"
-			class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+			class="inline-flex items-center justify-between w-full p-5 text-white bg-[#bb433d] border border-gray-200 rounded-lg cursor-pointer dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700"
 		>
 			<div class="mx-auto">
-				<img
-					alt="hamham "
-					src="/img/icon/20230727153257-10f56244-bd4b-47d2-90db-b5ee7c2cc743.png"
-					class="flex mx-auto w-9 h-auto my-auto"
-				/>
+				<img alt="hamham " src="/imgHoku/1.png" class="flex mx-auto h-28 w-auto -my-7 -mt-9" />
 				<div class="flex mx-auto text-xs">HOKU The Owls</div>
 			</div>
 		</label>
@@ -36,14 +32,10 @@
 		<input type="radio" id="hosting-big" name="picture" value="2" class="peer" />
 		<label
 			for="hosting-big"
-			class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
+			class="inline-flex items-center justify-between w-full p-5 text-white bg-[#eabdb4] border border-gray-200 rounded-lg cursor-pointer dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700"
 		>
 			<div class="mx-auto">
-				<img
-					alt="hamham "
-					src="/img/icon/20230727153227-31419e74-c30d-4662-ba3b-7fc77ab28968.png"
-					class="flex mx-auto w-9 h-auto my-auto"
-				/>
+				<img alt="hamham " src="/imgHoku/2.png" class="flex mx-auto h-28 w-auto -my-7 -mt-9" />
 				<div class="flex mx-auto text-xs">Light Stick for HOKU</div>
 			</div>
 		</label>

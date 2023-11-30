@@ -300,9 +300,7 @@
 										<div
 											class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
 										>
-											<span class="">{bwish.DMY}</span><span class="flex-1 text-right"
-												>{bwish.time}</span
-											>
+											
 										</div>
 									</div>
 

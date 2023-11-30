@@ -15,7 +15,7 @@
 
 	let title: string = 'Hoku Birth Day 2024';
 	let description: string = 'Hoku Birth Day 2024';
-	let image: string = '/30novComing.png';
+	let image: string = '/Corousel/PLG3ANNIHoku.jpg';
 
 	let birthdayWishes = data.birthdayWishes?.birthdayWishes ?? [];
 
@@ -86,7 +86,7 @@
 
 	<meta name="description" content="Astro description" />
 	<meta name="viewport" content="width=device-width" />
-	<link rel="icon" type="image/svg+xml" href="/favicon.jpg" />
+	<link rel="icon" type="image/svg+xml" href={image} />
 	<title>{title}</title>
 
 	<meta name="title" content={title} />

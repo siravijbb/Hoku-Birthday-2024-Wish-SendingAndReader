@@ -4,17 +4,17 @@
 	let index = 0;
 	const images = [
 		{
-			title: 'Original Song Teaser | Hoku 🦉',
-			alt: 'Original Song Teaser is here!',
-			src: '/Corousel/30novComing.png',
+			title: 'Original Song by Hoku 🦉',
+			alt: 'เพลงOrignalของHokuออกแล้ว ไปฟังกันเลย!',
+			src: '/imgHoku/TTLG.jpg',
 
 			imgClass: 'object-contain h-full w-fit rounded-sm',
-			link: 'https://x.com/HokuPLG/status/1727673361105306095'
+			link: 'https://www.youtube.com/watch?v=nAIkrVifIBg&ab_channel=HokuCh.'
 		},
 		{
-			title: 'New Original Song is Coming!',
-			alt: 'เพลงใหม่กำลังมาาาาา รอตามกันได้เลยยย',
-			src: '/Corousel/newOriginalSongComing.jpg',
+			title: 'ขอบคุณคุณF สำหรับ ARTทั้งหมด!',
+			alt: 'ขอบคุณคุณF สำหรับ ARTทั้งหมด!',
+			src: '/imgHoku/1.png',
 			imgClass: 'object-contain h-full w-fit rounded-sm',
 			link: 'https://twitter.com/HokuPLG/status/1726903282738532677'
 		},

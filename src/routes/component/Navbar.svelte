@@ -41,6 +41,10 @@
 			on:click={() => (contactModal = true)}
 			class="cursor-pointer hover:underline"><p class="dark:text-white">Contact</p></NavLi
 		>
+		<NavLi
+		href="#credit"
+		class="cursor-pointer hover:underline"><p class="dark:text-white">Credit</p></NavLi
+	>
 	</NavUl>
 </Navbar>
 

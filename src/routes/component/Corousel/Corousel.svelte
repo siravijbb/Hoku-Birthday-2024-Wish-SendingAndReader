@@ -51,7 +51,7 @@
 		</Carousel>
 	</div>
 	<div
-		class=" h-10 mx-3 bg-gradient-to-b from-[#c7722e] to-[#f4a443] dark:text-white p-2 my-2 text-center rounded-lg"
+		class=" h-10 mx-3 bg-gradient-to-b from-[#c7722e] to-[#f4a443] dark:text-white p-2 my-2 text-center rounded-lg font-['itim']"
 	>
 		{image?.alt}
 	</div>

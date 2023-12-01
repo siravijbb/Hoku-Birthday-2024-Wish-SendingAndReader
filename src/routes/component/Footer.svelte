@@ -92,6 +92,7 @@
 				></a
 			>
 		</div>
-		<img class=" h-14 -my-9 rotate-45" src="/imgHoku/1.1.png" alt="count" />
+		
 	</div>
+	<img class=" h-14 -my-9 rotate-45" src="/imgHoku/1.1.png" alt="count" />
 </div>

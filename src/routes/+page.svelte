@@ -112,13 +112,13 @@
 	>
 		<div class="mx-auto rounded-xl py-4">
 			<div class="mx-auto max-w-4xl text-ellipsis rounded-lg py-4 lg:px-8">
-				<h1 class="text-center text-2xl"><b>Happy Hoku's birthday</b></h1>
-				<h2 class="pb-4 text-center text-xl">8 Jan 2024</h2>
+				<h1 class="text-center text-2xl font-['itim']"><b>Happy Hoku's birthday</b></h1>
+				<h2 class="pb-4 text-center text-xl font-['itim']">8 Jan 2024</h2>
 				<Corousel />
 			</div>
 			<div class="mx-auto max-w-4xl text-ellipsis rounded-lg py-4 shadow-xl lg:px-8" id="sendwish">
-				<h1 class="text-center text-2xl">ส่งคำอวยพรให้นายHOKU</h1>
-				<h1 class="pb-4 text-center text-xl -mt-2">Wish sending to HOKU</h1>
+				<h1 class="text-center text-2xl font-['itim']">ส่งคำอวยพรให้นายHOKU</h1>
+				<h1 class="pb-4 text-center text-xl -mt-2 font-['itim']">Wish sending to HOKU</h1>
 				<form
 					bind:this={thisForm}
 					on:submit={handleSubmit}
@@ -252,13 +252,13 @@
 	<div class="-mt-7">
 		<div class="mx-auto rounded-xl py-4 sm:px-6 lg:px-8">
 			<div class="text-ellipsis rounded-lg">
-				<h1 class="text-center text-2xl mt-4" id="wish"><b>All Hoku's birthday wishes</b></h1>
+				<h1 class="text-center text-2xl mt-4 font-['itim']" id="wish"><b>All Hoku's birthday wishes</b></h1>
 
 				{#await birthdayWishes}
 					<p class="mx-auto">loading...</p>
 				{:then birthdayWishes}
 					<div
-						class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto"
+						class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim']"
 						data-aos="fade-up"
 					>
 						{#each birthdayWishes as bwish, index}
@@ -508,7 +508,8 @@
 							{/if}
 						{/each}
 					</div>
-					<h2 class="mx-auto text-lg text-yellow-700 text-center pb-16">หมดแล้ว! ไอ่หนุ่ม!</h2>
+					<h2 class="mx-auto text-lg text-yellow-700 text-center pb-16 pt-4">หมดแล้ว! ไอ่หนุ่ม!
+					<p class="mx-auto text-lg text-yellow-700 text-center " id="credit">Credit: <p>DEV: สิราวิ้จจะบึ<p>ART: CV_FSan<p>Data structure: neaht<p>Data structure: RikiNozomu<p>Domain: Setsugi<p>Project Approval: Polygon Project</p></h2>
 				{/await}
 
 				{#if data?.dataFailed}

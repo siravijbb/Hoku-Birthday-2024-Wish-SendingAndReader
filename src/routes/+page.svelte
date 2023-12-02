@@ -47,7 +47,7 @@
 	let thisForm: HTMLFormElement;
 	let loading = false;
 
-	const siteKey = '1x00000000000000000000AA';
+	const siteKey = '0x4AAAAAAAMk_GZOoiKNR8pU';
 	let forms: ActionData;
 	function handleSubmit() {
 		loading = true;

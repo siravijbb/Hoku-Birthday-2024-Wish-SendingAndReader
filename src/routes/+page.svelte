@@ -74,6 +74,18 @@
 			resultElement.innerHTML = '❗ ไอ่หนุ่ม! แกต้องอ่านให้หมดด้วย';
 		}
 	}
+	const counter = (() => {
+    const input = document.getElementById('wish'),
+      display = document.getElementById('counter-display'),
+      changeEvent = (evt) => display.innerHTML = evt.target.value.length,
+      getInput = () => input.value,
+      countEvent = () => input.addEventListener('keyup', changeEvent),
+      init = () => countEvent();
+
+    return {
+      init: init
+    }})
+	
 </script>
 
 <head>
@@ -127,11 +139,12 @@
 					class=" bg-[#f4b38d] px-9 lg:px-20 pb-4 mx-auto items-center self-center justify-center rounded-lg"
 				>
 					<div class="form-item mx-auto items-center self-center justify-center py-2">
-						<label for="name" class="block mb-2 text-sm font-medium text-gray-900"
-							>ชื่อ<sup><small>*</small></sup></label
-						>
+						<label for="name" class="block mb-2 text-sm font-medium "
+							>ชื่อ<sup><small>*</small></sup><label for="counter-input" class="label block"><small>จำกัด: <span id="counter-display" class="tag is-success">50 อักษร</span></small></label> </label>
+						
 						<input
 							placeholder="ชื่อนายอะ ไอ่หนุ่ม!"
+							maxlength="50"
 							type="name"
 							name="name"
 							id="name"
@@ -142,16 +155,18 @@
 						<p class=" text-sm text-[#b90e0a] my-2" id="errorName" />
 					</div>
 					<div class="form-item mx-auto items-center self-center justify-center">
-						<label for="wish">คำอวยพร<sup><small>*</small></sup></label>
+						<label for="wish">คำอวยพร<sup><small>*</small></sup><label for="counter-input" class="label block"><small>จำกัด: <span id="counter-display" class="tag is-success">500 อักษร</span></small></label> </label>
+						
 						<textarea
 							name="wish"
 							rows="4"
 							class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
 							placeholder="นายอยากใส่คำอวยพร ความปรารถนา หรือ คำทักทาย ใส่เลย!"
+							maxlength="500"
 							required
 							on:invalid={wishInvalid}
 						/>
-						<p class=" text-sm text-[#b90e0a] my-2" id="errorWish" />
+						
 					</div>
 					<label for="" class=""
 						>นายอยากใส่กรอบรูปแบบไหน เลือกเลย!<sup class="text-red-500"><small>*</small></sup

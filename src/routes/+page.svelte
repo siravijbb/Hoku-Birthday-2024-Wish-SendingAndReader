@@ -74,18 +74,18 @@
 			resultElement.innerHTML = '❗ ไอ่หนุ่ม! แกต้องอ่านให้หมดด้วย';
 		}
 	}
-	const counter = (() => {
-    const input = document.getElementById('wish'),
-      display = document.getElementById('counter-display'),
-      changeEvent = (evt) => display.innerHTML = evt.target.value.length,
-      getInput = () => input.value,
-      countEvent = () => input.addEventListener('keyup', changeEvent),
-      init = () => countEvent();
+	const counter = () => {
+		const input = document.getElementById('wish'),
+			display = document.getElementById('counter-display'),
+			changeEvent = (evt) => (display.innerHTML = evt.target.value.length),
+			getInput = () => input.value,
+			countEvent = () => input.addEventListener('keyup', changeEvent),
+			init = () => countEvent();
 
-    return {
-      init: init
-    }})
-	
+		return {
+			init: init
+		};
+	};
 </script>
 
 <head>
@@ -139,9 +139,14 @@
 					class=" bg-[#f4b38d] px-9 lg:px-20 pb-4 mx-auto items-center self-center justify-center rounded-lg"
 				>
 					<div class="form-item mx-auto items-center self-center justify-center py-2">
-						<label for="name" class="block mb-2 text-sm font-medium "
-							>ชื่อ<sup><small>*</small></sup><label for="counter-input" class="label block"><small>จำกัด: <span id="counter-display" class="tag is-success">50 อักษร</span></small></label> </label>
-						
+						<label for="name" class="block mb-2 text-sm font-medium"
+							>ชื่อ<sup><small>*</small></sup><label for="counter-input" class="label block"
+								><small
+									>จำกัด: <span id="counter-display" class="tag is-success">50 อักษร</span></small
+								></label
+							>
+						</label>
+
 						<input
 							placeholder="ชื่อนายอะ ไอ่หนุ่ม!"
 							maxlength="50"
@@ -155,8 +160,14 @@
 						<p class=" text-sm text-[#b90e0a] my-2" id="errorName" />
 					</div>
 					<div class="form-item mx-auto items-center self-center justify-center">
-						<label for="wish">คำอวยพร<sup><small>*</small></sup><label for="counter-input" class="label block"><small>จำกัด: <span id="counter-display" class="tag is-success">500 อักษร</span></small></label> </label>
-						
+						<label for="wish"
+							>คำอวยพร<sup><small>*</small></sup><label for="counter-input" class="label block"
+								><small
+									>จำกัด: <span id="counter-display" class="tag is-success">500 อักษร</span></small
+								></label
+							>
+						</label>
+
 						<textarea
 							name="wish"
 							rows="4"
@@ -166,7 +177,6 @@
 							required
 							on:invalid={wishInvalid}
 						/>
-						
 					</div>
 					<label for="" class=""
 						>นายอยากใส่กรอบรูปแบบไหน เลือกเลย!<sup class="text-red-500"><small>*</small></sup
@@ -293,20 +303,21 @@
 										><path
 											fill={borderColor1}
 											d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
-										/><path fill="#ffbaab" d="m13 24.5v24.5h376v-49h-376z" /></svg
+										/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
 									><svg
 										version="1.2"
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 402 132"
 										class=""
 										><path fill={borderColor1} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
-											fill="#ffbaab"
+											fill="#ffffff"
 											d="m13 92.5v79.5h376v-159h-376z"
 										/></svg
 									>
+
 									<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
 										<div class="flex">
-											<img src={imgURL1} class="h-40 object-contain -mt-9 -ml-14" alt="gift" />
+											<img src={imgURL1} class="h-40 object-contain -mt-9 -ml-14 z-10" alt="gift" />
 										</div>
 									</div>
 									<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
@@ -322,8 +333,10 @@
 									<div
 										class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
 									>
-										<img class="w-40 -mb-9 -rotate-45" src="/imgHoku/1.1.png" alt="count" />
-										<div class="text-[#672e38] absolute left-[80px] top-[76px] text-xl font-bold">
+										<img class="w-40 -mb-11 rotate-12" src="/imgHoku/1.1.1.png" alt="count" />
+										<div
+											class="text-[#672e38] absolute left-36 -top-40 text-xl font-bold -rotate-12"
+										>
 											{bwish.count}
 										</div>
 									</div>
@@ -336,7 +349,7 @@
 										><path
 											fill={borderColor1}
 											d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
-										/><path fill="#ffbaab" d="m13 59.5v59.5h376v-119h-376z" /></svg
+										/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
 									>
 								</div>
 							{/if}
@@ -354,20 +367,20 @@
 										><path
 											fill={borderColor2}
 											d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
-										/><path fill="#ffbaab" d="m13 24.5v24.5h376v-49h-376z" /></svg
+										/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
 									><svg
 										version="1.2"
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 402 132"
 										class=""
 										><path fill={borderColor2} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
-											fill="#ffbaab"
+											fill="#ffffff"
 											d="m13 92.5v79.5h376v-159h-376z"
 										/></svg
 									>
 									<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
 										<div class="flex">
-											<img src={imgURL2} class="h-40 object-contain -mt-9 -ml-14" alt="gift" />
+											<img src={imgURL2} class="h-40 object-contain -mt-9 -ml-14 z-10" alt="gift" />
 										</div>
 									</div>
 									<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
@@ -383,8 +396,10 @@
 									<div
 										class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
 									>
-										<img class="w-40 -mb-9 -rotate-45" src="/imgHoku/1.1.png" alt="count" />
-										<div class="text-[#672e38] absolute left-[80px] top-[76px] text-xl font-bold">
+										<img class="w-40 mb-[-3rem] rotate-12" src="/imgHoku/1.1.2.png" alt="count" />
+										<div
+											class="text-[#672e38] absolute left-36 -top-40 text-xl font-bold -rotate-12"
+										>
 											{bwish.count}
 										</div>
 									</div>
@@ -397,7 +412,7 @@
 										><path
 											fill={borderColor2}
 											d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
-										/><path fill="#ffbaab" d="m13 59.5v59.5h376v-119h-376z" /></svg
+										/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
 									>
 								</div>
 							{/if}
@@ -413,22 +428,31 @@
 										viewBox="0 0 402 49"
 										class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
 										><path
-											fill={borderColor1}
+											fill={borderColor3}
 											d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
-										/><path fill={borderColor3} d="m13 24.5v24.5h376v-49h-376z" /></svg
+										/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
 									><svg
 										version="1.2"
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 402 132"
 										class=""
-										><path fill={borderColor1} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
-											fill={borderColor3}
+										><path fill={borderColor3} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
+											fill="#ffffff"
 											d="m13 92.5v79.5h376v-159h-376z"
 										/></svg
 									>
 									<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
 										<div class="flex">
-											<img src={imgURL3} class="h-40 object-contain -mt-9 -ml-14" alt="gift" />
+											<img
+												class="w-fit h-auto absolute top-0 -mt-44 z-0 -ml-3"
+												src="/imgHoku/1.1.3.png"
+												alt=""
+											/>
+											<img src={imgURL3} class="h-40 object-contain -mt-9 -ml-14 z-10" alt="gift" />
+
+											<div class="text-[#672e38] font-bold -rotate-12 ml-60 mt-2 text-xl">
+												{bwish.count}
+											</div>
 										</div>
 									</div>
 									<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
@@ -441,24 +465,15 @@
 										/>
 									</div>
 
-									<div
-										class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
-									>
-										<img class="w-40 -mb-9 -rotate-45" src="/imgHoku/1.1.png" alt="count" />
-										<div class="text-[#672e38] absolute left-[80px] top-[76px] text-xl font-bold">
-											{bwish.count}
-										</div>
-									</div>
-
 									<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
 										<p><b>{bwish.name}</b></p>
 										<p>{bwish.DMY} {bwish.time}</p>
 									</div>
 									<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
 										><path
-											fill={borderColor1}
+											fill={borderColor3}
 											d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
-										/><path fill={borderColor3} d="m13 59.5v59.5h376v-119h-376z" /></svg
+										/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
 									>
 								</div>
 							{/if}
@@ -476,20 +491,20 @@
 										><path
 											fill={borderColor4}
 											d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
-										/><path fill="#ffbaab" d="m13 24.5v24.5h376v-49h-376z" /></svg
+										/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
 									><svg
 										version="1.2"
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 402 132"
 										class=""
 										><path fill={borderColor4} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
-											fill="#ffbaab"
+											fill="#ffffff"
 											d="m13 92.5v79.5h376v-159h-376z"
 										/></svg
 									>
 									<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
 										<div class="flex">
-											<img src={imgURL4} class="h-40 object-contain -mt-9 -ml-14" alt="gift" />
+											<img src={imgURL4} class="h-40 object-contain -mt-9 -ml-14 z-10" alt="gift" />
 										</div>
 									</div>
 									<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
@@ -506,7 +521,9 @@
 										class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
 									>
 										<img class="w-40 -mb-9 -rotate-45" src="/imgHoku/1.1.png" alt="count" />
-										<div class="text-[#672e38] absolute left-[80px] top-[76px] text-xl font-bold">
+										<div
+											class="text-[#672e38] absolute left-36 -top-36 text-xl font-bold -rotate-12"
+										>
 											{bwish.count}
 										</div>
 									</div>
@@ -519,7 +536,7 @@
 										><path
 											fill={borderColor4}
 											d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
-										/><path fill="#ffbaab" d="m13 59.5v59.5h376v-119h-376z" /></svg
+										/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
 									>
 								</div>
 							{/if}

@@ -65,7 +65,7 @@
 	function wishInvalid() {
 		const resultElement = document.getElementById('errorWish');
 		if (resultElement !== null) {
-			resultElement.innerHTML = '❗ ไอ่หนุ่ม! แกลืมคำอวยพรนะ';
+			resultElement.innerHTML = '❗ ไอ่หนุ่ม! ใส่น้อยไปหน่อยไหมนาย';
 		}
 	}
 	function agreeInvalid() {
@@ -140,7 +140,7 @@
 				>
 					<div class="form-item mx-auto items-center self-center justify-center py-2">
 						<label for="name" class="block mb-2 text-sm font-medium"
-							>ชื่อ<sup><small>*</small></sup><label for="counter-input" class="label block"
+							>ชื่อ<sup><small class="text-red-500">*</small></sup><label for="counter-input" class="label block"
 								><small
 									>จำกัด: <span id="counter-display" class="tag is-success">50 อักษร</span></small
 								></label
@@ -161,7 +161,7 @@
 					</div>
 					<div class="form-item mx-auto items-center self-center justify-center">
 						<label for="wish"
-							>คำอวยพร<sup><small>*</small></sup><label for="counter-input" class="label block"
+							>คำอวยพร<sup><small class="text-red-500">*</small></sup><label for="counter-input" class="label block"
 								><small
 									>จำกัด: <span id="counter-display" class="tag is-success">500 อักษร</span></small
 								></label
@@ -174,12 +174,17 @@
 							class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
 							placeholder="นายอยากใส่คำอวยพร ความปรารถนา หรือ คำทักทาย ใส่เลย!"
 							maxlength="500"
+							minlength="6"
 							required
 							on:invalid={wishInvalid}
 						/>
+						<p class=" text-sm text-[#b90e0a] my-2" id="errorWish" />
 					</div>
+					
 					<label for="" class=""
-						>นายอยากใส่กรอบรูปแบบไหน เลือกเลย!<sup class="text-red-500"><small>*</small></sup
+						>นายอยากใส่กรอบรูปแบบไหน เลือกเลย!<small class="text-red-500">*</small><label for="counter-input" class="label block"
+						><small
+							></small
 						></label
 					>
 					<Gift />

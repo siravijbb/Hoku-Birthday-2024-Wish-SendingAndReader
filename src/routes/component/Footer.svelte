@@ -28,7 +28,7 @@
 		class="h-full justify-center items-center flex sm:flex-row flex-col min-[341px]:flex-none flex-1 sm:gap-2"
 	>
 		<span class="sm:text-base text-xs text-center"
-			>ติดตาม <b class="underline">Kinari HOKU</b> ได้แล้วที่</span
+			>ติดตาม<b class="underline">โฮคุ</b>ได้แล้วที่</span
 		>
 		<div class="min-[341px]:flex grid grid-cols-3 min-[341px]:gap-2">
 			<a class="flex items-center" target="_blank" href="https://t.co/nCV3vocXPv"

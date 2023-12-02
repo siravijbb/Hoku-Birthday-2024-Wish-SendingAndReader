@@ -41,7 +41,7 @@
 					class="h-full justify-center items-center flex sm:flex-row flex-col min-[341px]:flex-none flex-1 sm:gap-2"
 				>
 					<span class="sm:text-base text-xs text-center"
-						>ติดตาม <b class="underline">Kinari HOKU</b> ได้แล้วที่</span
+						>ติดตาม <b class="underline">โฮคุ</b> ได้แล้วที่</span
 					>
 					<div class="min-[341px]:flex grid grid-cols-3 min-[341px]:gap-2">
 						<a class="flex items-center" target="_blank" href="https://t.co/nCV3vocXPv"
@@ -122,8 +122,8 @@
 					viewBox="0 0 24 24"
 					fill="#FFFFFF"
 					data-testid="HomeIcon"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" /></svg
-				><span class="text-xl text-[#bb433d]"
-					>หน้าอวยพรวันเกิด<b class="text-[#ab98ff] underline">Kinari HOKU</b></span
+				><span class="text-xl text-white"
+					>หน้าอวยพรวันเกิด<b class="text-[#bb433d] underline">โฮคุ</b></span
 				></a
 			>
 			<hr class=" bg-white" />
@@ -139,7 +139,7 @@
 				title="🎆ในความฝัน และความทรงจำหน้าร้อน"
 				width="100%"
 				height="100%"
-				src="https://www.youtube.com/embed/nAIkrVifIBg?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=nAIkrVifIBg&amp;enablejsapi=1&amp;origin=https%3A%2F%2Fhokubirthday2024.polygang.fan&amp;widgetid=1"
+				src="https://www.youtube.com/embed/nAIkrVifIBg?autoplay=1&mute=0&controls=0&loop=1&playlist=nAIkrVifIBg&enablejsapi=1&origin=https%3A%2F%2Fhokubirthday2024.polygang.fan&widgetid=1"
 				id="widget2"
 			/>
 		</div>

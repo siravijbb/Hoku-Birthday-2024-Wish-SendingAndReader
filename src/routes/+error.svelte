@@ -139,9 +139,10 @@
 				title="🎆ในความฝัน และความทรงจำหน้าร้อน"
 				width="100%"
 				height="100%"
-				src="https://www.youtube.com/embed/nAIkrVifIBg?autoplay=1&mute=0&controls=0&loop=1&playlist=nAIkrVifIBg&enablejsapi=1&origin=https%3A%2F%2Fhokubirthday2024.polygang.fan&widgetid=1"
+				src="https://www.youtube.com/embed/nAIkrVifIBg?autoplay=1&mute=0&controls=0&loop=1&playlist=nAIkrVifIBg&enablejsapi=1&widgetid=1"
 				id="widget2"
 			/>
+			
 		</div>
 	</div>
 </main>

@@ -23,31 +23,31 @@
 	const desc1 = 'ผู้ฝันใฝ่ธรรมดา ที่รัก และคิดถึงคุณบากุมาก ๆ';
 	const imgURL1 = '/imgHoku/1.png';
 	const bgColorCode1 = '#e1d7ed';
-	const borderColor1 = '#8d2239';
+	const borderColor1 = '#bf4e2e';
 
 	const picturename2 = 'hamham';
 	const desc2 = '#หนูบากุน่ารักที่สุดในโลก';
 	const imgURL2 = '/imgHoku/2.png';
 	const bgColorCode2 = '#FFFFFF';
-	const borderColor2 = '#bb433d';
+	const borderColor2 = '#f1962e';
 
 	const picturename3 = 'banana';
 	const desc3 = 'กล้วยน้อย ขนาดแมวดำยังชอบเล่นกล้วย แล้วใครล่ะจะไม่ชอบ';
 	const imgURL3 = '/imgHoku/3.png';
 	const bgColorCode3 = '#ffe8a8';
-	const borderColor3 = '#aeb84c';
+	const borderColor3 = '#d7ebff';
 
 	const picturename4 = 'heart';
 	const desc4 = 'ความรักที่มีต่อคุณบากุ';
-	const imgURL4 = '/imgHoku/3.png';
+	const imgURL4 = '/imgHoku/4.png';
 	const bgColorCode4 = '#ffbaab';
-	const borderColor4 = '#ffbaab';
+	const borderColor4 = '#ffa083';
 
 	let formModal = false;
 	let thisForm: HTMLFormElement;
 	let loading = false;
 
-	const siteKey = '0x4AAAAAAAMk_GZOoiKNR8pU';
+	const siteKey = '1x00000000000000000000AA';
 	let forms: ActionData;
 	function handleSubmit() {
 		loading = true;
@@ -252,7 +252,9 @@
 	<div class="-mt-7">
 		<div class="mx-auto rounded-xl py-4 sm:px-6 lg:px-8">
 			<div class="text-ellipsis rounded-lg">
-				<h1 class="text-center text-2xl mt-4 font-['itim']" id="wish"><b>All Hoku's birthday wishes</b></h1>
+				<h1 class="text-center text-2xl mt-4 font-['itim']" id="wish">
+					<b>All Hoku's birthday wishes</b>
+				</h1>
 
 				{#await birthdayWishes}
 					<p class="mx-auto">loading...</p>
@@ -264,7 +266,7 @@
 						{#each birthdayWishes as bwish, index}
 							{#if bwish.picture == 1}
 								<div
-									class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 bg-[{borderColor1}]"
+									class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
 									style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 								>
 									<svg
@@ -276,15 +278,15 @@
 										><path
 											fill={borderColor1}
 											d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
-										/><path fill="#FFFFFF" d="m13 24.5v24.5h376v-49h-376z" /></svg
+										/><path fill="#ffbaab" d="m13 24.5v24.5h376v-49h-376z" /></svg
 									><svg
 										version="1.2"
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 402 132"
 										class=""
 										><path fill={borderColor1} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
-											fill="#FFFFFF"
-											d="m13 92.5v79.5h376v-159c-19.8 0-25.3 0.1-25 0.4 0.3 0.2 2.9 2 5.8 4 3.1 2.2 6.4 3.6 8.2 3.6 1.6 0 3.7 0.8 4.6 1.8 0.9 0.9 1.5 3 1.3 4.7-0.1 1.6 0.5 4.8 1.5 7l1.7 4c-6.7 6.9-10.8 11.2-13.6 14q-5 5.1-10 6.9c-2.7 0.9-9 2-13.8 2.4-5.2 0.4-9.4 1.2-10 2-0.7 0.7-2.6 1.3-4.2 1.2-2.4 0-4.5-1.6-10-7.3-5.2-5.2-7.5-8.6-8.8-12.2-0.9-2.8-1.8-7.5-2-10.5-0.2-3-1.1-6.7-2-8.3-1.4-2.3-1.5-3.1-0.4-5.4 0.8-1.9 2.4-3.1 5.2-3.8 2.2-0.6 5.1-1.9 6.5-2.8 2.3-1.6-7-1.7-154.3-1.7h-156.7z"
+											fill="#ffbaab"
+											d="m13 92.5v79.5h376v-159h-376z"
 										/></svg
 									>
 									<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
@@ -311,7 +313,7 @@
 										</div>
 									</div>
 
-									<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6">
+									<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
 										<p><b>{bwish.name}</b></p>
 										<p>{bwish.DMY} {bwish.time}</p>
 									</div>
@@ -319,13 +321,13 @@
 										><path
 											fill={borderColor1}
 											d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
-										/></svg
+										/><path fill="#ffbaab" d="m13 59.5v59.5h376v-119h-376z" /></svg
 									>
 								</div>
 							{/if}
 							{#if bwish.picture == 2}
 								<div
-									class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 bg-[{borderColor1}]"
+									class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
 									style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 								>
 									<svg
@@ -337,15 +339,15 @@
 										><path
 											fill={borderColor2}
 											d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
-										/><path fill="#FFFFFF" d="m13 24.5v24.5h376v-49h-376z" /></svg
+										/><path fill="#ffbaab" d="m13 24.5v24.5h376v-49h-376z" /></svg
 									><svg
 										version="1.2"
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 402 132"
 										class=""
 										><path fill={borderColor2} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
-											fill="#FFFFFF"
-											d="m13 92.5v79.5h376v-159c-19.8 0-25.3 0.1-25 0.4 0.3 0.2 2.9 2 5.8 4 3.1 2.2 6.4 3.6 8.2 3.6 1.6 0 3.7 0.8 4.6 1.8 0.9 0.9 1.5 3 1.3 4.7-0.1 1.6 0.5 4.8 1.5 7l1.7 4c-6.7 6.9-10.8 11.2-13.6 14q-5 5.1-10 6.9c-2.7 0.9-9 2-13.8 2.4-5.2 0.4-9.4 1.2-10 2-0.7 0.7-2.6 1.3-4.2 1.2-2.4 0-4.5-1.6-10-7.3-5.2-5.2-7.5-8.6-8.8-12.2-0.9-2.8-1.8-7.5-2-10.5-0.2-3-1.1-6.7-2-8.3-1.4-2.3-1.5-3.1-0.4-5.4 0.8-1.9 2.4-3.1 5.2-3.8 2.2-0.6 5.1-1.9 6.5-2.8 2.3-1.6-7-1.7-154.3-1.7h-156.7z"
+											fill="#ffbaab"
+											d="m13 92.5v79.5h376v-159h-376z"
 										/></svg
 									>
 									<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
@@ -372,7 +374,7 @@
 										</div>
 									</div>
 
-									<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6">
+									<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
 										<p><b>{bwish.name}</b></p>
 										<p>{bwish.DMY} {bwish.time}</p>
 									</div>
@@ -380,13 +382,13 @@
 										><path
 											fill={borderColor2}
 											d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
-										/></svg
+										/><path fill="#ffbaab" d="m13 59.5v59.5h376v-119h-376z" /></svg
 									>
 								</div>
 							{/if}
 							{#if bwish.picture == 3}
 								<div
-									class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 bg-[{borderColor3}]"
+									class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
 									style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 								>
 									<svg
@@ -396,17 +398,17 @@
 										viewBox="0 0 402 49"
 										class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
 										><path
-											fill={borderColor3}
+											fill={borderColor1}
 											d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
-										/><path fill="#FFFFFF" d="m13 24.5v24.5h376v-49h-376z" /></svg
+										/><path fill={borderColor3} d="m13 24.5v24.5h376v-49h-376z" /></svg
 									><svg
 										version="1.2"
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 402 132"
 										class=""
-										><path fill={borderColor3} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
-											fill="#FFFFFF"
-											d="m13 92.5v79.5h376v-159c-19.8 0-25.3 0.1-25 0.4 0.3 0.2 2.9 2 5.8 4 3.1 2.2 6.4 3.6 8.2 3.6 1.6 0 3.7 0.8 4.6 1.8 0.9 0.9 1.5 3 1.3 4.7-0.1 1.6 0.5 4.8 1.5 7l1.7 4c-6.7 6.9-10.8 11.2-13.6 14q-5 5.1-10 6.9c-2.7 0.9-9 2-13.8 2.4-5.2 0.4-9.4 1.2-10 2-0.7 0.7-2.6 1.3-4.2 1.2-2.4 0-4.5-1.6-10-7.3-5.2-5.2-7.5-8.6-8.8-12.2-0.9-2.8-1.8-7.5-2-10.5-0.2-3-1.1-6.7-2-8.3-1.4-2.3-1.5-3.1-0.4-5.4 0.8-1.9 2.4-3.1 5.2-3.8 2.2-0.6 5.1-1.9 6.5-2.8 2.3-1.6-7-1.7-154.3-1.7h-156.7z"
+										><path fill={borderColor1} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
+											fill={borderColor3}
+											d="m13 92.5v79.5h376v-159h-376z"
 										/></svg
 									>
 									<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
@@ -433,21 +435,21 @@
 										</div>
 									</div>
 
-									<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6">
+									<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
 										<p><b>{bwish.name}</b></p>
 										<p>{bwish.DMY} {bwish.time}</p>
 									</div>
 									<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
 										><path
-											fill={borderColor3}
+											fill={borderColor1}
 											d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
-										/></svg
+										/><path fill={borderColor3} d="m13 59.5v59.5h376v-119h-376z" /></svg
 									>
 								</div>
 							{/if}
 							{#if bwish.picture == 4}
 								<div
-									class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 bg-[{borderColor4}]"
+									class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
 									style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 								>
 									<svg
@@ -459,15 +461,15 @@
 										><path
 											fill={borderColor4}
 											d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
-										/><path fill="#FFFFFF" d="m13 24.5v24.5h376v-49h-376z" /></svg
+										/><path fill="#ffbaab" d="m13 24.5v24.5h376v-49h-376z" /></svg
 									><svg
 										version="1.2"
 										xmlns="http://www.w3.org/2000/svg"
 										viewBox="0 0 402 132"
 										class=""
 										><path fill={borderColor4} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
-											fill="#FFFFFF"
-											d="m13 92.5v79.5h376v-159c-19.8 0-25.3 0.1-25 0.4 0.3 0.2 2.9 2 5.8 4 3.1 2.2 6.4 3.6 8.2 3.6 1.6 0 3.7 0.8 4.6 1.8 0.9 0.9 1.5 3 1.3 4.7-0.1 1.6 0.5 4.8 1.5 7l1.7 4c-6.7 6.9-10.8 11.2-13.6 14q-5 5.1-10 6.9c-2.7 0.9-9 2-13.8 2.4-5.2 0.4-9.4 1.2-10 2-0.7 0.7-2.6 1.3-4.2 1.2-2.4 0-4.5-1.6-10-7.3-5.2-5.2-7.5-8.6-8.8-12.2-0.9-2.8-1.8-7.5-2-10.5-0.2-3-1.1-6.7-2-8.3-1.4-2.3-1.5-3.1-0.4-5.4 0.8-1.9 2.4-3.1 5.2-3.8 2.2-0.6 5.1-1.9 6.5-2.8 2.3-1.6-7-1.7-154.3-1.7h-156.7z"
+											fill="#ffbaab"
+											d="m13 92.5v79.5h376v-159h-376z"
 										/></svg
 									>
 									<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
@@ -494,7 +496,7 @@
 										</div>
 									</div>
 
-									<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6">
+									<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
 										<p><b>{bwish.name}</b></p>
 										<p>{bwish.DMY} {bwish.time}</p>
 									</div>
@@ -502,14 +504,22 @@
 										><path
 											fill={borderColor4}
 											d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
-										/></svg
+										/><path fill="#ffbaab" d="m13 59.5v59.5h376v-119h-376z" /></svg
 									>
 								</div>
 							{/if}
 						{/each}
 					</div>
-					<h2 class="mx-auto text-lg text-yellow-700 text-center pb-16 pt-4">หมดแล้ว! ไอ่หนุ่ม!
-					<p class="mx-auto text-lg text-yellow-700 text-center " id="credit">Credit: <p>DEV: สิราวิ้จจะบึ<p>ART: CV_FSan<p>Data structure: neaht<p>Data structure: RikiNozomu<p>Domain: Setsugi<p>Project Approval: Polygon Project</p></h2>
+					<h2 class="mx-auto text-lg text-yellow-700 text-center pb-16 pt-4">
+						หมดแล้ว! ไอ่หนุ่ม!
+						<p class="mx-auto text-lg text-yellow-700 text-center" id="credit">Credit:</p>
+						<p>DEV: สิราวิ้จจะบึ</p>
+						<p>ART: CV_FSan</p>
+						<p>Data structure: neaht</p>
+						<p>Data structure: RikiNozomu</p>
+						<p>Domain: Setsugi</p>
+						<p>Project Approval: Polygon Project</p>
+					</h2>
 				{/await}
 
 				{#if data?.dataFailed}

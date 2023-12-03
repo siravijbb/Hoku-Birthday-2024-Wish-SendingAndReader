@@ -5,6 +5,12 @@ import { redirect } from '@sveltejs/kit';
 import { fail } from '@sveltejs/kit';
 import { SECRET_KEYS } from '$env/static/private';
 
+const predefinedDate = '2024-01-08';
+
+// Get the current date
+const currentDate = new Date();
+const currentDateString = currentDate.toISOString().split('T')[0]; // Format as "YYYY-MM-DD"
+
 export interface TokenValidateResponse {
 	'error-codes': string[];
 	success: boolean;
@@ -103,6 +109,13 @@ export const actions: Actions = {
 			});
 		}, 5000);
 		console.log('Code Closed');
-		return { complete: true };
+		if (currentDate < new Date(predefinedDate)) {
+			console.log('Sended before the predefined date.');
+			return {
+				completeBefore: true
+			};
+		} else {
+			return { complete: true };
+		}
 	}
 };

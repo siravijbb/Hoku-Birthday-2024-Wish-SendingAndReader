@@ -44,7 +44,7 @@
 						>ติดตาม <b class="underline">โฮคุ</b> ได้แล้วที่</span
 					>
 					<div class="min-[341px]:flex grid grid-cols-3 min-[341px]:gap-2">
-						<a class="flex items-center" target="_blank" href="https://t.co/nCV3vocXPv"
+						<a class="flex items-center" target="_blank" href="https://www.youtube.com/@HokuPLG"
 							><svg
 								class="w-[26px] h-[26px]"
 								version="1.2"
@@ -142,7 +142,6 @@
 				src="https://www.youtube.com/embed/nAIkrVifIBg?autoplay=1&mute=1&controls=0&loop=1&playlist=nAIkrVifIBg&enablejsapi=1&origin=https%3A%2F%2Fhokubirthday2024.polygang.fan&widgetid=1"
 				id="widget2"
 			/>
-			
 		</div>
 	</div>
 </main>

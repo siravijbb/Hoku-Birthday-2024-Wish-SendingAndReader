@@ -1,7 +1,7 @@
 <div
 	class="w-full h-sm flex flex-row gap-2 fixed bottom-0 bg-[#FA8128] z-50 p-2 text-white justify-center items-center whitespace-nowrap"
 >
-	<img class=" h-14 -my-9 -rotate-45" src="/imgHoku/1.1.png" alt="count" />
+	<img class=" h-14 -my-9 -rotate-45" src="/imgHoku/1.1.png" alt="art" />
 	<a
 		class="flex min-[431px]:flex-row flex-col items-center gap-1"
 		target="_blank"
@@ -31,7 +31,7 @@
 			>ติดตาม<b class="underline">โฮคุ</b>ได้แล้วที่</span
 		>
 		<div class="min-[341px]:flex grid grid-cols-3 min-[341px]:gap-2">
-			<a class="flex items-center" target="_blank" href="https://t.co/nCV3vocXPv"
+			<a class="flex items-center" target="_blank" href="https://www.youtube.com/@HokuPLG"
 				><svg
 					class="w-[26px] h-[26px]"
 					version="1.2"
@@ -93,5 +93,5 @@
 			>
 		</div>
 	</div>
-	<img class=" h-14 -my-9 rotate-45" src="/imgHoku/1.1.png" alt="count" />
+	<img class=" h-14 -my-9 rotate-45" src="/imgHoku/1.1.png" alt="art" />
 </div>

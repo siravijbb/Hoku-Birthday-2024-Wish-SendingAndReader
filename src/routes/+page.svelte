@@ -53,7 +53,7 @@
 		loading = true;
 		setTimeout(() => {
 			loading = false;
-		}, 10000);
+		}, 7500);
 	}
 
 	function nameInvalid() {
@@ -140,7 +140,9 @@
 				>
 					<div class="form-item mx-auto items-center self-center justify-center py-2">
 						<label for="name" class="block mb-2 text-sm font-medium"
-							>ชื่อ<sup><small class="text-red-500">*</small></sup><label for="counter-input" class="label block"
+							>ชื่อ<sup><small class="text-red-500">*</small></sup><label
+								for="counter-input"
+								class="label block"
 								><small
 									>จำกัด: <span id="counter-display" class="tag is-success">50 อักษร</span></small
 								></label
@@ -161,7 +163,9 @@
 					</div>
 					<div class="form-item mx-auto items-center self-center justify-center">
 						<label for="wish"
-							>คำอวยพร<sup><small class="text-red-500">*</small></sup><label for="counter-input" class="label block"
+							>คำอวยพร<sup><small class="text-red-500">*</small></sup><label
+								for="counter-input"
+								class="label block"
 								><small
 									>จำกัด: <span id="counter-display" class="tag is-success">500 อักษร</span></small
 								></label
@@ -180,100 +184,109 @@
 						/>
 						<p class=" text-sm text-[#b90e0a] my-2" id="errorWish" />
 					</div>
-					
+
 					<label for="" class=""
-						>นายอยากใส่กรอบรูปแบบไหน เลือกเลย!<small class="text-red-500">*</small><label for="counter-input" class="label block"
-						><small
-							></small
-						></label
-					>
-					<Gift />
-					<p class=" text-sm text-[#b90e0a] my-2" id="errorGift" />
+						>นายอยากใส่กรอบรูปแบบไหน เลือกเลย!<small class="text-red-500">*</small><label
+							for="counter-input"
+							class="label block"><small /></label
+						>
+						<Gift />
+						<p class=" text-sm text-[#b90e0a] my-2" id="errorGift" />
 
-					<Button
-						on:click={() => (formModal = true)}
-						class="p-2 bg-slate-900 rounded-full my-2 mx-auto justify-center">ส่งคำอวยพร</Button
-					>
-					<Modal
-						bind:open={formModal}
-						size="xs"
-						autoclose={false}
-						class=" touch-auto  max-h-[80vh] md:max-h-screen"
-						title="ข้อตกลงการประมวลผลข้อมูลส่วนบุคคล "
-					>
-						<TOS />
-						<svelte:fragment slot="footer">
-							<div class="grid grid-cols-1 gap-2">
-								<div class="mx-auto grid grid-cols-1">
-									<div class="flex items-start my-2">
-										<div class="flex items-center h-5">
-											<input
-												type="checkbox"
-												name="agreement"
-												value="agreed"
-												class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-												required
-												on:invalid={agreeInvalid}
-											/>
-										</div>
-										<div class="block -mt-3">
-											<div>
-												<label
-													for="agreed"
-													class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-													>ข้าพยอมรับ<a
-														href="#term"
-														class="text-blue-600 hover:underline dark:text-blue-500"
-														>ข้อตกลงเงื่อนไข
-													</a>
-												</label>
+						<Button
+							on:click={() => (formModal = true)}
+							class="p-2 bg-slate-900 rounded-full my-2 mx-auto justify-center">ส่งคำอวยพร</Button
+						>
+						<Modal
+							bind:open={formModal}
+							size="xs"
+							autoclose={false}
+							class=" touch-auto  max-h-[80vh] md:max-h-screen"
+							title="ข้อตกลงการประมวลผลข้อมูลส่วนบุคคล "
+						>
+							<TOS />
+							<svelte:fragment slot="footer">
+								<div class="grid grid-cols-1 gap-2">
+									<div class="mx-auto grid grid-cols-1">
+										<div class="flex items-start my-2">
+											<div class="flex items-center h-5">
+												<input
+													type="checkbox"
+													name="agreement"
+													value="agreed"
+													class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+													required
+													on:invalid={agreeInvalid}
+												/>
 											</div>
-											<div>
-												<label
-													for="agreed"
-													class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-													>I agree with the<a
-														href="#term"
-														class="text-blue-600 hover:underline dark:text-blue-500 ml-1"
-													>
-														terms and conditions
-													</a>
-												</label>
+											<div class="block -mt-3">
+												<div>
+													<label
+														for="agreed"
+														class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+														>ข้าพยอมรับ<a
+															href="#term"
+															class="text-blue-600 hover:underline dark:text-blue-500"
+															>ข้อตกลงเงื่อนไข
+														</a>
+													</label>
+												</div>
+												<div>
+													<label
+														for="agreed"
+														class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+														>I agree with the<a
+															href="#term"
+															class="text-blue-600 hover:underline dark:text-blue-500 ml-1"
+														>
+															terms and conditions
+														</a>
+													</label>
+												</div>
 											</div>
 										</div>
-									</div>
-									<p class=" text-sm text-[#b90e0a] my-2 block" id="errorRead" />
-									<div class="">
-										<Turnstile {siteKey} />
-									</div>
+										<p class=" text-sm text-[#b90e0a] my-2 block" id="errorRead" />
+										<div class="">
+											<Turnstile {siteKey} />
+										</div>
 
-									{#if form?.reCapchaFalse}<p class="error text-[#b90e0a]">
-											นายกดยืนยันreCaptchaด้วย
-										</p>{/if}
-									{#if form?.message}<p class="error text-[#b90e0a]">
-											คำอวยพรของนายยังไม่ได้ส่ง
-										</p>{/if}
-									{#if loading}<p class="error text-cyan-500">กำลังส่งคำอวยพร</p>{/if}
-									{#if form?.complete}<p class="error text-cyan-500">
-											ส่งคำอวยพรเรียบร้อยแล้ว หากไม่มีอะไรเกิดขึ้น กรุณาrefresh page
-											<script>
-												setTimeout(function () {
-													window.location.replace('/sendwish/completed');
-												}, 100);
-											</script>
-										</p>{/if}
-									<div class="grid grid-cols-2 gap-2 my-2">
-										<button
-											class="p-2 bg-slate-50 rounded-full"
-											type="submit"
-											disabled={forms?.message || loading}
-											>ยอมรับข้อตกลงเงื่อนไข
-										</button>
+										{#if form?.reCapchaFalse}<p class="error text-[#b90e0a]">
+												นายกดยืนยันreCaptchaด้วย
+											</p>{/if}
+										{#if form?.message}<p class="error text-[#b90e0a]">
+												คำอวยพรของนายยังไม่ได้ส่ง
+											</p>{/if}
+										{#if loading}<p class="error text-cyan-500">กำลังส่งคำอวยพร</p>{/if}
+										{#if form?.complete || form?.completeBefore}<p class="error text-cyan-500">
+												{#if form?.completeBefore}
+													<h2>
+														ส่งคำอวยพรเรียบร้อยแล้ว คำอวยพรจะเปิดวันเกิดนะนาย! เจอกัน!
+													</h2>{:else if data?.complete}
+													<h2>
+														ส่งคำอวยพรเรียบร้อยแล้ว หากไม่มีอะไรเกิดขึ้นภายใน 3 วินาที กรุณาrefresh
+														page
+													</h2>
+												{/if}
+
+												<script>
+													setTimeout(function () {
+														window.location.replace('/sendwish/completed');
+													}, 3000);
+												</script>
+											</p>{/if}
+										<div class="grid grid-cols-2 gap-2 my-2">
+											<button
+												class="p-2 bg-slate-900 text-white disabled:bg-slate-900/30 disabled:text-white/30 rounded-full"
+												type="submit"
+												disabled={forms?.message || loading}
+												>ยอมรับข้อตกลงเงื่อนไข
+											</button>
+										</div>
 									</div>
 								</div>
-							</div>
-						</svelte:fragment>
-					</Modal>
+							</svelte:fragment>
+						</Modal>
+					</label>
 				</form>
 			</div>
 		</div>
@@ -285,7 +298,247 @@
 				<h1 class="text-center text-2xl mt-4 font-['itim']" id="wish">
 					<b>All Hoku's birthday wishes</b>
 				</h1>
+				{#if data?.notIntime}
+					<h2 class="mx-auto text-lg text-black text-center font-['itim']">
+						ยังไม่ถึงเวลาอ่านคำอวยพรนะนาย เจอกันวันเกิด!
+						<div
+							class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim']"
+							data-aos="fade-up"
+						>
+							<div
+								class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
+								style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+							>
+								<svg
+									preserveAspectRatio="none"
+									version="1.2"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 402 49"
+									class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
+									><path
+										fill={borderColor1}
+										d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
+									/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
+								><svg
+									version="1.2"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 402 132"
+									class=""
+									><path fill={borderColor1} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
+										fill="#ffffff"
+										d="m13 92.5v79.5h376v-159h-376z"
+									/></svg
+								>
 
+								<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
+									<div class="flex">
+										<img src={imgURL1} class="h-40 object-contain -mt-9 -ml-14 z-10" alt="gift" />
+									</div>
+								</div>
+								<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
+									<span
+										class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
+										>ตัวอย่างกล่องที่ 1</span
+									>
+									<div
+										class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
+									/>
+								</div>
+
+								<div
+									class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
+								>
+									<img class="w-40 -mb-11 rotate-12" src="/imgHoku/1.1.1.png" alt="count" />
+								</div>
+
+								<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0 text-left">
+									<p class=""><b>ชื่อ #อันดับ</b></p>
+									<p>วดป</p>
+								</div>
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
+									><path
+										fill={borderColor1}
+										d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
+									/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
+								>
+							</div>
+
+							<div
+								class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
+								style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+							>
+								<svg
+									preserveAspectRatio="none"
+									version="1.2"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 402 49"
+									class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
+									><path
+										fill={borderColor2}
+										d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
+									/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
+								><svg
+									version="1.2"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 402 132"
+									class=""
+									><path fill={borderColor2} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
+										fill="#ffffff"
+										d="m13 92.5v79.5h376v-159h-376z"
+									/></svg
+								>
+								<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
+									<div class="flex">
+										<img src={imgURL2} class="h-40 object-contain -mt-9 -ml-14 z-10" alt="gift" />
+									</div>
+								</div>
+								<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
+									<span
+										class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
+										>ตัวอย่างกล่องที่ 2</span
+									>
+									<div
+										class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
+									/>
+								</div>
+
+								<div
+									class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
+								>
+									<img class="w-40 -mb-11 rotate-12" src="/imgHoku/1.1.2.png" alt="count" />
+								</div>
+
+								<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0 text-left">
+									<p class=""><b>ชื่อ #อันดับ</b></p>
+									<p>วดป</p>
+								</div>
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
+									><path
+										fill={borderColor2}
+										d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
+									/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
+								>
+							</div>
+
+							<div
+								class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
+								style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+							>
+								<svg
+									preserveAspectRatio="none"
+									version="1.2"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 402 49"
+									class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
+									><path
+										fill={borderColor3}
+										d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
+									/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
+								><svg
+									version="1.2"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 402 132"
+									class=""
+									><path fill={borderColor3} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
+										fill="#ffffff"
+										d="m13 92.5v79.5h376v-159h-376z"
+									/></svg
+								>
+								<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
+									<div class="flex">
+										<img
+											class="w-fit h-auto absolute -top-36 md:-top-40 z-0 -ml-3 object-contain"
+											src="/imgHoku/1.1.3.png"
+											alt=""
+										/>
+										<img src={imgURL3} class="h-40 object-contain -mt-9 -ml-14 z-10" alt="gift" />
+									</div>
+								</div>
+								<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
+									<span
+										class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
+										>ตัวอย่างกล่องที่ 3</span
+									>
+									<div
+										class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
+									/>
+								</div>
+
+								<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0 text-left">
+									<p class=""><b>ชื่อ #อันดับ</b></p>
+									<p>วดป</p>
+								</div>
+
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
+									><path
+										fill={borderColor3}
+										d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
+									/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
+								>
+							</div>
+
+							<div
+								class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
+								style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+							>
+								<svg
+									preserveAspectRatio="none"
+									version="1.2"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 402 49"
+									class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
+									><path
+										fill={borderColor4}
+										d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
+									/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
+								><svg
+									version="1.2"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 402 132"
+									class=""
+									><path fill={borderColor4} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
+										fill="#ffffff"
+										d="m13 92.5v79.5h376v-159h-376z"
+									/></svg
+								>
+								<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
+									<div class="flex">
+										<img src={imgURL4} class="h-40 object-contain -mt-9 -ml-14 z-10" alt="gift" />
+									</div>
+								</div>
+								<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
+									<span
+										class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
+										>ตัวอย่างกล่องที่ 4</span
+									>
+									<div
+										class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
+									/>
+								</div>
+
+								<div
+									class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
+								>
+									<img class="w-40 -mb-9 -rotate-45" src="/imgHoku/1.1.png" alt="count" />
+								</div>
+
+								<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0 text-left">
+									<p class=""><b>ชื่อ #อันดับ</b></p>
+									<p>วดป</p>
+								</div>
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
+									><path
+										fill={borderColor4}
+										d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
+									/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
+								>
+							</div>
+						</div>
+					</h2>{/if}
+				{#if data?.dataFailed}
+					<h2 class="mx-auto text-lg text-red-600 text-center">
+						Data Fetching failled, Try again later But Wish sending might working
+					</h2>{/if}
 				{#await birthdayWishes}
 					<p class="mx-auto">loading...</p>
 				{:then birthdayWishes}
@@ -339,15 +592,10 @@
 										class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
 									>
 										<img class="w-40 -mb-11 rotate-12" src="/imgHoku/1.1.1.png" alt="count" />
-										<div
-											class="text-[#672e38] absolute left-36 -top-40 text-xl font-bold -rotate-12"
-										>
-											{bwish.count}
-										</div>
 									</div>
 
 									<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
-										<p><b>{bwish.name}</b></p>
+										<p><b>{bwish.name} #{bwish.count}</b></p>
 										<p>{bwish.DMY} {bwish.time}</p>
 									</div>
 									<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
@@ -401,16 +649,11 @@
 									<div
 										class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
 									>
-										<img class="w-40 mb-[-3rem] rotate-12" src="/imgHoku/1.1.2.png" alt="count" />
-										<div
-											class="text-[#672e38] absolute left-36 -top-40 text-xl font-bold -rotate-12"
-										>
-											{bwish.count}
-										</div>
+										<img class="w-40 -mb-11 rotate-12" src="/imgHoku/1.1.2.png" alt="count" />
 									</div>
 
 									<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
-										<p><b>{bwish.name}</b></p>
+										<p><b>{bwish.name} #{bwish.count}</b></p>
 										<p>{bwish.DMY} {bwish.time}</p>
 									</div>
 									<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
@@ -449,15 +692,11 @@
 									<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
 										<div class="flex">
 											<img
-												class="w-fit h-auto absolute top-0 -mt-44 z-0 -ml-3"
+												class="w-fit h-auto absolute -top-36 md:-top-40 z-0 -ml-3 object-contain"
 												src="/imgHoku/1.1.3.png"
 												alt=""
 											/>
 											<img src={imgURL3} class="h-40 object-contain -mt-9 -ml-14 z-10" alt="gift" />
-
-											<div class="text-[#672e38] font-bold -rotate-12 ml-60 mt-2 text-xl">
-												{bwish.count}
-											</div>
 										</div>
 									</div>
 									<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
@@ -471,9 +710,10 @@
 									</div>
 
 									<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
-										<p><b>{bwish.name}</b></p>
+										<p><b>{bwish.name} #{bwish.count}</b></p>
 										<p>{bwish.DMY} {bwish.time}</p>
 									</div>
+
 									<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
 										><path
 											fill={borderColor3}
@@ -526,15 +766,10 @@
 										class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
 									>
 										<img class="w-40 -mb-9 -rotate-45" src="/imgHoku/1.1.png" alt="count" />
-										<div
-											class="text-[#672e38] absolute left-36 -top-36 text-xl font-bold -rotate-12"
-										>
-											{bwish.count}
-										</div>
 									</div>
 
 									<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
-										<p><b>{bwish.name}</b></p>
+										<p><b>{bwish.name} #{bwish.count}</b></p>
 										<p>{bwish.DMY} {bwish.time}</p>
 									</div>
 									<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
@@ -558,11 +793,6 @@
 						<p>Project Approval: Polygon Project</p>
 					</h2>
 				{/await}
-
-				{#if data?.dataFailed}
-					<h2 class="mx-auto text-lg text-red-600 text-center">
-						Data Fetching failled, Try again later But Wish sending might working
-					</h2>{/if}
 			</div>
 		</div>
 	</div>

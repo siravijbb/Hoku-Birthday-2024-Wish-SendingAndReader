@@ -45,3 +45,8 @@ pnpm run build
 You can preview the production build with `pnpm run dev`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+
+## Art plan
+![image](https://github.com/siravijbb/Hoku-Birthday-2024-Wish-SendingAndReader/assets/47503079/1f0c8cea-c31c-487c-ade5-75a342a54188)
+

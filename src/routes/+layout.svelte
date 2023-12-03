@@ -10,7 +10,12 @@
 			<slot />
 		</main>
 	</body>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script>
+		AOS.init({ once: true });
+	</script>
 </div>
+
 
 <style is:global>
 	@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@400;600;700&family=IBM+Plex+Sans+Thai:wght@500;600;700&family=IBM+Plex+Sans:wght@400;600;700&family=Itim&display=swap');

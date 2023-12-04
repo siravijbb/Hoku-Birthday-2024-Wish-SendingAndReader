@@ -16,7 +16,7 @@
 			alt: 'ขอบคุณคุณF สำหรับ ARTทั้งหมด!',
 			src: '/imgHoku/1.png',
 			imgClass: 'object-contain h-full w-fit rounded-sm',
-			link: 'https://twitter.com/HokuPLG/status/1726903282738532677'
+			link: 'https://twitter.com/cv_fsan/status/1731631751724986620'
 		},
 		{
 			title: 'Happy Polygon 3 Year Anni!',

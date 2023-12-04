@@ -192,8 +192,89 @@
 						>
 						<Gift />
 						<p class=" text-sm text-[#b90e0a] my-2" id="errorGift" />
+						<div class="flex items-start my-2">
+							<div class="flex items-center h-5 mt-3">
+								<input
+									type="checkbox"
+									name="agreement"
+									value="agreed"
+									class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+									required
+									on:invalid={agreeInvalid}
+								/>
+							</div>
+							<div class="block ">
+								<div>
+									<label
+										for="agreed"
+										class="ms-2 text-sm font-medium text-gray-900"
+										>ข้าพเจ้า<a
+											href=""
+											class="text-blue-600 hover:underline dark:text-blue-500"
+											>อนุญาตให้เผยแพร่คำอวยพร
+										</a>
+									</label>
+								</div>
+								<div>
+									<label
+										for="agreed"
+										class="ms-2 text-sm font-medium text-gray-900"
+										>I agree to<a
+											href=""
+											class="text-blue-600 hover:underline dark:text-blue-500 ml-1"
+										>
+											share my wish with public
+										</a>
+									</label>
+								</div>
+								
+							</div>
+							
+						</div>
+								<p class=" text-sm text-[#b90e0a] my-2 block" id="errorRead" />
+								<div class="grid grid-cols-1 gap-2">
+									<div class="mx-auto grid grid-cols-1">
 
-						<Button
+										
+										<div class="">
+											<Turnstile {siteKey} />
+										</div>
+
+										{#if form?.reCapchaFalse}<p class="error text-[#b90e0a]">
+												นายกดยืนยันreCaptchaด้วย
+											</p>{/if}
+										{#if form?.message}<p class="error text-[#b90e0a]">
+												คำอวยพรของนายยังไม่ได้ส่ง
+											</p>{/if}
+										{#if loading}<p class="error text-cyan-500">กำลังส่งคำอวยพร</p>{/if}
+										{#if form?.complete || form?.completeBefore}<p class="error text-cyan-500">
+												{#if form?.completeBefore}
+													<h2>
+														ส่งคำอวยพรเรียบร้อยแล้ว คำอวยพรจะเปิดวันเกิดนะนาย! เจอกัน!
+													</h2>{:else if form?.complete}
+													<h2>
+														ส่งคำอวยพรเรียบร้อยแล้ว หากไม่มีอะไรเกิดขึ้นภายใน 3 วินาที กรุณาrefresh
+														page
+													</h2>
+												{/if}
+
+												<script>
+													setTimeout(function () {
+														window.location.replace('/sendwish/completed');
+													}, 3000);
+												</script>
+											</p>{/if}
+
+									</div>
+								</div>
+								<button
+								class="mt-3 p-2 bg-slate-900 text-white disabled:bg-slate-900/30 disabled:text-white/30 rounded-full"
+								type="submit"
+								disabled={forms?.message || loading}
+								>ส่งคำอวยพร
+							</button>
+						<!--
+								<Button
 							on:click={() => (formModal = true)}
 							class="p-2 bg-slate-900 rounded-full my-2 mx-auto justify-center">ส่งคำอวยพร</Button
 						>
@@ -205,47 +286,12 @@
 							title="ข้อตกลงการประมวลผลข้อมูลส่วนบุคคล "
 						>
 							<TOS />
+							
 							<svelte:fragment slot="footer">
 								<div class="grid grid-cols-1 gap-2">
 									<div class="mx-auto grid grid-cols-1">
-										<div class="flex items-start my-2">
-											<div class="flex items-center h-5">
-												<input
-													type="checkbox"
-													name="agreement"
-													value="agreed"
-													class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-													required
-													on:invalid={agreeInvalid}
-												/>
-											</div>
-											<div class="block -mt-3">
-												<div>
-													<label
-														for="agreed"
-														class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-														>ข้าพยอมรับ<a
-															href="#term"
-															class="text-blue-600 hover:underline dark:text-blue-500"
-															>ข้อตกลงเงื่อนไข
-														</a>
-													</label>
-												</div>
-												<div>
-													<label
-														for="agreed"
-														class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-														>I agree with the<a
-															href="#term"
-															class="text-blue-600 hover:underline dark:text-blue-500 ml-1"
-														>
-															terms and conditions
-														</a>
-													</label>
-												</div>
-											</div>
-										</div>
-										<p class=" text-sm text-[#b90e0a] my-2 block" id="errorRead" />
+
+										
 										<div class="">
 											<Turnstile {siteKey} />
 										</div>
@@ -285,7 +331,7 @@
 									</div>
 								</div>
 							</svelte:fragment>
-						</Modal>
+						</Modal> -->
 					</label>
 				</form>
 			</div>

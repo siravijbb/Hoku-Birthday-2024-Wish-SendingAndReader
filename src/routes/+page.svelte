@@ -332,7 +332,6 @@
 				<h1 class="text-center text-2xl mt-4 font-['itim']" id="wish">
 					<b>All Hoku's birthday wishes</b>
 				</h1>
-				<h1 class="font-['itim']">มีคำอวยพรแล้ว: {data.count} คน</h1>
 				{#if data?.notIntime}
 					<h2 class="mx-auto text-lg text-black text-center font-['itim']">
 						ยังไม่ถึงเวลาอ่านคำอวยพรนะนาย เจอกันวันเกิด!

@@ -15,11 +15,9 @@ export const load: PageServerLoad = async function () {
 	try {
 		if (currentDate < new Date(predefinedDate)) {
 			console.log('Today is before the predefined date.');
-			let count = await bwish.countDocuments();
 			return {
 				notIntime: true,
-				tutorials: undefined,///
-				count: count
+				tutorials: undefined ///
 			};
 		} else {
 			await start_mongo().then(() => {

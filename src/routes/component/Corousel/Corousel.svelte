@@ -12,6 +12,13 @@
 			link: 'https://www.youtube.com/watch?v=nAIkrVifIBg&ab_channel=HokuCh.'
 		},
 		{
+			title: 'สามารถรับฟังในStreaming Platform ต่าง ๆ ได้แล้ว ไปฟังกันเลย!',
+			alt: 'สามารถรับฟังในStreaming Platform ต่าง ๆ ได้แล้ว ไปฟังกันเลย!',
+			src: '/imgHoku/LookingWay.jpg',
+			imgClass: 'object-contain h-full w-fit rounded-sm',
+			link: 'https://twitter.com/HokuPLG/status/1732324001278746900'
+		},
+		{
 			title: 'ขอบคุณคุณF สำหรับ ARTทั้งหมด!',
 			alt: 'ขอบคุณคุณF สำหรับ ARTทั้งหมด!',
 			src: '/imgHoku/1.png',

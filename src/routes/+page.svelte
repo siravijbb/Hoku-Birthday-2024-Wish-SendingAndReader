@@ -19,6 +19,7 @@
 
 	let birthdayWishes = data.birthdayWishes?.birthdayWishes ?? [];
 
+
 	const picturename1 = 'hamham';
 	const desc1 = 'ผู้ฝันใฝ่ธรรมดา ที่รัก และคิดถึงคุณบากุมาก ๆ';
 	const imgURL1 = '/imgHoku/1.png';
@@ -74,18 +75,6 @@
 			resultElement.innerHTML = '❗ ไอ่หนุ่ม! แกต้องอ่านให้หมดด้วย';
 		}
 	}
-	const counter = () => {
-		const input = document.getElementById('wish'),
-			display = document.getElementById('counter-display'),
-			changeEvent = (evt) => (display.innerHTML = evt.target.value.length),
-			getInput = () => input.value,
-			countEvent = () => input.addEventListener('keyup', changeEvent),
-			init = () => countEvent();
-
-		return {
-			init: init
-		};
-	};
 </script>
 
 <head>
@@ -205,8 +194,8 @@
 							</div>
 							<div class="block">
 								<div>
-									<label for="agreed" class="ms-2 text-sm font-medium text-gray-900"
-										>ข้าพเจ้า<a href="" class="text-blue-600 hover:underline dark:text-blue-500"
+									<label for="agreed" class="ms-2 text-sm font-medium text-gray-900" id="agree"
+										>ข้าพเจ้า<a href="#agree" class="text-blue-600 hover:underline dark:text-blue-500"
 											>อนุญาตให้เผยแพร่คำอวยพร
 										</a>
 									</label>
@@ -214,7 +203,7 @@
 								<div>
 									<label for="agreed" class="ms-2 text-sm font-medium text-gray-900"
 										>I agree to<a
-											href=""
+											href="#agree"
 											class="text-blue-600 hover:underline dark:text-blue-500 ml-1"
 										>
 											share my wish with public
@@ -332,9 +321,13 @@
 				<h1 class="text-center text-2xl mt-4 font-['itim']" id="wish">
 					<b>All Hoku's birthday wishes</b>
 				</h1>
+				<h1 class="text-center text-2xl font-['itim']">
+					มีจำนวนคำอวยพรทั้งหมดแล้วประมาณ 8 คน
+					</h1>
 				{#if data?.notIntime}
 					<h2 class="mx-auto text-lg text-black text-center font-['itim']">
 						ยังไม่ถึงเวลาอ่านคำอวยพรนะนาย เจอกันวันเกิด!
+						</h2>					
 						<div
 							class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim']"
 							data-aos="fade-up"
@@ -568,7 +561,7 @@
 								>
 							</div>
 						</div>
-					</h2>{/if}
+					{/if}
 				{#if data?.dataFailed}
 					<h2 class="mx-auto text-lg text-red-600 text-center">
 						Data Fetching failled, Try again later But Wish sending might working

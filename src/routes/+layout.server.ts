@@ -1,19 +1,30 @@
 import { bwish } from '$db/tutorials';
 import type { PageServerLoad } from './$types';
 import { start_mongo, close_mongo } from '$db/mongo';
+// Predefined date and time in the format "YYYY-MM-DDTHH:mm:ss"
+const predefinedDateTime = "2024-01-08T18:00:00";
 
-// Predefined date in the format "YYYY-MM-DD"
-const predefinedDate = '2024-01-08';
-
-// Get the current date
-const currentDate = new Date();
-const currentDateString = currentDate.toISOString().split('T')[0]; // Format as "YYYY-MM-DD"
+// Get the current date and time
 
 // Compare dates
 
 export const load: PageServerLoad = async function () {
+// Predefined date and time in the format "YYYY-MM-DDTHH:mm:ss" in ISO time 
+// this code make faster by chatGPT, Sory im not good javascript dev
+const predefinedDateTime = "2024-01-08T13:30:00";
+
+// Get the current date and time in UTC
+const currentDateTime = new Date();
+const currentDateTimeUTC = new Date(currentDateTime.toISOString());
+
+// Convert the predefined date and time to UTC
+const predefinedDateTimeObject = new Date(predefinedDateTime + "Z");
+
+	console.log(currentDateTime.getTime());
+	console.log(predefinedDateTimeObject.getTime());
 	try {
-		if (currentDate < new Date(predefinedDate)) {
+		
+		if (currentDateTimeUTC.getTime() < predefinedDateTimeObject.getTime()) {
 			console.log('Today is before the predefined date.');
 			return {
 				notIntime: true,

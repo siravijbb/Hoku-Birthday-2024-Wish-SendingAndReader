@@ -3,7 +3,15 @@
 	import { CaretRightOutline } from 'flowbite-svelte-icons';
 	let index = 0;
 	const images = [
-				{
+		{
+			title: 'MV เพลง “เงา (Through the Looking Glass)" ครบ 10,000 ครั้งแล้ว!!!!!!!!',
+			alt: 'MV เพลง “เงา (Through the Looking Glass)" ครบ 10,000 ครั้งแล้ว!!!!!!!!',
+			src: '/imgHoku/10KSong.jpg',
+
+			imgClass: 'object-contain h-full w-fit rounded-sm',
+			link: 'https://twitter.com/HokuPLG/status/1733712120850866512'
+		},
+		{
 			title: '"ก็บอกแล้วว่ามันหนาวให้ใส่เสื้อหนาๆ มาก็ไม่เชื่อแต่แรกนะไอ้หนุ่มนี่ หูหลุดไปไม่รู้ด้วยนะ!"',
 			alt: '"ก็บอกแล้วว่ามันหนาวให้ใส่เสื้อหนาๆ มาก็ไม่เชื่อแต่แรกนะไอ้หนุ่มนี่ หูหลุดไปไม่รู้ด้วยนะ!"',
 			src: '/imgHoku/HokuHug.jpg',

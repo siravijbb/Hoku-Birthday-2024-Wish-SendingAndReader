@@ -52,7 +52,7 @@ const predefinedDateTimeObject = new Date(predefinedDateTime + "Z");
 				}
 			}
 		)
-		.sort({ _id: -1 })
+		.sort({ count: -1 })
 		.toArray();
 
 	console.log(data);

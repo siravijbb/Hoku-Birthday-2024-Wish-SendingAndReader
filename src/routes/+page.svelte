@@ -13,8 +13,8 @@
 	export let data: PageData;
 	export let form: ActionData;
 
-	let title: string = 'Hoku Birth Day 2024';
-	let description: string = 'Hoku Birth Day 2024';
+	let title: string = "Happy Hoku's Birthday 2024";
+	let description: string = '#HappyHokuDay2024, Hoku Wish sending page from fanclub';
 	let image: string = '/Corousel/PLG3ANNIHoku.jpg';
 
 	let birthdayWishes = data.birthdayWishes?.birthdayWishes ?? [];

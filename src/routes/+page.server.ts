@@ -93,7 +93,7 @@ export const actions: Actions = {
 
 		let count = await bwish.countDocuments();
 		console.log(count);
-		bwish.insertOne({
+		await bwish.insertOne({
 			name: name,
 			comment: wish, // Use the 'name' value as the 'comment'
 			giftId: null,
@@ -103,11 +103,7 @@ export const actions: Actions = {
 			count: count + 1,
 			picture: picture
 		});
-		setTimeout(() => {
-			close_mongo().then(() => {
-				console.log('Mongo Closed');
-			});
-		}, 5000);
+		await close_mongo();
 		console.log('Code Closed');
 		if (currentDate < new Date(predefinedDate)) {
 			console.log('Sended before the predefined date.');

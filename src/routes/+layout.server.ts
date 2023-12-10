@@ -25,10 +25,20 @@ const predefinedDateTimeObject = new Date(predefinedDateTime + "Z");
 	try {
 		
 		if (currentDateTimeUTC.getTime() < predefinedDateTimeObject.getTime()) {
-			console.log('Today is before the predefined date.');
+			await start_mongo().then(() => {
+				console.log('Today at and before the predefined date, But will open for count');
+			});
+			let count = bwish.countDocuments();
+			setTimeout(() => {
+				close_mongo().then(() => {
+					console.log('Mongo Closed');
+				});
+			}, 5000);
+			console.log('Code Closed (return count)');
 			return {
 				notIntime: true,
-				tutorials: undefined ///
+				tutorials: undefined, ///
+				Total:{ count: count},
 			};
 		} else {
 			await start_mongo().then(() => {

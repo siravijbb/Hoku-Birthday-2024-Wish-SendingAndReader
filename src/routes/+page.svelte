@@ -18,7 +18,7 @@
 	let image: string = '/Corousel/PLG3ANNIHoku.jpg';
 
 	let birthdayWishes = data.birthdayWishes?.birthdayWishes ?? [];
-
+	let count = data.Total?.count  ?? [];
 
 	const picturename1 = 'hamham';
 	const desc1 = 'ผู้ฝันใฝ่ธรรมดา ที่รัก และคิดถึงคุณบากุมาก ๆ';
@@ -321,10 +321,17 @@
 				<h1 class="text-center text-2xl mt-4 font-['itim']" id="wish">
 					<b>All Hoku's birthday wishes</b>
 				</h1>
+				{#await count }
+					<b>กำลังโหลดจำนวนคำอวยพรทั้งหมด</b>
+				{:then count} 
+				<h2 class="text-center text-2xl font-['itim']" id="wish">
+					<b>มีคำอวยพรแล้วทั้งหมด {count} คำอวยพร</b>
+				</h2>
+				{/await} 
 
 				{#if data?.notIntime}
 					<h2 class="mx-auto text-lg text-black text-center font-['itim']">
-						ยังไม่ถึงเวลาอ่านคำอวยพรนะนาย เจอกันวันเกิด!
+						แต่ยังไม่ถึงเวลาอ่านคำอวยพรนะนาย เจอกันวันเกิด!
 						</h2>					
 						<div
 							class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim']"

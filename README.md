@@ -1,6 +1,6 @@
 # Hoku-Birthday-2024
 
-Currently on BETA Test: Hoku Birth Day dashboard for wish for hoku birthday on 2024.
+Kinrai HOKU, Thai ESTJ owl next door at your service as always, At this year we want to some thing special for her. A birthday website!
 Data stucture on mongodb will be: [This server side code:Line 92](https://github.com/siravijbb/Hoku-Birthday-2024-Wish-SendingAndReader/blob/main/src/routes/%2Bpage.server.ts#L92)
 
 # Struture
@@ -49,3 +49,7 @@ You can preview the production build with `pnpm run dev`.
 ## Art plan
 
 ![image](https://github.com/siravijbb/Hoku-Birthday-2024-Wish-SendingAndReader/assets/47503079/1f0c8cea-c31c-487c-ade5-75a342a54188)
+
+## Licence
+
+You may folk this project or at least give credit for using some code in this project, Also Baku Birthday too!

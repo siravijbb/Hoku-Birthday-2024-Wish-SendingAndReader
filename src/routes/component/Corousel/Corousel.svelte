@@ -67,7 +67,7 @@
 		<Carousel
 			{images}
 			imgClass="object-contain h-full w-fit rounded-sm"
-			duration={3900}
+			duration={6000}
 			let:Indicators
 			let:Controls
 			on:change={({ detail }) => (image = detail)}

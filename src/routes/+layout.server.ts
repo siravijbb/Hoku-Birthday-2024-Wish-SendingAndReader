@@ -24,12 +24,16 @@ export const load: PageServerLoad = async function () {
 	console.log(predefinedDateTimeObject.getTime());
 	try {
 		if (currentDateTimeUTC.getTime() < predefinedDateTimeObject.getTime()) {
-			await start_mongo().then(() => {
+			start_mongo().then(() => {
 				console.log('Today at and before the predefined date, But will open for count');
 			});
-			let count = await bwish.countDocuments();
-			await close_mongo();
+			let count = bwish.countDocuments();
 			console.log('Code Closed (return count)');
+			setTimeout(() => {
+				close_mongo().then(() => {
+					console.log('Mongo Closed');
+				});
+			}, 5000);
 			return {
 				notIntime: true,
 				tutorials: undefined, ///
@@ -47,29 +51,30 @@ export const load: PageServerLoad = async function () {
 			tutorials: undefined ///
 		};
 	}
-
-	const data = bwish
-		.find(
-			{},
-			{
-				projection: {
-					_id: 0
+	if (currentDateTimeUTC.getTime() < predefinedDateTimeObject.getTime()) {
+		const data = bwish
+			.find(
+				{},
+				{
+					projection: {
+						_id: 0
+					}
 				}
-			}
-		)
-		.sort({ count: -1 })
-		.toArray();
+			)
+			.sort({ count: -1 })
+			.toArray();
 
-	console.log(data);
-	setTimeout(() => {
-		close_mongo().then(() => {
-			console.log('Mongo Closed');
-		});
-	}, 5000);
-	console.log('Code Closed');
-	return {
-		birthdayWishes: { birthdayWishes: data } ///
-	};
+		console.log(data);
+		setTimeout(() => {
+			close_mongo().then(() => {
+				console.log('Mongo Closed');
+			});
+		}, 5000);
+		console.log('Code Closed');
+		return {
+			birthdayWishes: { birthdayWishes: data } ///
+		};
+	}
 };
 // import { bwish } from '$db/tutorials';
 // import type { PageServerLoad } from './$types';

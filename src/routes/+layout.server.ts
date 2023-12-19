@@ -24,7 +24,7 @@ export const load: PageServerLoad = async function () {
 	console.log(predefinedDateTimeObject.getTime());
 	try {
 		if (currentDateTimeUTC.getTime() < predefinedDateTimeObject.getTime()) {
-			start_mongo().then(() => {
+			await start_mongo().then(() => {
 				console.log('Today at and before the predefined date, But will open for count');
 			});
 			let count = bwish.countDocuments();

@@ -5,6 +5,10 @@
 			resultElement.innerHTML = '❗ ไอ่หนุ่ม! แกต้องให้ของขวัญด้วย นายสิราวิ้จจะบึ บังคับ';
 		}
 	}
+	import imgURL1 from '$lib/images/imgHoku/1.png';
+	import imgURL2 from '$lib/images/imgHoku/2.png';
+	import imgURL3 from '$lib/images/imgHoku/3.png';
+	import imgURL4 from '$lib/images/imgHoku/4.png';
 </script>
 
 <ul class="grid w-full gap-2 grid-cols-2 md:grid-cols-2">
@@ -23,7 +27,7 @@
 			class="inline-flex items-center justify-between w-full p-5 text-white bg-[#bf4e2e] border border-gray-200 rounded-lg cursor-pointer dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-[#bb433d]/70"
 		>
 			<div class="mx-auto">
-				<img alt="Hoku " src="/imgHoku/1.png" class="flex mx-auto w-28 h-auto -my-7 -mt-9" />
+				<img alt="Hoku " src="{imgURL1}" class="flex mx-auto w-28 h-auto -my-7 -mt-9" />
 			</div>
 		</label>
 	</li>
@@ -34,7 +38,7 @@
 			class="inline-flex items-center justify-between w-full p-5 text-white bg-[#f1962e] border border-gray-200 rounded-lg cursor-pointer dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-blue-600/30"
 		>
 			<div class="mx-auto">
-				<img alt="Idol " src="/imgHoku/2.png" class="flex mx-auto w-28 h-auto -my-7 -mt-9" />
+				<img alt="Idol " src="{imgURL2}" class="flex mx-auto w-28 h-auto -my-7 -mt-9" />
 			</div>
 		</label>
 	</li>
@@ -47,7 +51,7 @@
 			<div class="mx-auto">
 				<img
 					alt="Winter Wonder "
-					src="/imgHoku/3.png"
+					src="{imgURL3}"
 					class="flex mx-auto w-28 h-auto -my-7 -mt-9"
 				/>
 			</div>
@@ -60,7 +64,7 @@
 			class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-[#ffa083] border border-gray-200 rounded-lg cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 dark:peer-checked:text-blue-500 peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-[#bb433d]/70 dark:text-gray-400"
 		>
 			<div class="mx-auto">
-				<img alt="3 Year Anni " src="/imgHoku/4.png" class="flex mx-auto w-28 h-auto -my-8 -mt-8" />
+				<img alt="3 Year Anni " src="{imgURL4}" class="flex mx-auto w-28 h-auto -my-8 -mt-8" />
 			</div>
 		</label>
 	</li>

@@ -3,7 +3,7 @@ import { MONGO_URL } from '$env/static/private';
 
 const cilent = new MongoClient(MONGO_URL);
 
-export function start_mongo() {
+export async function start_mongo() {
 	console.log('Starting mongo');
 	return cilent.connect();
 }

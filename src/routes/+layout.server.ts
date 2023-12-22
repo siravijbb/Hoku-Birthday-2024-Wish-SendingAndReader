@@ -23,8 +23,8 @@ export const load: PageServerLoad = async function () {
 	console.log(currentDateTime.getTime());
 	console.log(predefinedDateTimeObject.getTime());
 	try {
-		if (currentDateTimeUTC.getTime() < predefinedDateTimeObject.getTime()) {
-			await start_mongo().then(() => {
+		if (currentDateTimeUTC.getTime() <= predefinedDateTimeObject.getTime()) {
+			start_mongo().then(() => {
 				console.log('Today at and before the predefined date, But will open for count');
 			});
 			let count = bwish.countDocuments();
@@ -47,26 +47,26 @@ export const load: PageServerLoad = async function () {
 			tutorials: undefined ///
 		};
 	}
-	if (currentDateTimeUTC.getTime() < predefinedDateTimeObject.getTime()) {
-		const data = bwish
-			.find(
-				{},
-				{
-					projection: {
-						_id: 0
-					}
+	let count = bwish.countDocuments();
+	const data = bwish
+		.find(
+			{},
+			{
+				projection: {
+					_id: 0
 				}
-			)
-			.sort({ count: -1 })
-			.toArray();
+			}
+		)
+		.sort({ count: -1 })
+		.toArray();
 
-		console.log(data);
+	console.log(data);
 
-		console.log('Code Closed');
-		return {
-			birthdayWishes: { birthdayWishes: data } ///
-		};
-	}
+	console.log('Code Closed');
+	return {
+		birthdayWishes: { birthdayWishes: data }, ///
+		Total: { count: count }
+	};
 };
 // import { bwish } from '$db/tutorials';
 // import type { PageServerLoad } from './$types';

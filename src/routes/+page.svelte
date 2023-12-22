@@ -220,30 +220,33 @@
 								<div class="">
 									<Turnstile {siteKey} />
 								</div>
+								{#await form}
+									<wbr />
+								{:then form}
+									{#if form?.reCapchaFalse}<p class="error text-[#b90e0a]">
+											นายกดยืนยันreCaptchaด้วย
+										</p>{/if}
+									{#if form?.message}<p class="error text-[#b90e0a]">
+											คำอวยพรของนายยังไม่ได้ส่ง
+										</p>{/if}
+									{#if loading}<p class="error text-cyan-500">กำลังส่งคำอวยพร</p>{/if}
+									{#if form?.complete || form?.completeBefore}<p class="error text-cyan-500">
+											{#if form?.completeBefore}
+												<h2>
+													ส่งคำอวยพรเรียบร้อยแล้ว คำอวยพรจะเปิดวันเกิดนะนาย! เจอกัน!
+												</h2>{:else if form?.complete}
+												<h2>
+													ส่งคำอวยพรเรียบร้อยแล้ว หากไม่มีอะไรเกิดขึ้นภายใน 3 วินาที กรุณาrefresh
+													page
+												</h2>
+											{/if}
 
-								{#if form?.reCapchaFalse}<p class="error text-[#b90e0a]">
-										นายกดยืนยันreCaptchaด้วย
-									</p>{/if}
-								{#if form?.message}<p class="error text-[#b90e0a]">
-										คำอวยพรของนายยังไม่ได้ส่ง
-									</p>{/if}
-								{#if loading}<p class="error text-cyan-500">กำลังส่งคำอวยพร</p>{/if}
-								{#if form?.complete || form?.completeBefore}<p class="error text-cyan-500">
-										{#if form?.completeBefore}
-											<h2>
-												ส่งคำอวยพรเรียบร้อยแล้ว คำอวยพรจะเปิดวันเกิดนะนาย! เจอกัน!
-											</h2>{:else if form?.complete}
-											<h2>
-												ส่งคำอวยพรเรียบร้อยแล้ว หากไม่มีอะไรเกิดขึ้นภายใน 3 วินาที กรุณาrefresh page
-											</h2>
-										{/if}
-
-										<script>
-											setTimeout(function () {
-												window.location.replace('/sendwish/completed');
-											}, 3000);
-										</script>
-									</p>{/if}
+											<script>
+												setTimeout(function () {
+													window.location.replace('/sendwish/completed');
+												}, 3000);
+											</script>
+										</p>{/if}{/await}
 							</div>
 						</div>
 						<button
@@ -327,9 +330,11 @@
 					กำลังโหลดข้อมูล
 				{:then data}
 					{#await count}
-						<b>กำลังโหลดจำนวนคำอวยพรทั้งหมด</b>
+						<h2 class="mx-auto text-center pt-4 text-cyan-500 text-xl" id="total">
+							<b class="">กำลังโหลดจำนวนคำอวยพรทั้งหมด</b>
+						</h2>
 					{:then count}
-						<h2 class="text-center text-2xl font-['itim']" id="wish">
+						<h2 class="text-center text-2xl font-['itim']" id="total">
 							<b>มีคำอวยพรแล้วทั้งหมด {count} คำอวยพร</b>
 						</h2>
 					{/await}
@@ -577,7 +582,9 @@
 							Data Fetching failled, Try again later But Wish sending might working
 						</h2>{/if}
 					{#await birthdayWishes}
-						<p class="mx-auto">loading...</p>
+						<h2 class="mx-auto text-center pb-16 pt-4 text-cyan-500 text-lg">
+							<b>กำลังโหลดคำอวยพรทั้งหมด ใจเย็นๆนะหนุ่ม</b>
+						</h2>
 					{:then birthdayWishes}
 						<div
 							class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim']"

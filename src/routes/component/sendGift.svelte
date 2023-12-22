@@ -16,7 +16,7 @@
 			value="1"
 			class="peer"
 			required
-			on:invalid={giftInvalid}
+			on:invalid|preventDefault={giftInvalid}
 		/>
 		<label
 			for="hosting-small"

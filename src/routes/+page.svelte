@@ -122,7 +122,7 @@
 				<h1 class="pb-4 text-center text-xl -mt-2 font-['itim']">Wish sending to HOKU</h1>
 				<form
 					bind:this={thisForm}
-					on:submit={handleSubmit}
+					on:submit|preventDefault={handleSubmit}
 					use:enhance
 					method="post"
 					class=" bg-[#f4b38d] px-9 lg:px-20 pb-4 mx-auto items-center self-center justify-center rounded-lg"
@@ -146,7 +146,7 @@
 							id="name"
 							class=" p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
 							required
-							on:invalid={nameInvalid}
+							on:invalid|preventDefault={nameInvalid}
 						/>
 						<p class=" text-sm text-[#b90e0a] my-2" id="errorName" />
 					</div>
@@ -169,7 +169,7 @@
 							maxlength="500"
 							minlength="6"
 							required
-							on:invalid={wishInvalid}
+							on:invalid|preventDefault={wishInvalid}
 						/>
 						<p class=" text-sm text-[#b90e0a] my-2" id="errorWish" />
 					</div>
@@ -189,7 +189,7 @@
 									value="agreed"
 									class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
 									required
-									on:invalid={agreeInvalid}
+									on:invalid|preventDefault={agreeInvalid}
 								/>
 							</div>
 							<div class="block">
@@ -323,486 +323,537 @@
 				<h1 class="text-center text-2xl mt-4 font-['itim']" id="wish">
 					<b>All Hoku's birthday wishes</b>
 				</h1>
-				{#await count}
-					<b>กำลังโหลดจำนวนคำอวยพรทั้งหมด</b>
-				{:then count}
-					<h2 class="text-center text-2xl font-['itim']" id="wish">
-						<b>มีคำอวยพรแล้วทั้งหมด {count} คำอวยพร</b>
-					</h2>
-				{/await}
+				{#await data}
+					กำลังโหลดข้อมูล
+				{:then data}
+					{#await count}
+						<b>กำลังโหลดจำนวนคำอวยพรทั้งหมด</b>
+					{:then count}
+						<h2 class="text-center text-2xl font-['itim']" id="wish">
+							<b>มีคำอวยพรแล้วทั้งหมด {count} คำอวยพร</b>
+						</h2>
+					{/await}
 
-				{#if data?.notIntime}
-					<h2 class="mx-auto text-lg text-black text-center font-['itim']">
-						แต่ยังไม่ถึงเวลาอ่านคำอวยพรนะนาย เจอกันวันเกิด!
-					</h2>
-					<div
-						class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim']"
-						data-aos="fade-up"
-					>
+					{#if data?.notIntime}
+						<h2 class="mx-auto text-lg text-black text-center font-['itim']">
+							แต่ยังไม่ถึงเวลาอ่านคำอวยพรนะนาย เจอกันวันเกิด!
+						</h2>
 						<div
-							class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
-							style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+							class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim']"
+							data-aos="fade-up"
 						>
-							<svg
-								preserveAspectRatio="none"
-								version="1.2"
-								xmlns="http://www.w3.org/2000/svg"
-								viewBox="0 0 402 49"
-								class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
-								><path
-									fill={borderColor1}
-									d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
-								/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
-							><svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 402 132" class=""
-								><path fill={borderColor1} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
-									fill="#ffffff"
-									d="m13 92.5v79.5h376v-159h-376z"
-								/></svg
-							>
-
-							<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
-								<div class="flex">
-									<img src={imgURL1} class="h-40 object-contain -mt-9 -ml-14 z-10" alt="gift" />
-								</div>
-							</div>
-							<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
-								<span
-									class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
-									>ตัวอย่างกล่องที่ 1</span
-								>
-								<div class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm" />
-							</div>
-
 							<div
-								class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
+								class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
+								style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 							>
-								<img class="w-40 -mb-11 rotate-12" src="/imgHoku/1.1.1.png" alt="count" />
-							</div>
-
-							<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0 text-left">
-								<p class=""><b>ชื่อ #อันดับ</b></p>
-								<p>วดป</p>
-							</div>
-							<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
-								><path fill={borderColor1} d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z" /><path
-									fill="#ffffff"
-									d="m13 59.5v59.5h376v-119h-376z"
-								/></svg
-							>
-						</div>
-
-						<div
-							class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
-							style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
-						>
-							<svg
-								preserveAspectRatio="none"
-								version="1.2"
-								xmlns="http://www.w3.org/2000/svg"
-								viewBox="0 0 402 49"
-								class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
-								><path
-									fill={borderColor2}
-									d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
-								/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
-							><svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 402 132" class=""
-								><path fill={borderColor2} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
-									fill="#ffffff"
-									d="m13 92.5v79.5h376v-159h-376z"
-								/></svg
-							>
-							<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
-								<div class="flex">
-									<img src={imgURL2} class="h-40 object-contain -mt-9 -ml-14 z-10" alt="gift" />
-								</div>
-							</div>
-							<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
-								<span
-									class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
-									>ตัวอย่างกล่องที่ 2</span
+								<svg
+									preserveAspectRatio="none"
+									version="1.2"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 402 49"
+									class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
+									><path
+										fill={borderColor1}
+										d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
+									/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
+								><svg
+									version="1.2"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 402 132"
+									class=""
+									><path fill={borderColor1} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
+										fill="#ffffff"
+										d="m13 92.5v79.5h376v-159h-376z"
+									/></svg
 								>
-								<div class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm" />
-							</div>
 
-							<div
-								class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
-							>
-								<img class="w-40 -mb-11 rotate-12" src="/imgHoku/1.1.2.png" alt="count" />
-							</div>
-
-							<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0 text-left">
-								<p class=""><b>ชื่อ #อันดับ</b></p>
-								<p>วดป</p>
-							</div>
-							<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
-								><path fill={borderColor2} d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z" /><path
-									fill="#ffffff"
-									d="m13 59.5v59.5h376v-119h-376z"
-								/></svg
-							>
-						</div>
-
-						<div
-							class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
-							style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
-						>
-							<svg
-								preserveAspectRatio="none"
-								version="1.2"
-								xmlns="http://www.w3.org/2000/svg"
-								viewBox="0 0 402 49"
-								class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
-								><path
-									fill={borderColor3}
-									d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
-								/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
-							><svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 402 132" class=""
-								><path fill={borderColor3} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
-									fill="#ffffff"
-									d="m13 92.5v79.5h376v-159h-376z"
-								/></svg
-							>
-							<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
-								<div class="flex">
-									<img
-										class="w-fit h-auto absolute -top-36 md:-top-40 z-0 -ml-3 object-contain"
-										src="/imgHoku/1.1.3.png"
-										alt=""
+								<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
+									<div class="flex">
+										<img src={imgURL1} class="h-40 object-contain -mt-9 -ml-14 z-10" alt="gift" />
+									</div>
+								</div>
+								<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
+									<span
+										class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
+										>ตัวอย่างกล่องที่ 1</span
+									>
+									<div
+										class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
 									/>
-									<img src={imgURL3} class="h-40 object-contain -mt-9 -ml-14 z-10" alt="gift" />
 								</div>
-							</div>
-							<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
-								<span
-									class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
-									>ตัวอย่างกล่องที่ 3</span
+
+								<div
+									class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
 								>
-								<div class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm" />
-							</div>
-
-							<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0 text-left">
-								<p class=""><b>ชื่อ #อันดับ</b></p>
-								<p>วดป</p>
-							</div>
-
-							<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
-								><path fill={borderColor3} d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z" /><path
-									fill="#ffffff"
-									d="m13 59.5v59.5h376v-119h-376z"
-								/></svg
-							>
-						</div>
-
-						<div
-							class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
-							style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
-						>
-							<svg
-								preserveAspectRatio="none"
-								version="1.2"
-								xmlns="http://www.w3.org/2000/svg"
-								viewBox="0 0 402 49"
-								class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
-								><path
-									fill={borderColor4}
-									d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
-								/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
-							><svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 402 132" class=""
-								><path fill={borderColor4} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
-									fill="#ffffff"
-									d="m13 92.5v79.5h376v-159h-376z"
-								/></svg
-							>
-							<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
-								<div class="flex">
-									<img src={imgURL4} class="h-40 object-contain -mt-9 -ml-14 z-10" alt="gift" />
+									<img class="w-40 -mb-11 rotate-12" src="/imgHoku/1.1.1.png" alt="count" />
 								</div>
-							</div>
-							<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
-								<span
-									class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
-									>ตัวอย่างกล่องที่ 4</span
+
+								<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0 text-left">
+									<p class=""><b>ชื่อ #อันดับ</b></p>
+									<p>วดป</p>
+								</div>
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
+									><path
+										fill={borderColor1}
+										d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
+									/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
 								>
-								<div class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm" />
 							</div>
 
 							<div
-								class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
+								class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
+								style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 							>
-								<img class="w-40 -mb-9 -rotate-45" src="/imgHoku/1.1.png" alt="count" />
+								<svg
+									preserveAspectRatio="none"
+									version="1.2"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 402 49"
+									class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
+									><path
+										fill={borderColor2}
+										d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
+									/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
+								><svg
+									version="1.2"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 402 132"
+									class=""
+									><path fill={borderColor2} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
+										fill="#ffffff"
+										d="m13 92.5v79.5h376v-159h-376z"
+									/></svg
+								>
+								<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
+									<div class="flex">
+										<img src={imgURL2} class="h-40 object-contain -mt-9 -ml-14 z-10" alt="gift" />
+									</div>
+								</div>
+								<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
+									<span
+										class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
+										>ตัวอย่างกล่องที่ 2</span
+									>
+									<div
+										class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
+									/>
+								</div>
+
+								<div
+									class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
+								>
+									<img class="w-40 -mb-11 rotate-12" src="/imgHoku/1.1.2.png" alt="count" />
+								</div>
+
+								<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0 text-left">
+									<p class=""><b>ชื่อ #อันดับ</b></p>
+									<p>วดป</p>
+								</div>
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
+									><path
+										fill={borderColor2}
+										d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
+									/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
+								>
 							</div>
 
-							<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0 text-left">
-								<p class=""><b>ชื่อ #อันดับ</b></p>
-								<p>วดป</p>
-							</div>
-							<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
-								><path fill={borderColor4} d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z" /><path
-									fill="#ffffff"
-									d="m13 59.5v59.5h376v-119h-376z"
-								/></svg
+							<div
+								class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
+								style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 							>
+								<svg
+									preserveAspectRatio="none"
+									version="1.2"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 402 49"
+									class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
+									><path
+										fill={borderColor3}
+										d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
+									/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
+								><svg
+									version="1.2"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 402 132"
+									class=""
+									><path fill={borderColor3} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
+										fill="#ffffff"
+										d="m13 92.5v79.5h376v-159h-376z"
+									/></svg
+								>
+								<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
+									<div class="flex">
+										<img
+											class="w-fit h-auto absolute -top-36 md:-top-40 z-0 -ml-3 object-contain"
+											src="/imgHoku/1.1.3.png"
+											alt=""
+										/>
+										<img src={imgURL3} class="h-40 object-contain -mt-9 -ml-14 z-10" alt="gift" />
+									</div>
+								</div>
+								<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
+									<span
+										class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
+										>ตัวอย่างกล่องที่ 3</span
+									>
+									<div
+										class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
+									/>
+								</div>
+
+								<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0 text-left">
+									<p class=""><b>ชื่อ #อันดับ</b></p>
+									<p>วดป</p>
+								</div>
+
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
+									><path
+										fill={borderColor3}
+										d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
+									/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
+								>
+							</div>
+
+							<div
+								class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
+								style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+							>
+								<svg
+									preserveAspectRatio="none"
+									version="1.2"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 402 49"
+									class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
+									><path
+										fill={borderColor4}
+										d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
+									/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
+								><svg
+									version="1.2"
+									xmlns="http://www.w3.org/2000/svg"
+									viewBox="0 0 402 132"
+									class=""
+									><path fill={borderColor4} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
+										fill="#ffffff"
+										d="m13 92.5v79.5h376v-159h-376z"
+									/></svg
+								>
+								<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
+									<div class="flex">
+										<img src={imgURL4} class="h-40 object-contain -mt-9 -ml-14 z-10" alt="gift" />
+									</div>
+								</div>
+								<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
+									<span
+										class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
+										>ตัวอย่างกล่องที่ 4</span
+									>
+									<div
+										class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
+									/>
+								</div>
+
+								<div
+									class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
+								>
+									<img class="w-40 -mb-9 -rotate-45" src="/imgHoku/1.1.png" alt="count" />
+								</div>
+
+								<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0 text-left">
+									<p class=""><b>ชื่อ #อันดับ</b></p>
+									<p>วดป</p>
+								</div>
+								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
+									><path
+										fill={borderColor4}
+										d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
+									/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
+								>
+							</div>
 						</div>
-					</div>
-				{/if}
-				{#if data?.dataFailed}
-					<h2 class="mx-auto text-lg text-red-600 text-center">
-						Data Fetching failled, Try again later But Wish sending might working
-					</h2>{/if}
-				{#await birthdayWishes}
-					<p class="mx-auto">loading...</p>
-				{:then birthdayWishes}
-					<div
-						class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim']"
-						data-aos="fade-up"
-					>
-						{#each birthdayWishes as bwish, index}
-							{#if bwish.picture == 1}
-								<div
-									class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
-									style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
-								>
-									<svg
-										preserveAspectRatio="none"
-										version="1.2"
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 402 49"
-										class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
-										><path
-											fill={borderColor1}
-											d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
-										/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
-									><svg
-										version="1.2"
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 402 132"
-										class=""
-										><path fill={borderColor1} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
-											fill="#ffffff"
-											d="m13 92.5v79.5h376v-159h-376z"
-										/></svg
-									>
-
-									<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
-										<div class="flex">
-											<img src={imgURL1} class="h-40 object-contain -mt-9 -ml-14 z-10" alt="gift" />
-										</div>
-									</div>
-									<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
-										<span
-											class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
-											>{bwish.comment}</span
-										>
-										<div
-											class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
-										/>
-									</div>
-
+					{/if}
+					{#if data?.dataFailed}
+						<h2 class="mx-auto text-lg text-red-600 text-center">
+							Data Fetching failled, Try again later But Wish sending might working
+						</h2>{/if}
+					{#await birthdayWishes}
+						<p class="mx-auto">loading...</p>
+					{:then birthdayWishes}
+						<div
+							class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim']"
+							data-aos="fade-up"
+						>
+							{#each birthdayWishes as bwish, index}
+								{#if bwish.picture == 1}
 									<div
-										class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
+										class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
+										style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 									>
-										<img class="w-40 -mb-11 rotate-12" src="/imgHoku/1.1.1.png" alt="count" />
-									</div>
-
-									<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
-										<p><b>{bwish.name} #{bwish.count}</b></p>
-										<p>{bwish.DMY} {bwish.time}</p>
-									</div>
-									<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
-										><path
-											fill={borderColor1}
-											d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
-										/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
-									>
-								</div>
-							{/if}
-							{#if bwish.picture == 2}
-								<div
-									class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
-									style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
-								>
-									<svg
-										preserveAspectRatio="none"
-										version="1.2"
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 402 49"
-										class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
-										><path
-											fill={borderColor2}
-											d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
-										/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
-									><svg
-										version="1.2"
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 402 132"
-										class=""
-										><path fill={borderColor2} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
-											fill="#ffffff"
-											d="m13 92.5v79.5h376v-159h-376z"
-										/></svg
-									>
-									<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
-										<div class="flex">
-											<img src={imgURL2} class="h-40 object-contain -mt-9 -ml-14 z-10" alt="gift" />
-										</div>
-									</div>
-									<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
-										<span
-											class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
-											>{bwish.comment}</span
+										<svg
+											preserveAspectRatio="none"
+											version="1.2"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 402 49"
+											class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
+											><path
+												fill={borderColor1}
+												d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
+											/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
+										><svg
+											version="1.2"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 402 132"
+											class=""
+											><path fill={borderColor1} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
+												fill="#ffffff"
+												d="m13 92.5v79.5h376v-159h-376z"
+											/></svg
 										>
+
+										<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
+											<div class="flex">
+												<img
+													src={imgURL1}
+													class="h-40 object-contain -mt-9 -ml-14 z-10"
+													alt="gift"
+												/>
+											</div>
+										</div>
 										<div
-											class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
-										/>
-									</div>
-
-									<div
-										class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
-									>
-										<img class="w-40 -mb-11 rotate-12" src="/imgHoku/1.1.2.png" alt="count" />
-									</div>
-
-									<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
-										<p><b>{bwish.name} #{bwish.count}</b></p>
-										<p>{bwish.DMY} {bwish.time}</p>
-									</div>
-									<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
-										><path
-											fill={borderColor2}
-											d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
-										/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
-									>
-								</div>
-							{/if}
-							{#if bwish.picture == 3}
-								<div
-									class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
-									style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
-								>
-									<svg
-										preserveAspectRatio="none"
-										version="1.2"
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 402 49"
-										class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
-										><path
-											fill={borderColor3}
-											d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
-										/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
-									><svg
-										version="1.2"
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 402 132"
-										class=""
-										><path fill={borderColor3} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
-											fill="#ffffff"
-											d="m13 92.5v79.5h376v-159h-376z"
-										/></svg
-									>
-									<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
-										<div class="flex">
-											<img
-												class="w-fit h-auto absolute -top-36 md:-top-40 z-0 -ml-3 object-contain"
-												src="/imgHoku/1.1.3.png"
-												alt=""
+											class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11"
+										>
+											<span
+												class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
+												>{bwish.comment}</span
+											>
+											<div
+												class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
 											/>
-											<img src={imgURL3} class="h-40 object-contain -mt-9 -ml-14 z-10" alt="gift" />
 										</div>
-									</div>
-									<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
-										<span
-											class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
-											>{bwish.comment}</span
-										>
+
 										<div
-											class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
-										/>
-									</div>
-
-									<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
-										<p><b>{bwish.name} #{bwish.count}</b></p>
-										<p>{bwish.DMY} {bwish.time}</p>
-									</div>
-
-									<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
-										><path
-											fill={borderColor3}
-											d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
-										/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
-									>
-								</div>
-							{/if}
-							{#if bwish.picture == 4}
-								<div
-									class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
-									style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
-								>
-									<svg
-										preserveAspectRatio="none"
-										version="1.2"
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 402 49"
-										class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
-										><path
-											fill={borderColor4}
-											d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
-										/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
-									><svg
-										version="1.2"
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 402 132"
-										class=""
-										><path fill={borderColor4} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
-											fill="#ffffff"
-											d="m13 92.5v79.5h376v-159h-376z"
-										/></svg
-									>
-									<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
-										<div class="flex">
-											<img src={imgURL4} class="h-40 object-contain -mt-9 -ml-14 z-10" alt="gift" />
+											class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
+										>
+											<img class="w-40 -mb-11 rotate-12" src="/imgHoku/1.1.1.png" alt="count" />
 										</div>
-									</div>
-									<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
-										<span
-											class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
-											>{bwish.comment}</span
-										>
-										<div
-											class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
-										/>
-									</div>
 
+										<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
+											<p><b>{bwish.name} #{bwish.count}</b></p>
+											<p>{bwish.DMY} {bwish.time}</p>
+										</div>
+										<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
+											><path
+												fill={borderColor1}
+												d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
+											/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
+										>
+									</div>
+								{/if}
+								{#if bwish.picture == 2}
 									<div
-										class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
+										class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
+										style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 									>
-										<img class="w-40 -mb-9 -rotate-45" src="/imgHoku/1.1.png" alt="count" />
-									</div>
+										<svg
+											preserveAspectRatio="none"
+											version="1.2"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 402 49"
+											class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
+											><path
+												fill={borderColor2}
+												d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
+											/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
+										><svg
+											version="1.2"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 402 132"
+											class=""
+											><path fill={borderColor2} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
+												fill="#ffffff"
+												d="m13 92.5v79.5h376v-159h-376z"
+											/></svg
+										>
+										<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
+											<div class="flex">
+												<img
+													src={imgURL2}
+													class="h-40 object-contain -mt-9 -ml-14 z-10"
+													alt="gift"
+												/>
+											</div>
+										</div>
+										<div
+											class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11"
+										>
+											<span
+												class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
+												>{bwish.comment}</span
+											>
+											<div
+												class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
+											/>
+										</div>
 
-									<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
-										<p><b>{bwish.name} #{bwish.count}</b></p>
-										<p>{bwish.DMY} {bwish.time}</p>
+										<div
+											class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
+										>
+											<img class="w-40 -mb-11 rotate-12" src="/imgHoku/1.1.2.png" alt="count" />
+										</div>
+
+										<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
+											<p><b>{bwish.name} #{bwish.count}</b></p>
+											<p>{bwish.DMY} {bwish.time}</p>
+										</div>
+										<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
+											><path
+												fill={borderColor2}
+												d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
+											/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
+										>
 									</div>
-									<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
-										><path
-											fill={borderColor4}
-											d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
-										/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
+								{/if}
+								{#if bwish.picture == 3}
+									<div
+										class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
+										style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 									>
-								</div>
-							{/if}
-						{/each}
-					</div>
-					<h2 class="mx-auto text-lg text-yellow-700 text-center pb-16 pt-4">
-						หมดแล้ว! ไอ่หนุ่ม!
-						<p class="mx-auto text-lg text-yellow-700 text-center" id="credit">Credit:</p>
-						<p>DEV: สิราวิ้จจะบึ</p>
-						<p>ART: CV_FSan</p>
-						<p>Data structure: neaht</p>
-						<p>Data structure: RikiNozomu</p>
-						<p>Domain: Setsugi</p>
-						<p>Project Approval: Polygon Project</p>
-					</h2>
-				{/await}
+										<svg
+											preserveAspectRatio="none"
+											version="1.2"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 402 49"
+											class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
+											><path
+												fill={borderColor3}
+												d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
+											/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
+										><svg
+											version="1.2"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 402 132"
+											class=""
+											><path fill={borderColor3} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
+												fill="#ffffff"
+												d="m13 92.5v79.5h376v-159h-376z"
+											/></svg
+										>
+										<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
+											<div class="flex">
+												<img
+													class="w-fit h-auto absolute -top-36 md:-top-40 z-0 -ml-3 object-contain"
+													src="/imgHoku/1.1.3.png"
+													alt=""
+												/>
+												<img
+													src={imgURL3}
+													class="h-40 object-contain -mt-9 -ml-14 z-10"
+													alt="gift"
+												/>
+											</div>
+										</div>
+										<div
+											class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11"
+										>
+											<span
+												class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
+												>{bwish.comment}</span
+											>
+											<div
+												class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
+											/>
+										</div>
+
+										<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
+											<p><b>{bwish.name} #{bwish.count}</b></p>
+											<p>{bwish.DMY} {bwish.time}</p>
+										</div>
+
+										<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
+											><path
+												fill={borderColor3}
+												d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
+											/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
+										>
+									</div>
+								{/if}
+								{#if bwish.picture == 4}
+									<div
+										class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
+										style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+									>
+										<svg
+											preserveAspectRatio="none"
+											version="1.2"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 402 49"
+											class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
+											><path
+												fill={borderColor4}
+												d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
+											/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
+										><svg
+											version="1.2"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 402 132"
+											class=""
+											><path fill={borderColor4} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
+												fill="#ffffff"
+												d="m13 92.5v79.5h376v-159h-376z"
+											/></svg
+										>
+										<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
+											<div class="flex">
+												<img
+													src={imgURL4}
+													class="h-40 object-contain -mt-9 -ml-14 z-10"
+													alt="gift"
+												/>
+											</div>
+										</div>
+										<div
+											class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11"
+										>
+											<span
+												class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
+												>{bwish.comment}</span
+											>
+											<div
+												class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
+											/>
+										</div>
+
+										<div
+											class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
+										>
+											<img class="w-40 -mb-9 -rotate-45" src="/imgHoku/1.1.png" alt="count" />
+										</div>
+
+										<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
+											<p><b>{bwish.name} #{bwish.count}</b></p>
+											<p>{bwish.DMY} {bwish.time}</p>
+										</div>
+										<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
+											><path
+												fill={borderColor4}
+												d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
+											/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
+										>
+									</div>
+								{/if}
+							{/each}
+						</div>
+						<h2 class="mx-auto text-lg text-yellow-700 text-center pb-16 pt-4">
+							หมดแล้ว! ไอ่หนุ่ม!
+							<p class="mx-auto text-lg text-yellow-700 text-center" id="credit">Credit:</p>
+							<p>DEV: สิราวิ้จจะบึ</p>
+							<p>ART: CV_FSan</p>
+							<p>Data structure: neaht</p>
+							<p>Data structure: RikiNozomu</p>
+							<p>Domain: Setsugi</p>
+							<p>Project Approval: Polygon Project</p>
+						</h2>
+					{/await}{/await}
 			</div>
 		</div>
 	</div>

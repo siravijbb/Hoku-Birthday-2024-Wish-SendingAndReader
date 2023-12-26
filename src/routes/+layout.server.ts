@@ -30,15 +30,17 @@ export const load: PageServerLoad = async function () {
 			});
 			let count = bwish.countDocuments();
 			console.log('Code Closed (return count)');
-
+			const hours = Number(String(predefinedDateTimeObject.getUTCHours()).padStart(2, '0')) + 7;
+			const minutes = String(predefinedDateTimeObject.getUTCMinutes()).padStart(2, '0');
+			const seconds = String(predefinedDateTimeObject.getUTCSeconds()).padStart(2, '0');
 			return {
 				notIntime: true,
 				tutorials: undefined, ///
 				Total: { count: count },
 				openDate:
-					predefinedDateTimeObject.toLocaleDateString('th-TH') +
+					predefinedDateTimeObject.toLocaleDateString() +
 					' เวลา ' +
-					predefinedDateTimeObject.toTimeString()
+					hours + ':' + minutes + ':' + seconds
 			};
 		} else {
 			await start_mongo().then(() => {

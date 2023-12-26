@@ -1,12 +1,11 @@
 <script>
-
-import OneOne from '$lib/images/imgHoku/1.1.png';
+	import OneOne from '$lib/images/imgHoku/1.1.png';
 </script>
 
 <div
 	class="w-full h-sm flex flex-row gap-2 fixed bottom-0 bg-[#FA8128] z-50 p-2 text-white justify-center items-center whitespace-nowrap"
 >
-	<img class=" h-14 -my-9 -rotate-45" src="{OneOne}" alt="art" />
+	<img class=" h-14 -my-9 -rotate-45" src={OneOne} alt="art" />
 	<a
 		class="flex min-[431px]:flex-row flex-col items-center gap-1"
 		target="_blank"
@@ -98,5 +97,5 @@ import OneOne from '$lib/images/imgHoku/1.1.png';
 			>
 		</div>
 	</div>
-	<img class=" h-14 -my-9 rotate-45" src="{OneOne}" alt="art" />
+	<img class=" h-14 -my-9 rotate-45" src={OneOne} alt="art" />
 </div>

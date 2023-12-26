@@ -14,8 +14,7 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			$db: './src/db',
-			$hokuimg: './imgHoku',
-
+			$hokuimg: './imgHoku'
 		}
 	}
 };

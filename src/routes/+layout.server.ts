@@ -1,6 +1,7 @@
 import { bwish } from '$db/tutorials';
 import type { PageServerLoad } from './$types';
 import { start_mongo, close_mongo } from '$db/mongo';
+import { P } from 'flowbite-svelte';
 // Predefined date and time in the format "YYYY-MM-DDTHH:mm:ss"
 const predefinedDateTime = '2024-01-08T18:00:00';
 
@@ -33,7 +34,11 @@ export const load: PageServerLoad = async function () {
 			return {
 				notIntime: true,
 				tutorials: undefined, ///
-				Total: { count: count }
+				Total: { count: count },
+				openDate:
+					predefinedDateTimeObject.toLocaleDateString('th-TH') +
+					' เวลา ' +
+					predefinedDateTimeObject.toTimeString()
 			};
 		} else {
 			await start_mongo().then(() => {

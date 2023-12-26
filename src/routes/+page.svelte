@@ -20,7 +20,6 @@
 	import OneOneTwo from '$lib/images/imgHoku/1.1.2.png';
 	import OneOneThree from '$lib/images/imgHoku/1.1.3.png';
 
-
 	export let data: PageData;
 	export let form: ActionData;
 
@@ -232,33 +231,32 @@
 									<Turnstile {siteKey} />
 								</div>
 								{#await form}
-									<wbr>
-								{:then form} 
-									
-								
-								{#if form?.reCapchaFalse}<p class="error text-[#b90e0a]">
-										นายกดยืนยันreCaptchaด้วย
-									</p>{/if}
-								{#if form?.message}<p class="error text-[#b90e0a]">
-										คำอวยพรของนายยังไม่ได้ส่ง
-									</p>{/if}
-								{#if loading}<p class="error text-cyan-500">กำลังส่งคำอวยพร</p>{/if}
-								{#if form?.complete || form?.completeBefore}<p class="error text-cyan-500">
-										{#if form?.completeBefore}
-											<h2>
-												ส่งคำอวยพรเรียบร้อยแล้ว คำอวยพรจะเปิดวันเกิดนะนาย! เจอกัน!
-											</h2>{:else if form?.complete}
-											<h2>
-												ส่งคำอวยพรเรียบร้อยแล้ว หากไม่มีอะไรเกิดขึ้นภายใน 3 วินาที กรุณาrefresh page
-											</h2>
-										{/if}
+									<wbr />
+								{:then form}
+									{#if form?.reCapchaFalse}<p class="error text-[#b90e0a]">
+											นายกดยืนยันreCaptchaด้วย
+										</p>{/if}
+									{#if form?.message}<p class="error text-[#b90e0a]">
+											คำอวยพรของนายยังไม่ได้ส่ง
+										</p>{/if}
+									{#if loading}<p class="error text-cyan-500">กำลังส่งคำอวยพร</p>{/if}
+									{#if form?.complete || form?.completeBefore}<p class="error text-cyan-500">
+											{#if form?.completeBefore}
+												<h2>
+													ส่งคำอวยพรเรียบร้อยแล้ว คำอวยพรจะเปิดวันเกิดนะนาย! เจอกัน!
+												</h2>{:else if form?.complete}
+												<h2>
+													ส่งคำอวยพรเรียบร้อยแล้ว หากไม่มีอะไรเกิดขึ้นภายใน 3 วินาที กรุณาrefresh
+													page
+												</h2>
+											{/if}
 
-										<script>
-											setTimeout(function () {
-												window.location.replace('/sendwish/completed');
-											}, 3000);
-										</script>
-									</p>{/if}{/await}
+											<script>
+												setTimeout(function () {
+													window.location.replace('/sendwish/completed');
+												}, 3000);
+											</script>
+										</p>{/if}{/await}
 							</div>
 						</div>
 						<button
@@ -342,11 +340,11 @@
 					กำลังโหลดข้อมูล
 				{:then data}
 					{#await count}
-					<h2 class="mx-auto  text-center pt-4 text-cyan-500 text-xl " id="total">	
-					<b class="">กำลังโหลดจำนวนคำอวยพรทั้งหมด</b>
-					</h2>
+						<h2 class="mx-auto text-center pt-4 text-cyan-500 text-xl" id="total">
+							<b class="">กำลังโหลดจำนวนคำอวยพรทั้งหมด</b>
+						</h2>
 					{:then count}
-						<h2 class="text-center text-2xl font-['itim'] " id="total">
+						<h2 class="text-center text-2xl font-['itim']" id="total">
 							<b>มีคำอวยพรแล้วทั้งหมด {count} คำอวยพร</b>
 						</h2>
 					{/await}
@@ -354,6 +352,9 @@
 					{#if data?.notIntime}
 						<h2 class="mx-auto text-lg text-black text-center font-['itim']">
 							แต่ยังไม่ถึงเวลาอ่านคำอวยพรนะนาย เจอกันวันเกิด!
+						</h2>
+						<h2 class="mx-auto text-lg text-black text-center font-['itim'] mb-1">
+							คำอวยพรจะเปิดวันที่ {data.openDate}
 						</h2>
 						<div
 							class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim']"
@@ -402,7 +403,7 @@
 								<div
 									class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
 								>
-									<img class="w-40 -mb-11 rotate-12" src="{OneOneOne}" alt="count" />
+									<img class="w-40 -mb-11 rotate-12" src={OneOneOne} alt="count" />
 								</div>
 
 								<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0 text-left">
@@ -459,7 +460,7 @@
 								<div
 									class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
 								>
-									<img class="w-40 -mb-11 rotate-12" src="{OneOneTwo}" alt="count" />
+									<img class="w-40 -mb-11 rotate-12" src={OneOneTwo} alt="count" />
 								</div>
 
 								<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0 text-left">
@@ -502,7 +503,7 @@
 									<div class="flex">
 										<img
 											class="w-fit h-auto absolute -top-36 md:-top-40 z-0 -ml-3 object-contain"
-											src="{OneOneThree}"
+											src={OneOneThree}
 											alt=""
 										/>
 										<img src={imgURL3} class="h-40 object-contain -mt-9 -ml-14 z-10" alt="gift" />
@@ -573,7 +574,7 @@
 								<div
 									class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
 								>
-									<img class="w-40 -mb-9 -rotate-45" src="{OneOne}" alt="count" />
+									<img class="w-40 -mb-9 -rotate-45" src={OneOne} alt="count" />
 								</div>
 
 								<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0 text-left">
@@ -594,7 +595,9 @@
 							Data Fetching failled, Try again later But Wish sending might working
 						</h2>{/if}
 					{#await birthdayWishes}
-						<h2 class="mx-auto  text-center pb-16 pt-4 text-cyan-500 text-lg"><b>กำลังโหลดคำอวยพรทั้งหมด ใจเย็นๆนะหนุ่ม</h2>
+						<h2 class="mx-auto text-center pb-16 pt-4 text-cyan-500 text-lg">
+							<b>กำลังโหลดคำอวยพรทั้งหมด ใจเย็นๆนะหนุ่ม</b>
+						</h2>
 					{:then birthdayWishes}
 						<div
 							class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim']"
@@ -651,7 +654,7 @@
 										<div
 											class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
 										>
-											<img class="w-40 -mb-11 rotate-12" src="{OneOneOne}" alt="count" />
+											<img class="w-40 -mb-11 rotate-12" src={OneOneOne} alt="count" />
 										</div>
 
 										<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
@@ -715,7 +718,7 @@
 										<div
 											class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
 										>
-											<img class="w-40 -mb-11 rotate-12" src="{OneOneTwo}" alt="count" />
+											<img class="w-40 -mb-11 rotate-12" src={OneOneTwo} alt="count" />
 										</div>
 
 										<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
@@ -759,7 +762,7 @@
 											<div class="flex">
 												<img
 													class="w-fit h-auto absolute -top-36 md:-top-40 z-0 -ml-3 object-contain"
-													src="{OneOneThree}"
+													src={OneOneThree}
 													alt=""
 												/>
 												<img
@@ -843,7 +846,7 @@
 										<div
 											class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
 										>
-											<img class="w-40 -mb-9 -rotate-45" src="{OneOne}" alt="count" />
+											<img class="w-40 -mb-9 -rotate-45" src={OneOne} alt="count" />
 										</div>
 
 										<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">

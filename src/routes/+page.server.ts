@@ -103,7 +103,6 @@ export const actions: Actions = {
 			count: count + 1,
 			picture: picture
 		});
-		await close_mongo();
 		console.log('Code Closed');
 		if (currentDate < new Date(predefinedDate)) {
 			console.log('Sended before the predefined date.');

@@ -93,7 +93,7 @@
 	}
 
    onMount(() => {
-      AOS.init();
+	AOS.init({ once: true });
    });
 </script>
 

@@ -5,10 +5,10 @@
 			resultElement.innerHTML = '❗ ไอ่หนุ่ม! แกต้องให้ของขวัญด้วย นายสิราวิ้จจะบึ บังคับ';
 		}
 	}
-	import imgURL1 from '$lib/images/imgHoku/1.png';
-	import imgURL2 from '$lib/images/imgHoku/2.png';
-	import imgURL3 from '$lib/images/imgHoku/3.png';
-	import imgURL4 from '$lib/images/imgHoku/4.png';
+	import imgURL1 from '$lib/images/imgHoku/1.webp';
+	import imgURL2 from '$lib/images/imgHoku/2.webp';
+	import imgURL3 from '$lib/images/imgHoku/3.webp';
+	import imgURL4 from '$lib/images/imgHoku/4.webp';
 </script>
 
 <ul class="grid w-full gap-2 grid-cols-2 md:grid-cols-2">

@@ -25,7 +25,7 @@
 
 	let title: string = "Happy Hoku's Birthday 2024";
 	let description: string = '#HappyHokuDay2024, Hoku Wish sending page from fanclub';
-	let image: string = '/Corousel/PLG3ANNIHoku.png';
+	let image: string = '/Corousel/PLG3ANNIHoku.webp';
 
 	let birthdayWishes = data.birthdayWishes?.birthdayWishes ?? [];
 	let count = data.Total?.count ?? [];

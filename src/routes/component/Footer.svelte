@@ -1,5 +1,5 @@
 <script>
-	import OneOne from '$lib/images/imgHoku/1.1.png';
+	import OneOne from '$lib/images/imgHoku/1.1.webp';
 </script>
 
 <div

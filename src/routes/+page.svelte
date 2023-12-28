@@ -6,51 +6,51 @@
 	import { enhance } from '$app/forms';
 	import { Turnstile } from 'svelte-turnstile';
 	import type { ActionData, Actions } from './$types';
-	import { Button, Modal, Label, Input, Checkbox } from 'flowbite-svelte';
-	import TOS from './component/TOS.svelte';
+	// import { Button, Modal, Label, Input, Checkbox } from 'flowbite-svelte';
+	// import TOS from './component/TOS.svelte';
 	import Gift from './component/sendGift.svelte';
 	import Corousel from './component/Corousel/Corousel.svelte';
-	import imgURL1 from '$lib/images/imgHoku/1.png';
-	import imgURL2 from '$lib/images/imgHoku/2.png';
-	import imgURL3 from '$lib/images/imgHoku/3.png';
-	import imgURL4 from '$lib/images/imgHoku/4.png';
-	import OneOne from '$lib/images/imgHoku/1.1.png';
-	import OneTwo from '$lib/images/imgHoku/1.2.png';
-	import OneOneOne from '$lib/images/imgHoku/1.1.1.png';
-	import OneOneTwo from '$lib/images/imgHoku/1.1.2.png';
-	import OneOneThree from '$lib/images/imgHoku/1.1.3.png';
+	import imgURL1 from '$lib/images/imgHoku/1.webp';
+	import imgURL2 from '$lib/images/imgHoku/2.webp';
+	import imgURL3 from '$lib/images/imgHoku/3.webp';
+	import imgURL4 from '$lib/images/imgHoku/4.webp';
+	import OneOne from '$lib/images/imgHoku/1.1.webp';
+	// import OneTwo from '$lib/images/imgHoku/1.2.webp';
+	import OneOneOne from '$lib/images/imgHoku/1.1.1.webp';
+	import OneOneTwo from '$lib/images/imgHoku/1.1.2.webp';
+	import OneOneThree from '$lib/images/imgHoku/1.1.3.webp';
 
 	export let data: PageData;
 	export let form: ActionData;
 
 	let title: string = "Happy Hoku's Birthday 2024";
 	let description: string = '#HappyHokuDay2024, Hoku Wish sending page from fanclub';
-	let image: string = '/Corousel/PLG3ANNIHoku.jpg';
+	let image: string = '/Corousel/PLG3ANNIHoku.png';
 
 	let birthdayWishes = data.birthdayWishes?.birthdayWishes ?? [];
 	let count = data.Total?.count ?? [];
 
 	const picturename1 = 'hamham';
 	const desc1 = 'ผู้ฝันใฝ่ธรรมดา ที่รัก และคิดถึงคุณบากุมาก ๆ';
-	//const imgURL1 = '/imgHoku/1.png';
+	//const imgURL1 = '/imgHoku/1.webp';
 	const bgColorCode1 = '#e1d7ed';
 	const borderColor1 = '#bf4e2e';
 
 	const picturename2 = 'hamham';
 	const desc2 = '#หนูบากุน่ารักที่สุดในโลก';
-	//const imgURL2 = '/imgHoku/2.png';
+	//const imgURL2 = '/imgHoku/2.webp';
 	const bgColorCode2 = '#FFFFFF';
 	const borderColor2 = '#f1962e';
 
 	const picturename3 = 'banana';
 	const desc3 = 'กล้วยน้อย ขนาดแมวดำยังชอบเล่นกล้วย แล้วใครล่ะจะไม่ชอบ';
-	//const imgURL3 = '/imgHoku/3.png';
+	//const imgURL3 = '/imgHoku/3.webp';
 	const bgColorCode3 = '#ffe8a8';
 	const borderColor3 = '#d7ebff';
 
 	const picturename4 = 'heart';
 	const desc4 = 'ความรักที่มีต่อคุณบากุ';
-	//const imgURL4 = '/imgHoku/4.png';
+	//const imgURL4 = '/imgHoku/4.webp';
 	const bgColorCode4 = '#ffbaab';
 	const borderColor4 = '#ffa083';
 

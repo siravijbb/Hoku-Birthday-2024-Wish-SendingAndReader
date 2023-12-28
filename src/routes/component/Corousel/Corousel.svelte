@@ -1,13 +1,13 @@
 <script>
 	import { Carousel, Thumbnails, Button, Indicator } from 'flowbite-svelte';
 	import { CaretRightOutline } from 'flowbite-svelte-icons';
-	import HOKUMRTSAMYAN from '$lib/images/imgHoku/HOKUMRTSAMYAN.png';
-	import TenKSong from '$lib/images/imgHoku/10KSong.jpg';
-	import HokuHug from '$lib/images/imgHoku/HokuHug.jpg';
-	import TTLG from '$lib/images/imgHoku/TTLG.jpg';
-	import LookingWay from '$lib/images/imgHoku/LookingWay.jpg';
-	import imgURL1 from '$lib/images/imgHoku/1.png';
-	import PLG3ANNIHoku from '$lib/images/Corousel/PLG3ANNIHoku.jpg';
+	import HOKUMRTSAMYAN from '$lib/images/imgHoku/HOKUMRTSAMYAN.webp';
+	import TenKSong from '$lib/images/imgHoku/10KSong.webp';
+	import HokuHug from '$lib/images/imgHoku/HokuHug.webp';
+	import TTLG from '$lib/images/imgHoku/TTLG.webp';
+	import LookingWay from '$lib/images/imgHoku/LookingWay.webp';
+	import imgURL1 from '$lib/images/imgHoku/1.webp';
+	import PLG3ANNIHoku from '$lib/images/Corousel/PLG3ANNIHoku.webp';
 	let index = 0;
 	const images = [
 		{

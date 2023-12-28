@@ -19,6 +19,12 @@
 	import OneOneOne from '$lib/images/imgHoku/1.1.1.webp';
 	import OneOneTwo from '$lib/images/imgHoku/1.1.2.webp';
 	import OneOneThree from '$lib/images/imgHoku/1.1.3.webp';
+	import 'aos/dist/aos.css';
+   // @ts-ignore
+   import AOS from "aos";
+
+   import { onMount } from 'svelte';
+
 
 	export let data: PageData;
 	export let form: ActionData;
@@ -85,6 +91,10 @@
 			resultElement.innerHTML = '❗ ไอ่หนุ่ม! แกต้องอ่านให้หมดด้วย';
 		}
 	}
+
+   onMount(() => {
+      AOS.init();
+   });
 </script>
 
 <head>

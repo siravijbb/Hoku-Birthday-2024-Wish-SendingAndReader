@@ -105,7 +105,7 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" />
 
-	<meta name="description" content="Astro description" />
+	<meta name="description" content="Happy Hoku Day 2024! Birthday wish sending" />
 	<meta name="viewport" content="width=device-width" />
 	<link rel="icon" type="image/svg+xml" href={image} />
 	<title>{title}</title>
@@ -618,7 +618,8 @@
 									<div
 										class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
 										style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
-									>
+										data-aos="fade-up"
+										>
 										<svg
 											preserveAspectRatio="none"
 											version="1.2"
@@ -683,7 +684,8 @@
 									<div
 										class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
 										style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
-									>
+										data-aos="fade-up"
+										>
 										<svg
 											preserveAspectRatio="none"
 											version="1.2"
@@ -747,7 +749,8 @@
 									<div
 										class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
 										style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
-									>
+										data-aos="fade-up"
+										>
 										<svg
 											preserveAspectRatio="none"
 											version="1.2"
@@ -811,7 +814,8 @@
 									<div
 										class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
 										style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
-									>
+										data-aos="fade-up"
+										>
 										<svg
 											preserveAspectRatio="none"
 											version="1.2"

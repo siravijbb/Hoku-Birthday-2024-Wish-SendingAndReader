@@ -10,7 +10,6 @@
 			<slot />
 		</main>
 	</body>
-
 </div>
 
 <style is:global>

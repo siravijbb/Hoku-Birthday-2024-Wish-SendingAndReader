@@ -20,11 +20,10 @@
 	import OneOneTwo from '$lib/images/imgHoku/1.1.2.webp';
 	import OneOneThree from '$lib/images/imgHoku/1.1.3.webp';
 	import 'aos/dist/aos.css';
-   // @ts-ignore
-   import AOS from "aos";
+	// @ts-ignore
+	import AOS from 'aos';
 
-   import { onMount } from 'svelte';
-
+	import { onMount } from 'svelte';
 
 	export let data: PageData;
 	export let form: ActionData;
@@ -91,10 +90,29 @@
 			resultElement.innerHTML = '❗ ไอ่หนุ่ม! แกต้องอ่านให้หมดด้วย';
 		}
 	}
+	function wishboxViewChange() {
+		const wishElement = document.getElementById('countLimit');
+		const footerElement = document.getElementById('footer');
+		if (wishElement !== null && footerElement !== null) {
+			if (
+				wishElement.className ==
+				"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim']"
+			) {
+				wishElement.className = "grid grid-cols-1 gap-96 my-auto font-['itim'] mt-9";
+				footerElement.className =
+					'w-full h-sm flex flex-row gap-2 fixed bottom-0 bg-[#FA8128] z-50 p-2 text-white justify-center items-center whitespace-nowrap opacity-10';
+			} else {
+				wishElement.className =
+					"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim']";
+				footerElement.className =
+					'w-full h-sm flex flex-row gap-2 fixed bottom-0 bg-[#FA8128] z-50 p-2 text-white justify-center items-center whitespace-nowrap';
+			}
+		}
+	}
 
-   onMount(() => {
-	AOS.init({ once: true });
-   });
+	onMount(() => {
+		AOS.init({ once: true });
+	});
 </script>
 
 <head>
@@ -609,9 +627,19 @@
 							<b>กำลังโหลดคำอวยพรทั้งหมด ใจเย็นๆนะหนุ่ม</b>
 						</h2>
 					{:then birthdayWishes}
+						{#if !data?.notIntime}
+						<h2 class="flex flex-col items-center pb-4 font-['itim']">
+							<button
+								class=" p-2 bg-[#f4a443] text-white disabled:bg-cyan-900/30 hover:bg-[#c7722e] disabled:text-white/30 rounded-full items-center self-center justify-center"
+								on:click={wishboxViewChange}>สำหรับเปิดดูทีละคำอวยพร</button
+							>
+							<small class="my-1">นายสามารถใช้ปุ่มนี้ เพื่ออ่านทีละคำอวยพรได้นะ!</small>
+							<small class="-mt-2">แนะนำให้นายZoomเข้าไป ให้เต็มจอ</small>
+						</h2>
+						{/if}
 						<div
 							class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim']"
-							data-aos="fade-up"
+							id="countLimit"
 						>
 							{#each birthdayWishes as bwish, index}
 								{#if bwish.picture == 1}
@@ -619,7 +647,7 @@
 										class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
 										style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 										data-aos="fade-up"
-										>
+									>
 										<svg
 											preserveAspectRatio="none"
 											version="1.2"
@@ -685,7 +713,7 @@
 										class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
 										style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 										data-aos="fade-up"
-										>
+									>
 										<svg
 											preserveAspectRatio="none"
 											version="1.2"
@@ -750,7 +778,7 @@
 										class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
 										style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 										data-aos="fade-up"
-										>
+									>
 										<svg
 											preserveAspectRatio="none"
 											version="1.2"
@@ -815,7 +843,7 @@
 										class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
 										style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 										data-aos="fade-up"
-										>
+									>
 										<svg
 											preserveAspectRatio="none"
 											version="1.2"

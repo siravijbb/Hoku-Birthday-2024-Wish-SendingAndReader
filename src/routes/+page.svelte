@@ -96,22 +96,29 @@
 		if (wishElement !== null && footerElement !== null) {
 			if (
 				wishElement.className ==
-				"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim']"
+				"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim'] scroll-auto	overscroll-none"
 			) {
-				wishElement.className = "grid grid-cols-1 gap-96 my-auto font-['itim'] mt-9";
+				wishElement.className = "grid grid-cols-1 gap-80 my-auto font-['itim'] mt-9 scroll-auto	overscroll-none";
 				footerElement.className =
-					'w-full h-sm flex flex-row gap-2 fixed bottom-0 bg-[#FA8128] z-50 p-2 text-white justify-center items-center whitespace-nowrap opacity-10';
+					'w-full h-sm flex flex-row gap-2 fixed bottom-0 bg-[#FA8128] z-50 p-2 text-white justify-center items-center whitespace-nowrap opacity-50';
+				AOS.init({
+					once: true,
+				});
 			} else {
 				wishElement.className =
-					"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim']";
+					"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim'] scroll-auto	overscroll-none";
 				footerElement.className =
 					'w-full h-sm flex flex-row gap-2 fixed bottom-0 bg-[#FA8128] z-50 p-2 text-white justify-center items-center whitespace-nowrap';
+				AOS.init({
+					
+				});
 			}
 		}
 	}
 
 	onMount(() => {
-		AOS.init({ once: true });
+		AOS.init({
+		});
 	});
 </script>
 
@@ -390,7 +397,6 @@
 						>
 							<div
 								class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
-								style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 							>
 								<svg
 									preserveAspectRatio="none"
@@ -448,7 +454,6 @@
 
 							<div
 								class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
-								style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 							>
 								<svg
 									preserveAspectRatio="none"
@@ -505,7 +510,6 @@
 
 							<div
 								class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
-								style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 							>
 								<svg
 									preserveAspectRatio="none"
@@ -562,7 +566,6 @@
 
 							<div
 								class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
-								style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 							>
 								<svg
 									preserveAspectRatio="none"
@@ -628,24 +631,23 @@
 						</h2>
 					{:then birthdayWishes}
 						{#if !data?.notIntime}
-						<h2 class="flex flex-col items-center pb-4 font-['itim']">
-							<button
-								class=" p-2 bg-[#f4a443] text-white disabled:bg-cyan-900/30 hover:bg-[#c7722e] disabled:text-white/30 rounded-full items-center self-center justify-center"
-								on:click={wishboxViewChange}>สำหรับเปิดดูทีละคำอวยพร</button
-							>
-							<small class="my-1">นายสามารถใช้ปุ่มนี้ เพื่ออ่านทีละคำอวยพรได้นะ!</small>
-							<small class="-mt-2">แนะนำให้นายZoomเข้าไป ให้เต็มจอ</small>
-						</h2>
+							<h2 class="flex flex-col items-center pb-4 font-['itim']">
+								<button
+									class=" p-2 bg-[#f4a443] text-white disabled:bg-cyan-900/30 hover:bg-[#c7722e] disabled:text-white/30 rounded-full items-center self-center justify-center"
+									on:click={wishboxViewChange}>สำหรับเปิดดูทีละคำอวยพร/พร้อมกัน 3 คำอวยพร</button
+								>
+								<small class="mt-1">นายสามารถใช้ปุ่มนี้ เพื่ออ่านทีละคำอวยพรได้นะ!</small>
+								<small class="">แนะนำให้นายF11และZoomเข้าไป ให้เต็มจอ</small>
+							</h2>
 						{/if}
 						<div
-							class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim']"
+							class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim'] scroll-auto	overscroll-none"
 							id="countLimit"
 						>
 							{#each birthdayWishes as bwish, index}
 								{#if bwish.picture == 1}
 									<div
 										class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
-										style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 										data-aos="fade-up"
 									>
 										<svg
@@ -711,7 +713,6 @@
 								{#if bwish.picture == 2}
 									<div
 										class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
-										style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 										data-aos="fade-up"
 									>
 										<svg
@@ -776,7 +777,6 @@
 								{#if bwish.picture == 3}
 									<div
 										class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
-										style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 										data-aos="fade-up"
 									>
 										<svg
@@ -841,7 +841,6 @@
 								{#if bwish.picture == 4}
 									<div
 										class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
-										style="opacity: 1; transform: none; transition: opacity 1000ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 666ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
 										data-aos="fade-up"
 									>
 										<svg

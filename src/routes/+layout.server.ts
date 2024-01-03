@@ -39,7 +39,7 @@ export const load: PageServerLoad = async function () {
 				Total: { count: count },
 				openDate:
 					predefinedDateTimeObject.toLocaleDateString() +
-					' เวลา ' +
+					'  ' +
 					hours +
 					':' +
 					minutes +

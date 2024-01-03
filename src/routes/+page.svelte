@@ -205,17 +205,19 @@
 				>
 					<div class="form-item mx-auto items-center self-center justify-center py-2">
 						<label for="name" class="block mb-2 text-sm font-medium"
-							>ชื่อ<sup><small class="text-red-500">*</small></sup><label
+							>ชื่อ | Name<sup><small class="text-red-500">*</small></sup><label
 								for="counter-input"
 								class="label block"
 								><small
-									>จำกัด: <span id="counter-display" class="tag is-success">50 อักษร</span></small
-								></label
+									>จำกัด: <span id="counter-display" class="tag is-success">50 อักษร </span></small
+								><small
+								>| Limit: <span id="counter-display" class="tag is-success">50 Character</span></small
+							></label
 							>
 						</label>
 
 						<input
-							placeholder="ชื่อนายอะ ไอ่หนุ่ม!"
+							placeholder="ชื่อนายอะ ไอ่หนุ่ม! Your name,My boy!"
 							maxlength="50"
 							type="name"
 							name="name"
@@ -228,12 +230,14 @@
 					</div>
 					<div class="form-item mx-auto items-center self-center justify-center">
 						<label for="wish"
-							>คำอวยพร<sup><small class="text-red-500">*</small></sup><label
+							>คำอวยพร | Wish<sup><small class="text-red-500">*</small></sup><label
 								for="counter-input"
 								class="label block"
 								><small
 									>จำกัด: <span id="counter-display" class="tag is-success">500 อักษร</span></small
-								></label
+								> | <small
+								>Limit: <span id="counter-display" class="tag is-success">500 Character</span></small
+							></label
 							>
 						</label>
 
@@ -241,7 +245,7 @@
 							name="wish"
 							rows="4"
 							class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-							placeholder="นายอยากใส่คำอวยพร ความปรารถนา หรือ คำทักทาย ใส่เลย!"
+							placeholder="นายอยากใส่คำอวยพร ความปรารถนา หรือ คำทักทาย ใส่เลย! Feel free to add the wish or greating!"
 							maxlength="500"
 							minlength="6"
 							required
@@ -251,7 +255,7 @@
 					</div>
 
 					<label for="" class=""
-						>นายอยากใส่กรอบรูปแบบไหน เลือกเลย!<small class="text-red-500">*</small><label
+						>นายอยากใส่กรอบรูปแบบไหน เลือกเลย!<small class="text-red-500">*</small> <br> Choose your desired wish frame!<small class="text-red-500">*</small><label
 							for="counter-input"
 							class="label block"><small /></label
 						>
@@ -300,20 +304,20 @@
 									<wbr />
 								{:then form}
 									{#if form?.reCapchaFalse}<p class="error text-[#b90e0a]">
-											นายกดยืนยันreCaptchaด้วย
+											นายกดยืนยันreCaptchaด้วย | You have to verify reCaptcha
 										</p>{/if}
 									{#if form?.message}<p class="error text-[#b90e0a]">
-											คำอวยพรของนายยังไม่ได้ส่ง
+											คำอวยพรของนายยังไม่ได้ส่ง | Your wish haven't been sent
 										</p>{/if}
 									{#if loading}<p class="error text-cyan-500">กำลังส่งคำอวยพร</p>{/if}
 									{#if form?.complete || form?.completeBefore}<p class="error text-cyan-500">
 											{#if form?.completeBefore}
 												<h2>
-													ส่งคำอวยพรเรียบร้อยแล้ว คำอวยพรจะเปิดวันเกิดนะนาย! เจอกัน!
+													ส่งคำอวยพรเรียบร้อยแล้ว คำอวยพรจะเปิดวันเกิดนะนาย! เจอกัน! | Wish have been sended, See you at birthday livestream
 												</h2>{:else if form?.complete}
 												<h2>
 													ส่งคำอวยพรเรียบร้อยแล้ว หากไม่มีอะไรเกิดขึ้นภายใน 3 วินาที กรุณาrefresh
-													page
+													page | If this page haven't changed in 3 second, Please refresh page.
 												</h2>
 											{/if}
 
@@ -329,7 +333,7 @@
 							class="mt-3 p-2 bg-slate-900 text-white disabled:bg-slate-900/30 disabled:text-white/30 rounded-full"
 							type="submit"
 							disabled={forms?.message || loading}
-							>ส่งคำอวยพร
+							>ส่งคำอวยพร <br> Send the wish
 						</button>
 						<!--
 								<Button
@@ -403,25 +407,26 @@
 					<b>All Hoku's birthday wishes</b>
 				</h1>
 				{#await data}
-					กำลังโหลดข้อมูล
+					กำลังโหลดข้อมูล | Loading
 				{:then data}
 					{#await count}
 						<h2 class="mx-auto text-center pt-4 text-cyan-500 text-xl" id="total">
-							<b class="">กำลังโหลดจำนวนคำอวยพรทั้งหมด</b>
+							<b class="">กำลังโหลดจำนวนคำอวยพรทั้งหมด | Loading all wishes</b>
 						</h2>
 					{:then count}
 						<h2 class="text-center text-2xl font-['itim']" id="total">
-							<b>มีคำอวยพรแล้วทั้งหมด {count} คำอวยพร</b>
+							<b>มีคำอวยพรแล้วทั้งหมด {count} คำอวยพร <small><br ><h2 class="-mt-2 -mb-2"> Total wishes have been sended {count} wishes</h2></small></b>
 						</h2>
 					{/await}
 
 					{#if data?.notIntime}
 						<h2 class="mx-auto text-lg text-black text-center font-['itim']">
-							แต่ยังไม่ถึงเวลาอ่านคำอวยพรนะนาย เจอกันวันเกิด!
+							แต่ยังไม่ถึงเวลาอ่านคำอวยพรนะนาย เจอกันวันเกิด! <small><br ><h2 class="-mt-2 -mb-2 text-sm"> It's isn't time yet for read the wish, See you birthday! </h2></small>
 						</h2>
 						<h2 class="mx-auto text-lg text-black text-center font-['itim'] mb-1">
-							คำอวยพรจะเปิดวันที่ {data.openDate}
+							คำอวยพรจะเปิดวันที่ {data.openDate} <br> <h2 class="-mt-2 text-sm"> Wish will be open on {data.openDate}</h2>
 						</h2>
+
 						<div
 							class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim']"
 							data-aos="fade-up"
@@ -458,7 +463,7 @@
 								<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
 									<span
 										class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
-										>ตัวอย่างกล่องที่ 1</span
+										>ตัวอย่างกล่องที่ 1 <br> Example wish box 1										</span
 									>
 									<div
 										class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
@@ -472,8 +477,8 @@
 								</div>
 
 								<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0 text-left">
-									<p class=""><b>ชื่อ #อันดับ</b></p>
-									<p>วดป</p>
+									<p class=""><b>ชื่อ #อันดับ | Name #position</b></p>
+									<p>วดป | DDMMYYYY</p>
 								</div>
 								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
 									><path
@@ -514,7 +519,7 @@
 								<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
 									<span
 										class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
-										>ตัวอย่างกล่องที่ 2</span
+										>ตัวอย่างกล่องที่ 2 <br> Example wish box 2		</span
 									>
 									<div
 										class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
@@ -528,8 +533,8 @@
 								</div>
 
 								<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0 text-left">
-									<p class=""><b>ชื่อ #อันดับ</b></p>
-									<p>วดป</p>
+									<p class=""><b>ชื่อ #อันดับ | Name #position</b></p>
+									<p>วดป | DDMMYYYY</p>
 								</div>
 								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
 									><path
@@ -575,7 +580,7 @@
 								<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
 									<span
 										class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
-										>ตัวอย่างกล่องที่ 3</span
+										>ตัวอย่างกล่องที่ 3 <br> Example wish box 3	</span
 									>
 									<div
 										class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
@@ -583,8 +588,8 @@
 								</div>
 
 								<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0 text-left">
-									<p class=""><b>ชื่อ #อันดับ</b></p>
-									<p>วดป</p>
+									<p class=""><b>ชื่อ #อันดับ | Name #position</b></p>
+									<p>วดป | DDMMYYYY</p>
 								</div>
 
 								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
@@ -626,7 +631,7 @@
 								<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
 									<span
 										class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
-										>ตัวอย่างกล่องที่ 4</span
+										>ตัวอย่างกล่องที่ 4 <br> Example wish box 4		</span
 									>
 									<div
 										class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
@@ -640,8 +645,8 @@
 								</div>
 
 								<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0 text-left">
-									<p class=""><b>ชื่อ #อันดับ</b></p>
-									<p>วดป</p>
+									<p class=""><b>ชื่อ #อันดับ | Name #position</b></p>
+									<p>วดป | DDMMYYYY</p>
 								</div>
 								<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
 									><path

@@ -22,12 +22,4 @@
 		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
 		background-color: #fceccb;
 	}
-	html {
-		font-family: system-ui, sans-serif;
-		background-color: #fceccb;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
 </style>

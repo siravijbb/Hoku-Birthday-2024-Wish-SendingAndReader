@@ -93,31 +93,62 @@
 	function wishboxViewChange() {
 		const wishElement = document.getElementById('countLimit');
 		const footerElement = document.getElementById('footer');
-		if (wishElement !== null && footerElement !== null) {
-			if (
-				wishElement.className ==
-				"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim'] scroll-auto	overscroll-none"
-			) {
-				wishElement.className = "grid grid-cols-1 gap-80 my-auto font-['itim'] mt-9 scroll-auto	overscroll-none";
+		const fullwish = document.getElementById('onewish');
+		const one = document.getElementById('one');
+		const two = document.getElementById('two');
+		const three = document.getElementById('three');
+		const four = document.getElementById('four');
+		if (
+			wishElement !== null &&
+			footerElement !== null &&
+			fullwish !== null &&
+			one !== null &&
+			two !== null &&
+			three !== null &&
+			four !== null
+		) {
+			if (wishElement.className == '') {
+				wishElement.className =
+					"grid grid-cols-1 gap-80 my-auto font-['itim'] mt-9 scroll-auto	overscroll-none ";
 				footerElement.className =
-					'w-full h-sm flex flex-row gap-2 fixed bottom-0 bg-[#FA8128] z-50 p-2 text-white justify-center items-center whitespace-nowrap opacity-50';
+					'w-full h-sm flex flex-row gap-2 fixed bottom-0 bg-[#FA8128] z-50 p-2 text-white justify-center items-center whitespace-nowrap opacity-20';
+				fullwish.className = 'snap-y snap-mandatory h-[90vh] w-[80%] md:w-fit md:max-w-fit mx-auto overflow-x-scroll	space-y-20 shadow-xl outline outline-offset-2 outline-20 md:outline-offset-0 md:outline-0 outline-[#c7722e]';
+				one.removeAttribute('data-aos');
+				two.removeAttribute('data-aos');
+				three.removeAttribute('data-aos');
+				four.removeAttribute('data-aos');
 				AOS.init({
-					once: true,
+					// Global settings:
+					disable: true, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+
 				});
 			} else {
-				wishElement.className =
-					"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim'] scroll-auto	overscroll-none";
+				wishElement.className = '';
 				footerElement.className =
 					'w-full h-sm flex flex-row gap-2 fixed bottom-0 bg-[#FA8128] z-50 p-2 text-white justify-center items-center whitespace-nowrap';
-				AOS.init({
-					
+				fullwish.className =
+					"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim'] scroll-auto overscroll-none";
+					one.setAttribute('data-aos','fade-up');
+					two.setAttribute('data-aos','fade-up');
+					three.setAttribute('data-aos','fade-up');
+					four.setAttribute('data-aos','fade-up');
+					AOS.init({
+					// Global settings:
+					disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+						
 				});
+				AOS.refreshhard();
+
+
 			}
 		}
 	}
 
 	onMount(() => {
 		AOS.init({
+			// Global settings:
+			disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+
 		});
 	});
 </script>
@@ -634,275 +665,281 @@
 							<h2 class="flex flex-col items-center pb-4 font-['itim']">
 								<button
 									class=" p-2 bg-[#f4a443] text-white disabled:bg-cyan-900/30 hover:bg-[#c7722e] disabled:text-white/30 rounded-full items-center self-center justify-center"
-									on:click={wishboxViewChange}>สำหรับเปิดดูทีละคำอวยพร/พร้อมกัน 3 คำอวยพร</button
+									on:click={wishboxViewChange}>สำหรับเปิดดูทีละคำอวยพร/พร้อมกันทั้งหมด</button
 								>
 								<small class="mt-1">นายสามารถใช้ปุ่มนี้ เพื่ออ่านทีละคำอวยพรได้นะ!</small>
-								<small class="">แนะนำให้นายF11และZoomเข้าไป ให้เต็มจอ</small>
+								<small class="">แนะนำให้นายF11และZoomไม่เกิน <b>175%</b></small>
 							</h2>
 						{/if}
-						<div
-							class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim'] scroll-auto	overscroll-none"
-							id="countLimit"
-						>
-							{#each birthdayWishes as bwish, index}
-								{#if bwish.picture == 1}
-									<div
-										class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
-										data-aos="fade-up"
-									>
-										<svg
-											preserveAspectRatio="none"
-											version="1.2"
-											xmlns="http://www.w3.org/2000/svg"
-											viewBox="0 0 402 49"
-											class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
-											><path
-												fill={borderColor1}
-												d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
-											/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
-										><svg
-											version="1.2"
-											xmlns="http://www.w3.org/2000/svg"
-											viewBox="0 0 402 132"
-											class=""
-											><path fill={borderColor1} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
-												fill="#ffffff"
-												d="m13 92.5v79.5h376v-159h-376z"
-											/></svg
+						<div id="countLimit">
+							<div
+								id="onewish"
+								class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim'] scroll-auto overscroll-none"
+							>
+								{#each birthdayWishes as bwish, index}
+									{#if bwish.picture == 1}
+										<div
+											class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl snap-start"
+											data-aos="fade-in"
+											id="one"
 										>
+											<svg
+												preserveAspectRatio="none"
+												version="1.2"
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 402 49"
+												class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
+												><path
+													fill={borderColor1}
+													d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
+												/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
+											><svg
+												version="1.2"
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 402 132"
+												class=""
+												><path
+													fill={borderColor1}
+													d="m0 86v86h13v-159h376v159h13v-172h-402z"
+												/><path fill="#ffffff" d="m13 92.5v79.5h376v-159h-376z" /></svg
+											>
 
-										<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
-											<div class="flex">
-												<img
-													src={imgURL1}
-													class="h-40 object-contain -mt-9 -ml-14 z-10"
-													alt="gift"
+											<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
+												<div class="flex">
+													<img
+														src={imgURL1}
+														class="h-40 object-contain -mt-9 -ml-14 z-10"
+														alt="gift"
+													/>
+												</div>
+											</div>
+											<div
+												class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11"
+											>
+												<span
+													class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
+													>{bwish.comment}</span
+												>
+												<div
+													class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
 												/>
 											</div>
-										</div>
-										<div
-											class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11"
-										>
-											<span
-												class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
-												>{bwish.comment}</span
-											>
+
 											<div
-												class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
-											/>
-										</div>
+												class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
+											>
+												<img class="w-40 -mb-11 rotate-12" src={OneOneOne} alt="count" />
+											</div>
 
+											<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
+												<p><b>{bwish.name} #{bwish.count}</b></p>
+												<p>{bwish.DMY} {bwish.time}</p>
+											</div>
+											<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
+												><path
+													fill={borderColor1}
+													d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
+												/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
+											>
+										</div>
+									{/if}
+									{#if bwish.picture == 2}
 										<div
-											class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
+											class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl snap-start"
+											data-aos="fade-in"
+											id="two"
 										>
-											<img class="w-40 -mb-11 rotate-12" src={OneOneOne} alt="count" />
-										</div>
-
-										<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
-											<p><b>{bwish.name} #{bwish.count}</b></p>
-											<p>{bwish.DMY} {bwish.time}</p>
-										</div>
-										<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
-											><path
-												fill={borderColor1}
-												d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
-											/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
-										>
-									</div>
-								{/if}
-								{#if bwish.picture == 2}
-									<div
-										class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
-										data-aos="fade-up"
-									>
-										<svg
-											preserveAspectRatio="none"
-											version="1.2"
-											xmlns="http://www.w3.org/2000/svg"
-											viewBox="0 0 402 49"
-											class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
-											><path
-												fill={borderColor2}
-												d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
-											/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
-										><svg
-											version="1.2"
-											xmlns="http://www.w3.org/2000/svg"
-											viewBox="0 0 402 132"
-											class=""
-											><path fill={borderColor2} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
-												fill="#ffffff"
-												d="m13 92.5v79.5h376v-159h-376z"
-											/></svg
-										>
-										<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
-											<div class="flex">
-												<img
-													src={imgURL2}
-													class="h-40 object-contain -mt-9 -ml-14 z-10"
-													alt="gift"
+											<svg
+												preserveAspectRatio="none"
+												version="1.2"
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 402 49"
+												class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
+												><path
+													fill={borderColor2}
+													d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
+												/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
+											><svg
+												version="1.2"
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 402 132"
+												class=""
+												><path
+													fill={borderColor2}
+													d="m0 86v86h13v-159h376v159h13v-172h-402z"
+												/><path fill="#ffffff" d="m13 92.5v79.5h376v-159h-376z" /></svg
+											>
+											<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
+												<div class="flex">
+													<img
+														src={imgURL2}
+														class="h-40 object-contain -mt-9 -ml-14 z-10"
+														alt="gift"
+													/>
+												</div>
+											</div>
+											<div
+												class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11"
+											>
+												<span
+													class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
+													>{bwish.comment}</span
+												>
+												<div
+													class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
 												/>
 											</div>
-										</div>
-										<div
-											class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11"
-										>
-											<span
-												class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
-												>{bwish.comment}</span
-											>
+
 											<div
-												class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
-											/>
-										</div>
+												class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
+											>
+												<img class="w-40 -mb-11 rotate-12" src={OneOneTwo} alt="count" />
+											</div>
 
+											<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
+												<p><b>{bwish.name} #{bwish.count}</b></p>
+												<p>{bwish.DMY} {bwish.time}</p>
+											</div>
+											<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
+												><path
+													fill={borderColor2}
+													d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
+												/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
+											>
+										</div>
+									{/if}
+									{#if bwish.picture == 3}
 										<div
-											class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
+											class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl snap-start"
+											data-aos="fade-in"
+											id="three"
 										>
-											<img class="w-40 -mb-11 rotate-12" src={OneOneTwo} alt="count" />
-										</div>
-
-										<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
-											<p><b>{bwish.name} #{bwish.count}</b></p>
-											<p>{bwish.DMY} {bwish.time}</p>
-										</div>
-										<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
-											><path
-												fill={borderColor2}
-												d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
-											/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
-										>
-									</div>
-								{/if}
-								{#if bwish.picture == 3}
-									<div
-										class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
-										data-aos="fade-up"
-									>
-										<svg
-											preserveAspectRatio="none"
-											version="1.2"
-											xmlns="http://www.w3.org/2000/svg"
-											viewBox="0 0 402 49"
-											class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
-											><path
-												fill={borderColor3}
-												d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
-											/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
-										><svg
-											version="1.2"
-											xmlns="http://www.w3.org/2000/svg"
-											viewBox="0 0 402 132"
-											class=""
-											><path fill={borderColor3} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
-												fill="#ffffff"
-												d="m13 92.5v79.5h376v-159h-376z"
-											/></svg
-										>
-										<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
-											<div class="flex">
-												<img
-													class="w-fit h-auto absolute -top-36 md:-top-40 z-0 -ml-3 object-contain"
-													src={OneOneThree}
-													alt=""
-												/>
-												<img
-													src={imgURL3}
-													class="h-40 object-contain -mt-9 -ml-14 z-10"
-													alt="gift"
+											<svg
+												preserveAspectRatio="none"
+												version="1.2"
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 402 49"
+												class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
+												><path
+													fill={borderColor3}
+													d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
+												/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
+											><svg
+												version="1.2"
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 402 132"
+												class=""
+												><path
+													fill={borderColor3}
+													d="m0 86v86h13v-159h376v159h13v-172h-402z"
+												/><path fill="#ffffff" d="m13 92.5v79.5h376v-159h-376z" /></svg
+											>
+											<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
+												<div class="flex">
+													<img
+														class="w-fit h-auto absolute -top-36 md:-top-40 z-0 -ml-3 object-contain"
+														src={OneOneThree}
+														alt=""
+													/>
+													<img
+														src={imgURL3}
+														class="h-40 object-contain -mt-9 -ml-14 z-10"
+														alt="gift"
+													/>
+												</div>
+											</div>
+											<div
+												class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11"
+											>
+												<span
+													class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
+													>{bwish.comment}</span
+												>
+												<div
+													class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
 												/>
 											</div>
-										</div>
-										<div
-											class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11"
-										>
-											<span
-												class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
-												>{bwish.comment}</span
+
+											<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
+												<p><b>{bwish.name} #{bwish.count}</b></p>
+												<p>{bwish.DMY} {bwish.time}</p>
+											</div>
+
+											<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
+												><path
+													fill={borderColor3}
+													d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
+												/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
 											>
+										</div>
+									{/if}
+									{#if bwish.picture == 4}
+										<div
+											class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl snap-start"
+											data-aos="fade-in"
+											id="four"
+										>
+											<svg
+												preserveAspectRatio="none"
+												version="1.2"
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 402 49"
+												class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
+												><path
+													fill={borderColor4}
+													d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
+												/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
+											><svg
+												version="1.2"
+												xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 402 132"
+												class=""
+												><path
+													fill={borderColor4}
+													d="m0 86v86h13v-159h376v159h13v-172h-402z"
+												/><path fill="#ffffff" d="m13 92.5v79.5h376v-159h-376z" /></svg
+											>
+											<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
+												<div class="flex">
+													<img
+														src={imgURL4}
+														class="h-40 object-contain -mt-9 -ml-14 z-10"
+														alt="gift"
+													/>
+												</div>
+											</div>
 											<div
-												class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
-											/>
-										</div>
-
-										<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
-											<p><b>{bwish.name} #{bwish.count}</b></p>
-											<p>{bwish.DMY} {bwish.time}</p>
-										</div>
-
-										<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
-											><path
-												fill={borderColor3}
-												d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
-											/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
-										>
-									</div>
-								{/if}
-								{#if bwish.picture == 4}
-									<div
-										class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl"
-										data-aos="fade-up"
-									>
-										<svg
-											preserveAspectRatio="none"
-											version="1.2"
-											xmlns="http://www.w3.org/2000/svg"
-											viewBox="0 0 402 49"
-											class="absolute top-0 left-0 w-full h-[300vh] object-fill -z-[1]"
-											><path
-												fill={borderColor4}
-												d="m0 24.5v24.5h13v-49h-13zm389 0v24.5h13v-49h-13z"
-											/><path fill="#ffffff" d="m13 24.5v24.5h376v-49h-376z" /></svg
-										><svg
-											version="1.2"
-											xmlns="http://www.w3.org/2000/svg"
-											viewBox="0 0 402 132"
-											class=""
-											><path fill={borderColor4} d="m0 86v86h13v-159h376v159h13v-172h-402z" /><path
-												fill="#ffffff"
-												d="m13 92.5v79.5h376v-159h-376z"
-											/></svg
-										>
-										<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
-											<div class="flex">
-												<img
-													src={imgURL4}
-													class="h-40 object-contain -mt-9 -ml-14 z-10"
-													alt="gift"
+												class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11"
+											>
+												<span
+													class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
+													>{bwish.comment}</span
+												>
+												<div
+													class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
 												/>
 											</div>
-										</div>
-										<div
-											class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11"
-										>
-											<span
-												class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
-												>{bwish.comment}</span
-											>
+
 											<div
-												class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
-											/>
-										</div>
+												class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
+											>
+												<img class="w-40 -mb-9 -rotate-45" src={OneOne} alt="count" />
+											</div>
 
-										<div
-											class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
-										>
-											<img class="w-40 -mb-9 -rotate-45" src={OneOne} alt="count" />
+											<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
+												<p><b>{bwish.name} #{bwish.count}</b></p>
+												<p>{bwish.DMY} {bwish.time}</p>
+											</div>
+											<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
+												><path
+													fill={borderColor4}
+													d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
+												/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
+											>
 										</div>
-
-										<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
-											<p><b>{bwish.name} #{bwish.count}</b></p>
-											<p>{bwish.DMY} {bwish.time}</p>
-										</div>
-										<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 40 402 92"
-											><path
-												fill={borderColor4}
-												d="m-1 66.5v66.5h403v-133h-13v119h-376v-119h-14z"
-											/><path fill="#ffffff" d="m13 59.5v59.5h376v-119h-376z" /></svg
-										>
-									</div>
-								{/if}
-							{/each}
+									{/if}
+								{/each}
+							</div>
 						</div>
 						<h2 class="mx-auto text-lg text-yellow-700 text-center pb-16 pt-4">
 							หมดแล้ว! ไอ่หนุ่ม!

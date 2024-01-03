@@ -21,12 +21,12 @@ export const load: PageServerLoad = async function () {
 	// Convert the predefined date and time to UTC
 	const predefinedDateTimeObject = new Date(predefinedDateTime + 'Z');
 
-	console.log("Now",currentDateTime.getTime());
-	console.log("Defined",predefinedDateTimeObject.getTime());
+	console.log('Now', currentDateTime.getTime());
+	console.log('Defined', predefinedDateTimeObject.getTime());
 	try {
 		if (currentDateTimeUTC.getTime() <= predefinedDateTimeObject.getTime()) {
 			start_mongo().then(() => {
-				console.log('Today at and before the predefined date, But will open for count');
+				console.log('Today is before the predefined date, But will open for count');
 			});
 			let count = bwish.countDocuments();
 			console.log('Code Closed (return count)');

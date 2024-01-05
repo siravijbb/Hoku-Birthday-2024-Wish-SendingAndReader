@@ -28,7 +28,7 @@
 	export let data: PageData;
 	export let form: ActionData;
 
-	let title: string = "Happy Hoku's Birthday 2024";
+	let title: string = "Happy Hoku's Day 2024";
 	let description: string = '#HappyHokuDay2024, Hoku Wish sending page from fanclub';
 	let image: string = '/Corousel/PLG3ANNIHoku.webp';
 
@@ -112,15 +112,15 @@
 					"grid grid-cols-1 gap-80 my-auto font-['itim'] mt-9 scroll-auto	overscroll-none ";
 				footerElement.className =
 					'w-full h-sm flex flex-row gap-2 fixed bottom-0 bg-[#FA8128] z-50 p-2 text-white justify-center items-center whitespace-nowrap opacity-20';
-				fullwish.className = 'snap-y snap-mandatory h-[90vh] w-[80%] md:w-fit md:max-w-fit mx-auto overflow-x-scroll	space-y-20 shadow-xl outline outline-offset-2 outline-20 md:outline-offset-0 md:outline-0 outline-[#c7722e]';
+				fullwish.className =
+					'snap-y snap-mandatory h-[90vh] w-[80%] md:w-fit md:max-w-fit mx-auto overflow-x-scroll	space-y-20 shadow-xl outline outline-offset-2 outline-20 md:outline-offset-0 md:outline-0 outline-[#c7722e]';
 				one.removeAttribute('data-aos');
 				two.removeAttribute('data-aos');
 				three.removeAttribute('data-aos');
 				four.removeAttribute('data-aos');
 				AOS.init({
 					// Global settings:
-					disable: true, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-
+					disable: true // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
 				});
 			} else {
 				wishElement.className = '';
@@ -128,18 +128,15 @@
 					'w-full h-sm flex flex-row gap-2 fixed bottom-0 bg-[#FA8128] z-50 p-2 text-white justify-center items-center whitespace-nowrap';
 				fullwish.className =
 					"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim'] scroll-auto overscroll-none";
-					one.setAttribute('data-aos','fade-up');
-					two.setAttribute('data-aos','fade-up');
-					three.setAttribute('data-aos','fade-up');
-					four.setAttribute('data-aos','fade-up');
-					AOS.init({
+				one.setAttribute('data-aos', 'fade-up');
+				two.setAttribute('data-aos', 'fade-up');
+				three.setAttribute('data-aos', 'fade-up');
+				four.setAttribute('data-aos', 'fade-up');
+				AOS.init({
 					// Global settings:
-					disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-						
+					disable: false // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
 				});
 				AOS.refreshhard();
-
-
 			}
 		}
 	}
@@ -147,8 +144,7 @@
 	onMount(() => {
 		AOS.init({
 			// Global settings:
-			disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-
+			disable: false // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
 		});
 	});
 </script>
@@ -189,153 +185,174 @@
 	>
 		<div class="mx-auto rounded-xl py-4">
 			<div class="mx-auto max-w-4xl text-ellipsis rounded-lg py-4 lg:px-8">
-				<h1 class="text-center text-2xl font-['itim']"><b>Happy Hoku's birthday</b></h1>
+				<h1 class="text-center text-2xl font-['itim']"><b>Happy Hoku's Day 2024</b></h1>
 				<h2 class="pb-4 text-center text-xl font-['itim']">8 Jan 2024</h2>
 				<Corousel />
 			</div>
-			<div class="mx-auto max-w-4xl text-ellipsis rounded-lg py-4 shadow-xl lg:px-8" id="sendwish">
-				<h1 class="text-center text-2xl font-['itim']">ส่งคำอวยพรให้นายHOKU</h1>
-				<h1 class="pb-4 text-center text-xl -mt-2 font-['itim']">Wish sending to HOKU</h1>
-				<form
-					bind:this={thisForm}
-					on:submit|preventDefault={handleSubmit}
-					use:enhance
-					method="post"
-					class=" bg-[#f4b38d] px-9 lg:px-20 pb-4 mx-auto items-center self-center justify-center rounded-lg"
+			{#if data?.notIntime}
+				<div
+					class="mx-auto max-w-4xl text-ellipsis rounded-lg py-4 shadow-xl lg:px-8"
+					id="sendwish"
 				>
-					<div class="form-item mx-auto items-center self-center justify-center py-2">
-						<label for="name" class="block mb-2 text-sm font-medium"
-							>ชื่อ | Name<sup><small class="text-red-500">*</small></sup><label
-								for="counter-input"
-								class="label block"
-								><small
-									>จำกัด: <span id="counter-display" class="tag is-success">50 อักษร </span></small
-								><small
-								>| Limit: <span id="counter-display" class="tag is-success">50 Character</span></small
-							></label
-							>
-						</label>
+					<h3 class=" text-[#b90e0a] text-center">
+						หนุ่มอย่าลืมละ ในวันที่ <b>{data.openDate}</b>
+						<b class="block md:inline">เว็บจะปิดระบบลงคำอวยพร</b>
+					</h3>
+					<h3 class=" text-[#b90e0a] text-center">
+						Don't forget on <b>{data.openDate}</b>
+						<b class="block md:inline">Wish sending form will be close!</b>
+					</h3>
+					<h1 class="text-center text-2xl font-['itim']">ส่งคำอวยพรให้นายHOKU</h1>
+					<h1 class=" text-center text-xl -mt-2 font-['itim'] pb-4">Wish sending to HOKU</h1>
+					<form
+						bind:this={thisForm}
+						on:submit|preventDefault={handleSubmit}
+						use:enhance
+						method="post"
+						class=" bg-[#f4b38d] px-9 lg:px-20 pb-4 mx-auto items-center self-center justify-center rounded-lg"
+					>
+						<div class="form-item mx-auto items-center self-center justify-center py-2">
+							<label for="name" class="block mb-2 text-sm font-medium"
+								>ชื่อ | Name<sup><small class="text-red-500">*</small></sup><label
+									for="counter-input"
+									class="label block"
+									><small
+										>จำกัด: <span id="counter-display" class="tag is-success"
+											>50 อักษร
+										</span></small
+									><small
+										>| Limit: <span id="counter-display" class="tag is-success">50 Character</span
+										></small
+									></label
+								>
+							</label>
 
-						<input
-							placeholder="ชื่อนายอะ ไอ่หนุ่ม! Your name,My boy!"
-							maxlength="50"
-							type="name"
-							name="name"
-							id="name"
-							class=" p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-							required
-							on:invalid|preventDefault={nameInvalid}
-						/>
-						<p class=" text-sm text-[#b90e0a] my-2" id="errorName" />
-					</div>
-					<div class="form-item mx-auto items-center self-center justify-center">
-						<label for="wish"
-							>คำอวยพร | Wish<sup><small class="text-red-500">*</small></sup><label
-								for="counter-input"
-								class="label block"
-								><small
-									>จำกัด: <span id="counter-display" class="tag is-success">500 อักษร</span></small
-								> | <small
-								>Limit: <span id="counter-display" class="tag is-success">500 Character</span></small
-							></label
-							>
-						</label>
-
-						<textarea
-							name="wish"
-							rows="4"
-							class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-							placeholder="นายอยากใส่คำอวยพร ความปรารถนา หรือ คำทักทาย ใส่เลย! Feel free to add the wish or greating!"
-							maxlength="500"
-							minlength="6"
-							required
-							on:invalid|preventDefault={wishInvalid}
-						/>
-						<p class=" text-sm text-[#b90e0a] my-2" id="errorWish" />
-					</div>
-
-					<label for="" class=""
-						>นายอยากใส่กรอบรูปแบบไหน เลือกเลย!<small class="text-red-500">*</small> <br> Choose your desired wish frame!<small class="text-red-500">*</small><label
-							for="counter-input"
-							class="label block"><small /></label
-						>
-						<Gift />
-						<p class=" text-sm text-[#b90e0a] my-2" id="errorGift" />
-						<div class="flex items-start my-2">
-							<div class="flex items-center h-5 mt-3">
-								<input
-									type="checkbox"
-									name="agreement"
-									value="agreed"
-									class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-									required
-									on:invalid|preventDefault={agreeInvalid}
-								/>
-							</div>
-							<div class="block">
-								<div>
-									<label for="agreed" class="ms-2 text-sm font-medium text-gray-900" id="agree"
-										>ข้าพเจ้า<a
-											href="#agree"
-											class="text-blue-600 hover:underline dark:text-blue-500"
-											>อนุญาตให้เผยแพร่คำอวยพร
-										</a>
-									</label>
-								</div>
-								<div>
-									<label for="agreed" class="ms-2 text-sm font-medium text-gray-900"
-										>I agree to<a
-											href="#agree"
-											class="text-blue-600 hover:underline dark:text-blue-500 ml-1"
-										>
-											share my wish with public
-										</a>
-									</label>
-								</div>
-							</div>
+							<input
+								placeholder="ชื่อนายอะ ไอ่หนุ่ม! Your name,My boy!"
+								maxlength="50"
+								type="name"
+								name="name"
+								id="name"
+								class=" p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+								required
+								on:invalid|preventDefault={nameInvalid}
+							/>
+							<p class=" text-sm text-[#b90e0a] my-2" id="errorName" />
 						</div>
-						<p class=" text-sm text-[#b90e0a] my-2 block" id="errorRead" />
-						<div class="grid grid-cols-1 gap-2">
-							<div class="mx-auto grid grid-cols-1">
-								<div class="">
-									<Turnstile {siteKey} />
-								</div>
-								{#await form}
-									<wbr />
-								{:then form}
-									{#if form?.reCapchaFalse}<p class="error text-[#b90e0a]">
-											นายกดยืนยันreCaptchaด้วย | You have to verify reCaptcha
-										</p>{/if}
-									{#if form?.message}<p class="error text-[#b90e0a]">
-											คำอวยพรของนายยังไม่ได้ส่ง | Your wish haven't been sent
-										</p>{/if}
-									{#if loading}<p class="error text-cyan-500">กำลังส่งคำอวยพร</p>{/if}
-									{#if form?.complete || form?.completeBefore}<p class="error text-cyan-500">
-											{#if form?.completeBefore}
-												<h2>
-													ส่งคำอวยพรเรียบร้อยแล้ว คำอวยพรจะเปิดวันเกิดนะนาย! เจอกัน! | Wish have been sended, See you at birthday livestream
-												</h2>{:else if form?.complete}
-												<h2>
-													ส่งคำอวยพรเรียบร้อยแล้ว หากไม่มีอะไรเกิดขึ้นภายใน 3 วินาที กรุณาrefresh
-													page | If this page haven't changed in 3 second, Please refresh page.
-												</h2>
-											{/if}
+						<div class="form-item mx-auto items-center self-center justify-center">
+							<label for="wish"
+								>คำอวยพร | Wish<sup><small class="text-red-500">*</small></sup><label
+									for="counter-input"
+									class="label block"
+									><small
+										>จำกัด: <span id="counter-display" class="tag is-success">500 อักษร</span
+										></small
+									>
+									|
+									<small
+										>Limit: <span id="counter-display" class="tag is-success">500 Character</span
+										></small
+									></label
+								>
+							</label>
 
-											<script>
-												setTimeout(function () {
-													window.location.replace('/sendwish/completed');
-												}, 3000);
-											</script>
-										</p>{/if}{/await}
-							</div>
+							<textarea
+								name="wish"
+								rows="4"
+								class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+								placeholder="นายอยากใส่คำอวยพร ความปรารถนา หรือ คำทักทาย ใส่เลย! Feel free to add the wish or greating!"
+								maxlength="500"
+								minlength="6"
+								required
+								on:invalid|preventDefault={wishInvalid}
+							/>
+							<p class=" text-sm text-[#b90e0a] my-2" id="errorWish" />
 						</div>
-						<button
-							class="mt-3 p-2 bg-slate-900 text-white disabled:bg-slate-900/30 disabled:text-white/30 rounded-full"
-							type="submit"
-							disabled={forms?.message || loading}
-							>ส่งคำอวยพร <br> Send the wish
-						</button>
-						<!--
+
+						<label for="" class=""
+							>นายอยากใส่กรอบรูปแบบไหน เลือกเลย!<small class="text-red-500">*</small> <br /> Choose
+							your desired wish frame!<small class="text-red-500">*</small><label
+								for="counter-input"
+								class="label block"><small /></label
+							>
+							<Gift />
+							<p class=" text-sm text-[#b90e0a] my-2" id="errorGift" />
+							<div class="flex items-start my-2">
+								<div class="flex items-center h-5 mt-3">
+									<input
+										type="checkbox"
+										name="agreement"
+										value="agreed"
+										class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+										required
+										on:invalid|preventDefault={agreeInvalid}
+									/>
+								</div>
+								<div class="block">
+									<div>
+										<label for="agreed" class="ms-2 text-sm font-medium text-gray-900" id="agree"
+											>ข้าพเจ้า<a
+												href="#agree"
+												class="text-blue-600 hover:underline dark:text-blue-500"
+												>อนุญาตให้เผยแพร่คำอวยพร
+											</a>
+										</label>
+									</div>
+									<div>
+										<label for="agreed" class="ms-2 text-sm font-medium text-gray-900"
+											>I agree to<a
+												href="#agree"
+												class="text-blue-600 hover:underline dark:text-blue-500 ml-1"
+											>
+												share my wish with public
+											</a>
+										</label>
+									</div>
+								</div>
+							</div>
+							<p class=" text-sm text-[#b90e0a] my-2 block" id="errorRead" />
+							<div class="grid grid-cols-1 gap-2">
+								<div class="mx-auto grid grid-cols-1">
+									<div class="">
+										<Turnstile {siteKey} />
+									</div>
+									{#await form}
+										<wbr />
+									{:then form}
+										{#if form?.reCapchaFalse}<p class="error text-[#b90e0a]">
+												นายกดยืนยันreCaptchaด้วย | You have to verify reCaptcha
+											</p>{/if}
+										{#if form?.message}<p class="error text-[#b90e0a]">
+												คำอวยพรของนายยังไม่ได้ส่ง | Your wish haven't been sent
+											</p>{/if}
+										{#if loading}<p class="error text-cyan-500">กำลังส่งคำอวยพร</p>{/if}
+										{#if form?.complete || form?.completeBefore}<p class="error text-cyan-500">
+												{#if form?.completeBefore}
+													<h2>
+														ส่งคำอวยพรเรียบร้อยแล้ว คำอวยพรจะเปิดวันเกิดนะนาย! เจอกัน! | Wish have
+														been sended, See you at birthday livestream
+													</h2>{:else if form?.complete}
+													<h2>
+														ส่งคำอวยพรเรียบร้อยแล้ว หากไม่มีอะไรเกิดขึ้นภายใน 3 วินาที กรุณาrefresh
+														page | If this page haven't changed in 3 second, Please refresh page.
+													</h2>
+												{/if}
+
+												<script>
+													setTimeout(function () {
+														window.location.replace('/sendwish/completed');
+													}, 3000);
+												</script>
+											</p>{/if}{/await}
+								</div>
+							</div>
+							<button
+								class="mt-3 p-2 bg-slate-900 text-white disabled:bg-slate-900/30 disabled:text-white/30 rounded-full"
+								type="submit"
+								disabled={forms?.message || loading}
+								>ส่งคำอวยพร <br /> Send the wish
+							</button>
+							<!--
 								<Button
 							on:click={() => (formModal = true)}
 							class="p-2 bg-slate-900 rounded-full my-2 mx-auto justify-center">ส่งคำอวยพร</Button
@@ -394,9 +411,10 @@
 								</div>
 							</svelte:fragment>
 						</Modal> -->
-					</label>
-				</form>
-			</div>
+						</label>
+					</form>
+				</div>
+			{/if}
 		</div>
 	</div>
 
@@ -415,16 +433,30 @@
 						</h2>
 					{:then count}
 						<h2 class="text-center text-2xl font-['itim']" id="total">
-							<b>มีคำอวยพรแล้วทั้งหมด {count} คำอวยพร <small><br ><h2 class="-mt-2 -mb-2"> Total wishes have been sended {count} wishes</h2></small></b>
+							<b
+								>มีคำอวยพรแล้วทั้งหมด {count} คำอวยพร
+								<small
+									><br />
+									<h2 class="-mt-3 -mb-1 text-xl">
+										Total wishes have been sended {count} wishes
+									</h2></small
+								></b
+							>
 						</h2>
 					{/await}
 
 					{#if data?.notIntime}
 						<h2 class="mx-auto text-lg text-black text-center font-['itim']">
-							แต่ยังไม่ถึงเวลาอ่านคำอวยพรนะนาย เจอกันวันเกิด! <small><br ><h2 class="-mt-2 -mb-2 text-sm"> It's isn't time yet for read the wish, See you birthday! </h2></small>
+							แต่ยังไม่ถึงเวลาอ่านคำอวยพรนะนาย เจอกันวันเกิด! <small
+								><br />
+								<h2 class="-mt-2 -mb-1 text-sm">
+									It's isn't time yet for read the wish, See you birthday!
+								</h2></small
+							>
 						</h2>
 						<h2 class="mx-auto text-lg text-black text-center font-['itim'] mb-1">
-							คำอวยพรจะเปิดวันที่ {data.openDate} <br> <h2 class="-mt-2 text-sm"> Wish will be open on {data.openDate}</h2>
+							คำอวยพรจะเปิดวันที่ {data.openDate} <br />
+							<h2 class="-mt-2 text-sm">Wish will be open on {data.openDate}</h2>
 						</h2>
 
 						<div
@@ -463,8 +495,8 @@
 								<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
 									<span
 										class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
-										>ตัวอย่างกล่องที่ 1 <br> Example wish box 1										</span
-									>
+										>ตัวอย่างกล่องที่ 1 <br /> Example wish box 1
+									</span>
 									<div
 										class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
 									/>
@@ -519,8 +551,8 @@
 								<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
 									<span
 										class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
-										>ตัวอย่างกล่องที่ 2 <br> Example wish box 2		</span
-									>
+										>ตัวอย่างกล่องที่ 2 <br /> Example wish box 2
+									</span>
 									<div
 										class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
 									/>
@@ -580,8 +612,8 @@
 								<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
 									<span
 										class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
-										>ตัวอย่างกล่องที่ 3 <br> Example wish box 3	</span
-									>
+										>ตัวอย่างกล่องที่ 3 <br /> Example wish box 3
+									</span>
 									<div
 										class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
 									/>
@@ -631,8 +663,8 @@
 								<div class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11">
 									<span
 										class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
-										>ตัวอย่างกล่องที่ 4 <br> Example wish box 4		</span
-									>
+										>ตัวอย่างกล่องที่ 4 <br /> Example wish box 4
+									</span>
 									<div
 										class="w-full flex pt-4 min-[425px]:px-4 px-2 min-[425px]:text-base text-sm"
 									/>
@@ -670,10 +702,14 @@
 							<h2 class="flex flex-col items-center pb-4 font-['itim']">
 								<button
 									class=" p-2 bg-[#f4a443] text-white disabled:bg-cyan-900/30 hover:bg-[#c7722e] disabled:text-white/30 rounded-full items-center self-center justify-center"
-									on:click={wishboxViewChange}>สำหรับเปิดดูทีละคำอวยพร/พร้อมกันทั้งหมด</button
+									on:click={wishboxViewChange}
+									><p class="-mt-2 text-md">สำหรับเปิดดูทีละคำอวยพร/พร้อมกันทั้งหมด</p>
+									<p class="block -mt-2 -mb-2 text-sm">For read each wishes/Read all</p></button
 								>
 								<small class="mt-1">นายสามารถใช้ปุ่มนี้ เพื่ออ่านทีละคำอวยพรได้นะ!</small>
 								<small class="">แนะนำให้นายF11และZoomไม่เกิน <b>175%</b></small>
+								<small class="">You can use this button to read each wish!</small>
+								<small class="">Recommended to use F11 and Zoom not more than <b>175%</b></small>
 							</h2>
 						{/if}
 						<div id="countLimit">

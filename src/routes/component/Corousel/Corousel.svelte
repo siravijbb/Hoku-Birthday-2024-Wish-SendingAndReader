@@ -8,11 +8,19 @@
 	import LookingWay from '$lib/images/imgHoku/LookingWay.webp';
 	import imgURL1 from '$lib/images/imgHoku/1.webp';
 	import PLG3ANNIHoku from '$lib/images/Corousel/PLG3ANNIHoku.webp';
+	import HokuLive from '$lib/images/Corousel/HokuLive.webp';
 	let index = 0;
 	const images = [
 		{
-			title: 'Happy Owl Day🦉🦉 📌Mrt สามย่าน 🗓️1-15 Jan. 2024',
-			alt: 'Happy Owl Day🦉🦉 📌Mrt สามย่าน 🗓️1-15 Jan. 2024',
+			title: "Let's come and celebrate your owl-next-door's birthday🦉🪶✨",
+			alt: "Let's come and celebrate your owl-next-door's birthday🦉🪶✨",
+			src: HokuLive,
+			imgClass: 'object-contain h-full w-fit rounded-sm',
+			link: 'https://twitter.com/HokuPLG/status/1743212304219652251'
+		},
+		{
+			title: 'Happy Owl Day🦉🦉 📌Mrt Sam Yan 🗓️1-15 Jan. 2024',
+			alt: 'Happy Owl Day🦉🦉 📌Mrt Sam Yan 🗓️1-15 Jan. 2024',
 			src: HOKUMRTSAMYAN,
 			imgClass: 'object-contain h-full w-fit rounded-sm',
 			link: 'https://x.com/setsugi1/status/1735125067707851110?s=61&t=LT24quogW9kvIdRmcoq6bg'
@@ -75,7 +83,7 @@
 		<Carousel
 			{images}
 			imgClass="object-contain h-full w-fit rounded-sm"
-			duration={6000}
+			duration={7500}
 			let:Indicators
 			let:Controls
 			on:change={({ detail }) => (image = detail)}

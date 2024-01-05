@@ -13,6 +13,7 @@ export const load: PageServerLoad = async function () {
 	// Predefined date and time in the format "YYYY-MM-DDTHH:mm:ss" in ISO time
 	// this code make faster by chatGPT, Sory im not good javascript dev
 	const predefinedDateTime = '2024-01-08T12:45:00';
+	const formClose = '2024-01-08T12:30:00';
 
 	// Get the current date and time in UTC
 	const currentDateTime = new Date();
@@ -20,7 +21,8 @@ export const load: PageServerLoad = async function () {
 
 	// Convert the predefined date and time to UTC
 	const predefinedDateTimeObject = new Date(predefinedDateTime + 'Z');
-
+	const formCloseObject = new Date(formClose + 'Z')
+	let formStillopen;
 	console.log('Now', currentDateTime.getTime());
 	console.log('Defined', predefinedDateTimeObject.getTime());
 	try {
@@ -30,9 +32,18 @@ export const load: PageServerLoad = async function () {
 			});
 			let count = bwish.countDocuments();
 			console.log('Code Closed (return count)');
-			const hours = Number(String(predefinedDateTimeObject.getUTCHours()).padStart(2, '0')) + 7;
-			const minutes = String(predefinedDateTimeObject.getUTCMinutes()).padStart(2, '0');
-			const seconds = String(predefinedDateTimeObject.getUTCSeconds()).padStart(2, '0');
+			const Releasehours = Number(String(predefinedDateTimeObject.getUTCHours()).padStart(2, '0')) + 7;
+			const Releaseminutes = String(predefinedDateTimeObject.getUTCMinutes()).padStart(2, '0');
+			const Releaseseconds = String(predefinedDateTimeObject.getUTCSeconds()).padStart(2, '0');
+			const Formclosehours = Number(String(formCloseObject.getHours()).padStart(2, '0'));
+			const Formcloseminutes = String(formCloseObject.getUTCMinutes()).padStart(2, '0');
+			const Formcloseseconds = String(formCloseObject.getUTCSeconds()).padStart(2, '0');
+			if (currentDateTimeUTC.getTime() <= formCloseObject.getTime()) {
+				formStillopen = true;
+			} else
+			{
+				formStillopen = false
+			}
 			return {
 				notIntime: true,
 				tutorials: undefined, ///
@@ -40,11 +51,19 @@ export const load: PageServerLoad = async function () {
 				openDate:
 					predefinedDateTimeObject.toLocaleDateString() +
 					'  ' +
-					hours +
+					Releasehours +
 					':' +
-					minutes +
+					Releaseminutes +
 					':' +
-					seconds
+					Releaseseconds,
+				formStillopen: formStillopen,
+				formCloseDate: formCloseObject.toLocaleDateString() +
+				'  ' +
+				Formclosehours +
+				':' +
+				Formcloseminutes +
+				':' +
+				Formcloseseconds,
 			};
 		} else {
 			await start_mongo().then(() => {

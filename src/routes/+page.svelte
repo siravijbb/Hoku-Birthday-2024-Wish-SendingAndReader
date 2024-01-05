@@ -189,17 +189,17 @@
 				<h2 class="pb-4 text-center text-xl font-['itim']">8 Jan 2024</h2>
 				<Corousel />
 			</div>
-			{#if data?.notIntime}
+			{#if data?.formStillopen}
 				<div
 					class="mx-auto max-w-4xl text-ellipsis rounded-lg py-4 shadow-xl lg:px-8"
 					id="sendwish"
 				>
 					<h3 class=" text-[#b90e0a] text-center">
-						หนุ่มอย่าลืมละ ในวันที่ <b>{data.openDate}</b>
+						หนุ่มอย่าลืมละ ในวันที่ <b>{data.formCloseDate}</b>
 						<b class="block md:inline">เว็บจะปิดระบบลงคำอวยพร</b>
 					</h3>
 					<h3 class=" text-[#b90e0a] text-center">
-						Don't forget on <b>{data.openDate}</b>
+						Don't forget on <b>{data.formCloseDate}</b>
 						<b class="block md:inline">Wish sending form will be close!</b>
 					</h3>
 					<h1 class="text-center text-2xl font-['itim']">ส่งคำอวยพรให้นายHOKU</h1>

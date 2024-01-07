@@ -179,7 +179,7 @@
 </head>
 <Navbar />
 
-<main class="mx-auto my-[40px] mb-0 mt-7 max-w-7xl rounded-xl">
+<main class="mx-auto my-[40px] mb-0 mt-7 max-w-6xl rounded-xl">
 	<div
 		class="-mt-3 -pb-0 bg-gradient-to-b from-[#c7722e] to-[#f4a443] mx-auto max-w-xl shadow-xl rounded-lg"
 	>
@@ -456,7 +456,7 @@
 						</h2>
 						<h2 class="mx-auto text-lg text-black text-center font-['itim'] mb-1">
 							คำอวยพรจะเปิดวันที่ {data.openDate} <br />
-							<h2 class="-mt-2 text-sm">Wish will be open on {data.openDate}</h2>
+							<h2 class="-mt-2 text-sm text-center font-['itim']">Wish will be open on {data.openDate}</h2>
 						</h2>
 
 						<div
@@ -715,12 +715,12 @@
 						<div id="countLimit">
 							<div
 								id="onewish"
-								class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim'] scroll-auto overscroll-none"
+								class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-auto font-['itim'] scroll-auto overscroll-none text-wrap text-pretty"
 							>
 								{#each birthdayWishes as bwish, index}
 									{#if bwish.picture == 1}
 										<div
-											class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl snap-start"
+											class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[349.333px] text-black/50 shadow-2xl snap-start"
 											data-aos="fade-in"
 											id="one"
 										>
@@ -758,7 +758,7 @@
 												class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11"
 											>
 												<span
-													class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
+													class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1 text-wrap text-pretty"
 													>{bwish.comment}</span
 												>
 												<div
@@ -786,7 +786,7 @@
 									{/if}
 									{#if bwish.picture == 2}
 										<div
-											class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl snap-start"
+											class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[349.333px] text-black/50 shadow-2xl snap-start"
 											data-aos="fade-in"
 											id="two"
 										>
@@ -823,7 +823,7 @@
 												class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11"
 											>
 												<span
-													class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
+													class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1 text-wrap text-pretty"
 													>{bwish.comment}</span
 												>
 												<div
@@ -851,7 +851,7 @@
 									{/if}
 									{#if bwish.picture == 3}
 										<div
-											class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl snap-start"
+											class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[349.333px] text-black/50 shadow-2xl snap-start"
 											data-aos="fade-in"
 											id="three"
 										>
@@ -893,7 +893,7 @@
 												class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11"
 											>
 												<span
-													class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
+													class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1 text-wrap text-pretty"
 													>{bwish.comment}</span
 												>
 												<div
@@ -916,7 +916,7 @@
 									{/if}
 									{#if bwish.picture == 4}
 										<div
-											class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[425px] text-black/50 shadow-2xl snap-start"
+											class="rounded-none justify-self-center flex-col relative overflow-hidden flex h-full w-full max-w-[349.333px] text-black/50 shadow-2xl snap-start"
 											data-aos="fade-in"
 											id="four"
 										>
@@ -953,7 +953,7 @@
 												class="flex flex-1 h-full flex-col relative overflow-hidden px-4 py-2 pb-11"
 											>
 												<span
-													class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1"
+													class="text-center text-[#4E4670] sm:text-xl overflow-hidden justify-center items-center flex flex-1 text-wrap text-pretty"
 													>{bwish.comment}</span
 												>
 												<div

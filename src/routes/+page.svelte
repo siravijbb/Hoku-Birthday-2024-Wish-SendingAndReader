@@ -196,14 +196,26 @@
 					class="mx-auto max-w-4xl text-ellipsis rounded-lg py-4 shadow-xl lg:px-8"
 					id="sendwish"
 				>
-				<h3 class=" text-[#b90e0a] text-center">
-					ถ้านายยังไม่แน่ใจว่าส่งคำอวยพรหรือยัง
-					<b class="block md:inline"><a class="block md:inline text-blue-600" target="_blank" href="https://twitter.com/SierraB_Siravij"><b>ติดต่อนายสิราวิ้จจะบึได้เลย</b></a></b>
-				</h3>
-				<h3 class=" text-[#b90e0a] text-center mb-1">
-					If you're not sure that you have send the wish yet,
-					<b class="block">Feel free to contact <a class="inline text-blue-600" target="_blank" href="https://twitter.com/SierraB_Siravij"><b>Siravij here!</b></a></b>
-				</h3>
+					<h3 class=" text-[#b90e0a] text-center">
+						ถ้านายยังไม่แน่ใจว่าส่งคำอวยพรหรือยัง
+						<b class="block md:inline"
+							><a
+								class="block md:inline text-blue-600"
+								target="_blank"
+								href="https://twitter.com/SierraB_Siravij"><b>ติดต่อนายสิราวิ้จจะบึได้เลย</b></a
+							></b
+						>
+					</h3>
+					<h3 class=" text-[#b90e0a] text-center mb-1">
+						If you're not sure that you have send the wish yet,
+						<b class="block"
+							>Feel free to contact <a
+								class="inline text-blue-600"
+								target="_blank"
+								href="https://twitter.com/SierraB_Siravij"><b>Siravij here!</b></a
+							></b
+						>
+					</h3>
 					<h3 class=" text-[#b90e0a] text-center">
 						หนุ่มอย่าลืมละ ในวันที่ <b>{data.formCloseDate}</b>
 						<b class="block md:inline">เว็บจะปิดระบบลงคำอวยพร</b>
@@ -466,7 +478,9 @@
 						</h2>
 						<h2 class="mx-auto text-lg text-black text-center font-['itim'] mb-1">
 							คำอวยพรจะเปิดวันที่ {data.openDate} <br />
-							<h2 class="-mt-2 text-sm text-center font-['itim']">Wish will be open on {data.openDate}</h2>
+							<h2 class="-mt-2 text-sm text-center font-['itim']">
+								Wish will be open on {data.openDate}
+							</h2>
 						</h2>
 
 						<div
@@ -571,7 +585,7 @@
 								<div
 									class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
 								>
-									<img class="w-40 -mb-11 rotate-12" src={OneOneTwo} alt="count" />
+									<img class="w-40 -mb-12 rotate-12" src={OneOneTwo} alt="count" />
 								</div>
 
 								<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0 text-left">
@@ -612,7 +626,7 @@
 								<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
 									<div class="flex">
 										<img
-											class="w-fit h-auto absolute -top-36 md:-top-40 z-0 -ml-3 object-contain"
+											class="w-fit h-auto absolute -top-36 md:-top-36 z-0 -ml-3 object-contain"
 											src={OneOneThree}
 											alt=""
 										/>
@@ -844,7 +858,7 @@
 											<div
 												class=" absolute min-[425px]:bottom-0 -bottom-4 min-[425px]:right-14 right-10 -rotate-12 translate-x-[50%] z-[1] min-[425px]:scale-100 scale-[70%]"
 											>
-												<img class="w-40 -mb-11 rotate-12" src={OneOneTwo} alt="count" />
+												<img class="w-40 -mb-12 rotate-12" src={OneOneTwo} alt="count" />
 											</div>
 
 											<div class="text-[#4E4670] text-base overflow-hidden -mb-16 ml-6 z-0">
@@ -888,7 +902,7 @@
 											<div class="flex w-full flex-col px-4 py-2 absolute top-0 left-0 pb-11">
 												<div class="flex">
 													<img
-														class="w-fit h-auto absolute -top-36 md:-top-40 z-0 -ml-3 object-contain"
+														class="w-fit h-auto absolute -top-36 md:-top-36 z-0 -ml-3 object-contain"
 														src={OneOneThree}
 														alt=""
 													/>

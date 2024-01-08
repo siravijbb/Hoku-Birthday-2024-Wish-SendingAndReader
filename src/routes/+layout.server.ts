@@ -21,7 +21,7 @@ export const load: PageServerLoad = async function () {
 
 	// Convert the predefined date and time to UTC
 	const predefinedDateTimeObject = new Date(predefinedDateTime + 'Z');
-	const formCloseObject = new Date(formClose + 'Z')
+	const formCloseObject = new Date(formClose + 'Z');
 	let formStillopen;
 	console.log('Now', currentDateTime.getTime());
 	console.log('Defined', predefinedDateTimeObject.getTime());
@@ -32,7 +32,8 @@ export const load: PageServerLoad = async function () {
 			});
 			let count = bwish.countDocuments();
 			console.log('Code Closed (return count)');
-			const Releasehours = Number(String(predefinedDateTimeObject.getUTCHours()).padStart(2, '0')) + 7;
+			const Releasehours =
+				Number(String(predefinedDateTimeObject.getUTCHours()).padStart(2, '0')) + 7;
 			const Releaseminutes = String(predefinedDateTimeObject.getUTCMinutes()).padStart(2, '0');
 			const Releaseseconds = String(predefinedDateTimeObject.getUTCSeconds()).padStart(2, '0');
 			const Formclosehours = Number(String(formCloseObject.getUTCHours()).padStart(2, '0')) + 7;
@@ -40,9 +41,8 @@ export const load: PageServerLoad = async function () {
 			const Formcloseseconds = String(formCloseObject.getUTCSeconds()).padStart(2, '0');
 			if (currentDateTimeUTC.getTime() <= formCloseObject.getTime()) {
 				formStillopen = true;
-			} else
-			{
-				formStillopen = false
+			} else {
+				formStillopen = false;
 			}
 			return {
 				notIntime: true,
@@ -57,13 +57,14 @@ export const load: PageServerLoad = async function () {
 					':' +
 					Releaseseconds,
 				formStillopen: formStillopen,
-				formCloseDate: formCloseObject.toLocaleDateString() +
-				'  ' +
-				Formclosehours +
-				':' +
-				Formcloseminutes +
-				':' +
-				Formcloseseconds,
+				formCloseDate:
+					formCloseObject.toLocaleDateString() +
+					'  ' +
+					Formclosehours +
+					':' +
+					Formcloseminutes +
+					':' +
+					Formcloseseconds
 			};
 		} else {
 			await start_mongo().then(() => {

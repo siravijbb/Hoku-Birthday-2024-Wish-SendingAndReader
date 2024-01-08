@@ -42,7 +42,7 @@ export const load: PageServerLoad = async function () {
 			if (currentDateTimeUTC.getTime() <= formCloseObject.getTime()) {
 				formStillopen = true;
 			} else {
-				formStillopen = true;
+				formStillopen = false;
 			}
 			return {
 				notIntime: true,
@@ -78,6 +78,7 @@ export const load: PageServerLoad = async function () {
 			tutorials: undefined ///
 		};
 	}
+	formStillopen = true;
 	let count = bwish.countDocuments();
 	const data = bwish
 		.find(
@@ -96,7 +97,8 @@ export const load: PageServerLoad = async function () {
 	console.log('Code Closed');
 	return {
 		birthdayWishes: { birthdayWishes: data }, ///
-		Total: { count: count }
+		Total: { count: count },
+		formStillopen: formStillopen,
 	};
 };
 // import { bwish } from '$db/tutorials';

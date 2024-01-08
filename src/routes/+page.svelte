@@ -191,31 +191,31 @@
 				<h2 class="pb-4 text-center text-xl font-['itim']">8 Jan 2024</h2>
 				<Corousel />
 			</div>
+			<h3 class=" text-[#b90e0a] text-center">
+				ถ้านายยังไม่แน่ใจว่าส่งคำอวยพรหรือยัง
+				<b class="block md:inline"
+					><a
+						class="block md:inline text-blue-600"
+						target="_blank"
+						href="https://twitter.com/SierraB_Siravij"><b>ติดต่อนายสิราวิ้จจะบึได้เลย</b></a
+					></b
+				>
+			</h3>
+			<h3 class=" text-[#b90e0a] text-center mb-1">
+				If you're not sure that you have send the wish yet,
+				<b class="block"
+					>Feel free to contact <a
+						class="inline text-blue-600"
+						target="_blank"
+						href="https://twitter.com/SierraB_Siravij"><b>Siravij here!</b></a
+					></b
+				>
+			</h3>
 			{#if data?.formStillopen}
 				<div
 					class="mx-auto max-w-4xl text-ellipsis rounded-lg py-4 shadow-xl lg:px-8"
 					id="sendwish"
 				>
-					<h3 class=" text-[#b90e0a] text-center">
-						ถ้านายยังไม่แน่ใจว่าส่งคำอวยพรหรือยัง
-						<b class="block md:inline"
-							><a
-								class="block md:inline text-blue-600"
-								target="_blank"
-								href="https://twitter.com/SierraB_Siravij"><b>ติดต่อนายสิราวิ้จจะบึได้เลย</b></a
-							></b
-						>
-					</h3>
-					<h3 class=" text-[#b90e0a] text-center mb-1">
-						If you're not sure that you have send the wish yet,
-						<b class="block"
-							>Feel free to contact <a
-								class="inline text-blue-600"
-								target="_blank"
-								href="https://twitter.com/SierraB_Siravij"><b>Siravij here!</b></a
-							></b
-						>
-					</h3>
 					<h3 class=" text-[#b90e0a] text-center">
 						หนุ่มอย่าลืมละ ในวันที่ <b>{data.formCloseDate}</b>
 						<b class="block md:inline">เว็บจะปิดระบบลงคำอวยพร</b>

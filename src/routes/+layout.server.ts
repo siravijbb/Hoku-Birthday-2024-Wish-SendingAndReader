@@ -13,7 +13,7 @@ export const load: PageServerLoad = async function () {
 	// Predefined date and time in the format "YYYY-MM-DDTHH:mm:ss" in ISO time
 	// this code make faster by chatGPT, Sory im not good javascript dev
 	const predefinedDateTime = '2024-01-08T13:00:00';
-	const formClose = '2024-01-08T12:50:00';
+	const formClose = '2024-01-08T12:55:00';
 
 	// Get the current date and time in UTC
 	const currentDateTime = new Date();

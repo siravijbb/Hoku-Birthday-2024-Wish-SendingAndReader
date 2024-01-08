@@ -42,7 +42,7 @@ export const load: PageServerLoad = async function () {
 			if (currentDateTimeUTC.getTime() <= formCloseObject.getTime()) {
 				formStillopen = true;
 			} else {
-				formStillopen = false;
+				formStillopen = true;
 			}
 			return {
 				notIntime: true,

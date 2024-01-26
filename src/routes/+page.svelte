@@ -25,15 +25,16 @@
 
 	import { onMount } from 'svelte';
 
-	export let data: PageData;
-	export let form: ActionData;
 
+	export let form: ActionData;
 	let title: string = "Happy Hoku's Day 2024";
 	let description: string = '#HappyHokuDay2024, Hoku Wish sending page from fanclub';
 	let image: string = '/Corousel/PLG3ANNIHoku.webp';
+	let birthdayWishes: any[] = [];
+	let data: any[] = [];
 
-	let birthdayWishes = data.birthdayWishes?.birthdayWishes ?? [];
-	let count = data.Total?.count ?? [];
+
+
 
 	const picturename1 = 'hamham';
 	const desc1 = 'ผู้ฝันใฝ่ธรรมดา ที่รัก และคิดถึงคุณบากุมาก ๆ';
@@ -63,7 +64,7 @@
 	let thisForm: HTMLFormElement;
 	let loading = false;
 
-	const siteKey = '0x4AAAAAAAMk_GZOoiKNR8pU';
+	const siteKey = '1x00000000000000000000AA';
 	let forms: ActionData;
 	function handleSubmit() {
 		loading = true;
@@ -142,14 +143,20 @@
 		}
 	}
 
-	onMount(() => {
+	onMount(async () => {
 		AOS.init({
 			// Global settings:
 			disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
 			once: true
 		});
+		const response = await fetch('/hokubirth.bwishnodup.json');
+        if (response.ok) {
+		const json = await response.json();
+		birthdayWishes = json
+		data = birthdayWishes}
 	});
 </script>
+
 
 <head>
 	<meta charset="UTF-8" />
@@ -449,7 +456,7 @@
 				{#await data}
 					กำลังโหลดข้อมูล | Loading
 				{:then data}
-					{#await count}
+					<!--{#await count}
 						<h2 class="mx-auto text-center pt-4 text-cyan-500 text-xl" id="total">
 							<b class="">กำลังโหลดจำนวนคำอวยพรทั้งหมด | Loading all wishes</b>
 						</h2>
@@ -465,7 +472,7 @@
 								></b
 							>
 						</h2>
-					{/await}
+					{/await} -->
 
 					{#if data?.notIntime}
 						<h2 class="mx-auto text-lg text-black text-center font-['itim']">
